@@ -242,8 +242,9 @@ final class WPZOOM_Elementor_Addons {
 	 * @access public
 	 */
 	public function init() {
-		// Add Plugin actions
-		// Pro features are unlocked when WPZOOM Elementor Addons Pro plugin is active
+		// Load template library (import handler) only after Elementor has loaded,
+		// so WPZOOM_Library_Source is registered and get_content_from_elementor_export_file works.
+		require_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-template-library.php';
 	}
 
 

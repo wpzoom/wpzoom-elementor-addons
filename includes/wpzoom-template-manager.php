@@ -558,6 +558,4 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 	// Initialize the Elementor library
 	WPZOOM_Elementor_Library_Manager::init();
 
-	require __DIR__ . '/wpzoom-template-library.php';
-
 } // Make sure class doesn't already exist
