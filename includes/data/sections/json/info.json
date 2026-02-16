@@ -286,5 +286,53 @@
         "category": "general",
         "thumbnail": "testimonials",
         "filename": "inspiro-testimonials.json"
+    },
+    {
+        "id": "construction-hero",
+        "name": "Construction Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "construction-hero",
+        "filename": "construction-hero.json"
+    },
+    {
+        "id": "construction-stats",
+        "name": "Construction Stats",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "construction-stats",
+        "filename": "construction-stats.json"
+    },
+    {
+        "id": "construction-testimonial",
+        "name": "Construction Testimonials",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "construction-testimonial",
+        "filename": "construction-testimonial.json"
+    },
+    {
+        "id": "construction-cta",
+        "name": "Construction CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "construction-cta",
+        "filename": "construction-cta.json"
+    },
+    {
+        "id": "construction-features-grid",
+        "name": "Construction Features Grid",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "construction-features-grid",
+        "filename": "construction-features-grid.json"
+    },
+    {
+        "id": "construction-features-list",
+        "name": "Construction Features List",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "construction-features-list",
+        "filename": "construction-features-list.json"
     }
 ]
