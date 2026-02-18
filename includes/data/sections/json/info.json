@@ -334,5 +334,133 @@
         "category": "features",
         "thumbnail": "construction-features-list",
         "filename": "construction-features-list.json"
+    },
+    {
+        "id": "pricing-two-columns",
+        "name": "Pricing Two Columns",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "pricing-two-columns",
+        "filename": "pricing-two-columns.json"
+    },
+    {
+        "id": "pricing-with-image",
+        "name": "Pricing with Image",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "pricing-with-image",
+        "filename": "pricing-with-image.json"
+    },
+    {
+        "id": "real-estate-about-us",
+        "name": "Real Estate About Us",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "real-estate-about-us",
+        "filename": "real-estate-about-us.json"
+    },
+    {
+        "id": "real-estate-cta",
+        "name": "Real Estate CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "real-estate-cta",
+        "filename": "real-estate-cta.json"
+    },
+    {
+        "id": "real-estate-feature",
+        "name": "Real Estate Feature",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "real-estate-feature",
+        "filename": "real-estate-feature.json"
+    },
+    {
+        "id": "real-estate-features",
+        "name": "Real Estate Features",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "real-estate-features",
+        "filename": "real-estate-features.json"
+    },
+    {
+        "id": "real-estate-hero",
+        "name": "Real Estate Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "real-estate-hero",
+        "filename": "real-estate-hero.json"
+    },
+    {
+        "id": "real-estate-hero-2",
+        "name": "Real Estate Hero 2",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "real-estate-hero-2",
+        "filename": "real-estate-hero-2.json"
+    },
+    {
+        "id": "real-estate-stats",
+        "name": "Real Estate Stats",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "real-estate-stats",
+        "filename": "real-estate-stats.json"
+    },
+    {
+        "id": "saas-hero",
+        "name": "SaaS Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "saas-hero",
+        "filename": "saas-hero.json"
+    },
+    {
+        "id": "saas-features",
+        "name": "SaaS Features",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "saas-features",
+        "filename": "saas-features.json"
+    },
+    {
+        "id": "saas-services",
+        "name": "SaaS Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "saas-services",
+        "filename": "saas-services.json"
+    },
+    {
+        "id": "testimonials-3-col",
+        "name": "Testimonials 3 Columns",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-3-col",
+        "filename": "testimonials-3-col.json"
+    },
+    {
+        "id": "testimonials-gird-3-col",
+        "name": "Testimonials Grid 3 Columns",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-gird-3-col",
+        "filename": "testimonials-gird-3-col.json"
+    },
+    {
+        "id": "testimonials-single",
+        "name": "Testimonials Single",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-single",
+        "filename": "testimonials-single.json"
+    },
+    {
+        "id": "testimonials-single-with-shadow",
+        "name": "Testimonials Single with Shadow",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-single-with-shadow",
+        "filename": "testimonials-single-with-shadow.json"
     }
 ]
