@@ -462,5 +462,69 @@
         "category": "testimonials",
         "thumbnail": "testimonials-single-with-shadow",
         "filename": "testimonials-single-with-shadow.json"
+    },
+    {
+        "id": "energy-hero",
+        "name": "Energy Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "energy-hero",
+        "filename": "energy-hero.json"
+    },
+    {
+        "id": "energy-about",
+        "name": "Energy About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "energy-about",
+        "filename": "energy-about.json"
+    },
+    {
+        "id": "energy-benefits",
+        "name": "Energy Benefits",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "energy-benefits",
+        "filename": "energy-benefits.json"
+    },
+    {
+        "id": "energy-cta",
+        "name": "Energy CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "energy-cta",
+        "filename": "energy-cta.json"
+    },
+    {
+        "id": "energy-news",
+        "name": "Energy News",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "energy-news",
+        "filename": "energy-news.json"
+    },
+    {
+        "id": "energy-solutions",
+        "name": "Energy Solutions",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "energy-solutions",
+        "filename": "energy-solutions.json"
+    },
+    {
+        "id": "energy-stats",
+        "name": "Energy Stats",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "energy-stats",
+        "filename": "energy-stats.json"
+    },
+    {
+        "id": "logistics-hero",
+        "name": "Logistics Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "logistics-hero",
+        "filename": "logistics-hero.json"
     }
 ]
