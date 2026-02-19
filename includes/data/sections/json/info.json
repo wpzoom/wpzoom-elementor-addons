@@ -526,5 +526,221 @@
         "category": "hero",
         "thumbnail": "logistics-hero",
         "filename": "logistics-hero.json"
+    },
+    {
+        "id": "inspiro-business-hero",
+        "name": "Inspiro Business Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-business-hero",
+        "filename": "inspiro-business-hero.json"
+    },
+    {
+        "id": "inspiro-business-services",
+        "name": "Inspiro Business Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-business-services",
+        "filename": "inspiro-business-services.json"
+    },
+    {
+        "id": "inspiro-studio-hero",
+        "name": "Inspiro Studio Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-studio-hero",
+        "filename": "inspiro-studio-hero.json"
+    },
+    {
+        "id": "inspiro-studio-about",
+        "name": "Inspiro Studio About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-about",
+        "filename": "inspiro-studio-about.json"
+    },
+    {
+        "id": "inspiro-studio-services",
+        "name": "Inspiro Studio Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-studio-services",
+        "filename": "inspiro-studio-services.json"
+    },
+    {
+        "id": "inspiro-studio-believes",
+        "name": "Inspiro Studio Believes",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-believes",
+        "filename": "inspiro-studio-believes.json"
+    },
+    {
+        "id": "inspiro-studio-awards",
+        "name": "Inspiro Studio Awards",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-awards",
+        "filename": "inspiro-studio-awards.json"
+    },
+    {
+        "id": "inspiro-studio-process",
+        "name": "Inspiro Studio Process",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-process",
+        "filename": "inspiro-studio-process.json"
+    },
+    {
+        "id": "inspiro-studio-news",
+        "name": "Inspiro Studio News",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-news",
+        "filename": "inspiro-studio-news.json"
+    },
+    {
+        "id": "eccentric-banner",
+        "name": "Eccentric Banner",
+        "theme": "Eccentric",
+        "category": "hero",
+        "thumbnail": "eccentric-banner",
+        "filename": "eccentric-banner.json"
+    },
+    {
+        "id": "eccentric-portfolio-showcase",
+        "name": "Eccentric Portfolio Showcase",
+        "theme": "Eccentric",
+        "category": "portfolio",
+        "thumbnail": "eccentric-portfolio-showcase",
+        "filename": "eccentric-portfolio-showcase.json"
+    },
+    {
+        "id": "inspiro-premium-booking-form",
+        "name": "Booking Form",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-premium-booking-form",
+        "filename": "inspiro-premium-booking-form.json"
+    },
+    {
+        "id": "logistics-about",
+        "name": "Logistics About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-about",
+        "filename": "logistics-about.json"
+    },
+    {
+        "id": "logistics-cta",
+        "name": "Logistics CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-cta",
+        "filename": "logistics-cta.json"
+    },
+    {
+        "id": "logistics-features",
+        "name": "Logistics Features",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "logistics-features",
+        "filename": "logistics-features.json"
+    },
+    {
+        "id": "logistics-logos",
+        "name": "Logistics Logos",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-logos",
+        "filename": "logistics-logos.json"
+    },
+    {
+        "id": "reel-about",
+        "name": "Reel About",
+        "theme": "Reel",
+        "category": "general",
+        "thumbnail": "reel-about",
+        "filename": "reel-about.json"
+    },
+    {
+        "id": "reel-blog",
+        "name": "Reel Blog",
+        "theme": "Reel",
+        "category": "general",
+        "thumbnail": "reel-blog",
+        "filename": "reel-blog.json"
+    },
+    {
+        "id": "reel-our-work",
+        "name": "Reel Our Work",
+        "theme": "Reel",
+        "category": "portfolio",
+        "thumbnail": "reel-our-work",
+        "filename": "reel-our-work.json"
+    },
+    {
+        "id": "inspiro-agency-services",
+        "name": "Inspiro Agency Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-agency-services",
+        "filename": "inspiro-agency-services.json"
+    },
+    {
+        "id": "inspiro-moving-hero",
+        "name": "Inspiro Moving Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-moving-hero",
+        "filename": "inspiro-moving-hero.json"
+    },
+    {
+        "id": "inspiro-moving-services",
+        "name": "Inspiro Moving Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-moving-services",
+        "filename": "inspiro-moving-services.json"
+    },
+    {
+        "id": "inspiro-moving-stats",
+        "name": "Inspiro Moving Stats",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "inspiro-moving-stats",
+        "filename": "inspiro-moving-stats.json"
+    },
+    {
+        "id": "inspiro-moving-about",
+        "name": "Inspiro Moving About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-about",
+        "filename": "inspiro-moving-about.json"
+    },
+    {
+        "id": "inspiro-moving-advices",
+        "name": "Inspiro Moving Advices",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-advices",
+        "filename": "inspiro-moving-advices.json"
+    },
+    {
+        "id": "inspiro-moving-cta",
+        "name": "Inspiro Moving CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-cta",
+        "filename": "inspiro-moving-cta.json"
+    },
+    {
+        "id": "inspiro-moving-contact",
+        "name": "Inspiro Moving Contact",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-moving-contact",
+        "filename": "inspiro-moving-contact.json"
     }
 ]
