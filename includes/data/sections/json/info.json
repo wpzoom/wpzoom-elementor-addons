@@ -742,5 +742,37 @@
         "category": "contact",
         "thumbnail": "inspiro-moving-contact",
         "filename": "inspiro-moving-contact.json"
+    },
+    {
+        "id": "inspiro-podcast-hero",
+        "name": "Inspiro Podcast Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-podcast-hero",
+        "filename": "inspiro-podcast-hero.json"
+    },
+    {
+        "id": "inspiro-podcast-about",
+        "name": "Inspiro Podcast About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-podcast-about",
+        "filename": "inspiro-podcast-about.json"
+    },
+    {
+        "id": "inspiro-podcast-topics",
+        "name": "Inspiro Podcast Topics",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-podcast-topics",
+        "filename": "inspiro-podcast-topics.json"
+    },
+    {
+        "id": "inspiro-podcast-testimonials",
+        "name": "Inspiro Podcast Testimonials",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "inspiro-podcast-testimonials",
+        "filename": "inspiro-podcast-testimonials.json"
     }
 ]
