@@ -774,5 +774,133 @@
         "category": "testimonials",
         "thumbnail": "inspiro-podcast-testimonials",
         "filename": "inspiro-podcast-testimonials.json"
+    },
+    {
+        "id": "inspiro-construction-hero",
+        "name": "Inspiro Construction Hero",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-construction-hero",
+        "filename": "inspiro-construction-hero.json"
+    },
+    {
+        "id": "inspiro-construction-about",
+        "name": "Inspiro Construction About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-construction-about",
+        "filename": "inspiro-construction-about.json"
+    },
+    {
+        "id": "inspiro-construction-services",
+        "name": "Inspiro Construction Services",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-construction-services",
+        "filename": "inspiro-construction-services.json"
+    },
+    {
+        "id": "inspiro-construction-stats",
+        "name": "Inspiro Construction Stats",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "inspiro-construction-stats",
+        "filename": "inspiro-construction-stats.json"
+    },
+    {
+        "id": "inspiro-construction-projects",
+        "name": "Inspiro Construction Projects",
+        "theme": "Inspiro Premium",
+        "category": "portfolio",
+        "thumbnail": "inspiro-construction-projects",
+        "filename": "inspiro-construction-projects.json"
+    },
+    {
+        "id": "inspiro-construction-sustainability",
+        "name": "Inspiro Construction Sustainability",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-construction-sustainability",
+        "filename": "inspiro-construction-sustainability.json"
+    },
+    {
+        "id": "inspiro-construction-cta",
+        "name": "Inspiro Construction CTA",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-construction-cta",
+        "filename": "inspiro-construction-cta.json"
+    },
+    {
+        "id": "inspiro-construction-contact",
+        "name": "Inspiro Construction Contact",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-construction-contact",
+        "filename": "inspiro-construction-contact.json"
+    },
+    {
+        "id": "inspiro-furniture-benefits",
+        "name": "Inspiro Furniture Benefits",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-furniture-benefits",
+        "filename": "inspiro-furniture-benefits.json"
+    },
+    {
+        "id": "inspiro-furniture-contact",
+        "name": "Inspiro Furniture Contact",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-furniture-contact",
+        "filename": "inspiro-furniture-contact.json"
+    },
+    {
+        "id": "inspiro-furniture-testimonial",
+        "name": "Inspiro Furniture Testimonial",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "inspiro-furniture-testimonial",
+        "filename": "inspiro-furniture-testimonial.json"
+    },
+    {
+        "id": "inspiro-real-estate-about",
+        "name": "Inspiro Real Estate About",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-about",
+        "filename": "inspiro-real-estate-about.json"
+    },
+    {
+        "id": "inspiro-real-estate-categories",
+        "name": "Inspiro Real Estate Categories",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-categories",
+        "filename": "inspiro-real-estate-categories.json"
+    },
+    {
+        "id": "inspiro-real-estate-one-lisiting",
+        "name": "Inspiro Real Estate One Listing",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-one-lisiting",
+        "filename": "inspiro-real-estate-one-lisiting.json"
+    },
+    {
+        "id": "inspiro-real-estate-posts",
+        "name": "Inspiro Real Estate Posts",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-posts",
+        "filename": "inspiro-real-estate-posts.json"
+    },
+    {
+        "id": "inspiro-real-estate-teams",
+        "name": "Inspiro Real Estate Teams",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-teams",
+        "filename": "inspiro-real-estate-teams.json"
     }
 ]
