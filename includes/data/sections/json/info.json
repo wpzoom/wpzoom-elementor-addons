@@ -600,30 +600,6 @@
         "filename": "inspiro-studio-news.json"
     },
     {
-        "id": "eccentric-banner",
-        "name": "Eccentric Banner",
-        "theme": "Eccentric",
-        "category": "hero",
-        "thumbnail": "eccentric-banner",
-        "filename": "eccentric-banner.json"
-    },
-    {
-        "id": "eccentric-portfolio-showcase",
-        "name": "Eccentric Portfolio Showcase",
-        "theme": "Eccentric",
-        "category": "portfolio",
-        "thumbnail": "eccentric-portfolio-showcase",
-        "filename": "eccentric-portfolio-showcase.json"
-    },
-    {
-        "id": "inspiro-premium-booking-form",
-        "name": "Booking Form",
-        "theme": "Inspiro Premium",
-        "category": "general",
-        "thumbnail": "inspiro-premium-booking-form",
-        "filename": "inspiro-premium-booking-form.json"
-    },
-    {
         "id": "logistics-about",
         "name": "Logistics About",
         "theme": "Inspiro Premium",
@@ -654,30 +630,6 @@
         "category": "general",
         "thumbnail": "logistics-logos",
         "filename": "logistics-logos.json"
-    },
-    {
-        "id": "reel-about",
-        "name": "Reel About",
-        "theme": "Reel",
-        "category": "general",
-        "thumbnail": "reel-about",
-        "filename": "reel-about.json"
-    },
-    {
-        "id": "reel-blog",
-        "name": "Reel Blog",
-        "theme": "Reel",
-        "category": "general",
-        "thumbnail": "reel-blog",
-        "filename": "reel-blog.json"
-    },
-    {
-        "id": "reel-our-work",
-        "name": "Reel Our Work",
-        "theme": "Reel",
-        "category": "portfolio",
-        "thumbnail": "reel-our-work",
-        "filename": "reel-our-work.json"
     },
     {
         "id": "inspiro-agency-services",
