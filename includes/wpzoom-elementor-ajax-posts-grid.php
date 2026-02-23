@@ -210,8 +210,8 @@ class WPZOOM_Elementor_Ajax_Post_Grid {
 			return;
 		}
 
-		$title_tag = $settings[ 'title_tag' ];
-			
+		$title_tag = \Elementor\Utils::validate_html_tag( $settings[ 'title_tag' ] );
+
 		?>
 		<<?php echo $title_tag; // WPCS: XSS OK. ?> class="title">
 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a>
