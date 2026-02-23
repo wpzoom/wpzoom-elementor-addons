@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div id="wpzoom-elementor-template-library-tabs-wrapper" class="elementor-component-tab elementor-template-library-menu">
 				<div class="elementor-component-tab elementor-template-library-menu-item elementor-active" data-tab="templates"><?php echo __('Pages', 'wpzoom-elementor-addons'); ?></div>
 				<div class="elementor-component-tab elementor-template-library-menu-item" data-tab="sections"><?php echo __('Sections', 'wpzoom-elementor-addons'); ?></div>
+				<div class="elementor-component-tab elementor-template-library-menu-item" data-tab="wireframes"><?php echo __('Wireframes', 'wpzoom-elementor-addons'); ?></div>
 			</div>
 		</div>
 		<div class="elementor-templates-modal__header__items-area">
@@ -70,6 +71,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <option value ='reel'>Reel</option>
 				</select>
 				<select id="wpzoom-elementor-template-library-filter-category" class="elementor-template-library-filter-select" name="category" data-filter="category" style="display:none;">
+					<option value = ''>Select a category</option>
+				</select>
+				<select id="wpzoom-elementor-template-library-filter-wireframe-category" class="elementor-template-library-filter-select" name="category" data-filter="category" style="display:none;">
 					<option value = ''>Select a category</option>
 				</select>
 			</div>

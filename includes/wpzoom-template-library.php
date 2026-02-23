@@ -69,7 +69,7 @@ if ( did_action( 'elementor/loaded' ) ) {
 			));
 		}
 
-		if ('section' !== $import_type && $this->is_pro_template($filename) && !$this->can_import_pro_template()) {
+		if ('section' !== $import_type && 'wireframe' !== $import_type && $this->is_pro_template($filename) && !$this->can_import_pro_template()) {
 			$has_pro_plugin = class_exists( 'WPZOOM_Elementor_Addons_Pro' );
 			
 			if ( ! $has_pro_plugin && ! class_exists( 'WPZOOM' ) ) {
@@ -100,6 +100,13 @@ if ( did_action( 'elementor/loaded' ) ) {
 			if ($import_type === 'section') {
 				// For sections, only check sections directory
 				$local_file = sprintf(WPZOOM_EL_ADDONS_PATH . '/includes/data/sections/json/%s', $filename);
+				if (self::get_filesystem()->exists($local_file)) {
+					$data = self::get_filesystem()->get_contents($local_file);
+					$data = json_decode($data, true);
+				}
+			} elseif ($import_type === 'wireframe') {
+				// For wireframes, only check wireframes directory
+				$local_file = sprintf(WPZOOM_EL_ADDONS_PATH . '/includes/data/wireframes/json/%s', $filename);
 				if (self::get_filesystem()->exists($local_file)) {
 					$data = self::get_filesystem()->get_contents($local_file);
 					$data = json_decode($data, true);
