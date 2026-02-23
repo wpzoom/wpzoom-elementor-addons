@@ -86,5 +86,77 @@
         "category": "features",
         "thumbnail": "wireframe-features-001",
         "filename": "features-001.json"
+    },
+    {
+        "id": "wireframe-features-002",
+        "name": "Features 2",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-002",
+        "filename": "features-002.json"
+    },
+    {
+        "id": "wireframe-features-003",
+        "name": "Features 3",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-003",
+        "filename": "features-003.json"
+    },
+    {
+        "id": "wireframe-features-004",
+        "name": "Features 4",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-004",
+        "filename": "features-004.json"
+    },
+    {
+        "id": "wireframe-features-005",
+        "name": "Features 5",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-005",
+        "filename": "features-005.json"
+    },
+    {
+        "id": "wireframe-features-006",
+        "name": "Features 6",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-006",
+        "filename": "features-006.json"
+    },
+    {
+        "id": "wireframe-features-007",
+        "name": "Features 7",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-007",
+        "filename": "features-007.json"
+    },
+    {
+        "id": "wireframe-features-008",
+        "name": "Features 8",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-008",
+        "filename": "features-008.json"
+    },
+    {
+        "id": "wireframe-features-009",
+        "name": "Features 9",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-009",
+        "filename": "features-009.json"
+    },
+    {
+        "id": "wireframe-features-010",
+        "name": "Features 10",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "wireframe-features-010",
+        "filename": "features-010.json"
     }
 ]
