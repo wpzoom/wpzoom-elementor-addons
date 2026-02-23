@@ -158,5 +158,205 @@
         "category": "features",
         "thumbnail": "wireframe-features-010",
         "filename": "features-010.json"
+    },
+    {
+        "id": "wireframe-cta-001",
+        "name": "CTA 1",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-001",
+        "filename": "cta-001.json"
+    },
+    {
+        "id": "wireframe-cta-002",
+        "name": "CTA 2",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-002",
+        "filename": "cta-002.json"
+    },
+    {
+        "id": "wireframe-cta-003",
+        "name": "CTA 3",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-003",
+        "filename": "cta-003.json"
+    },
+    {
+        "id": "wireframe-cta-004",
+        "name": "CTA 4",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-004",
+        "filename": "cta-004.json"
+    },
+    {
+        "id": "wireframe-cta-005",
+        "name": "CTA 5",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-005",
+        "filename": "cta-005.json"
+    },
+    {
+        "id": "wireframe-cta-006",
+        "name": "CTA 6",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-006",
+        "filename": "cta-006.json"
+    },
+    {
+        "id": "wireframe-cta-007",
+        "name": "CTA 7",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-007",
+        "filename": "cta-007.json"
+    },
+    {
+        "id": "wireframe-cta-008",
+        "name": "CTA 8",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-008",
+        "filename": "cta-008.json"
+    },
+    {
+        "id": "wireframe-cta-009",
+        "name": "CTA 9",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-009",
+        "filename": "cta-009.json"
+    },
+    {
+        "id": "wireframe-cta-010",
+        "name": "CTA 10",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-010",
+        "filename": "cta-010.json"
+    },
+    {
+        "id": "wireframe-cta-011",
+        "name": "CTA 11",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-011",
+        "filename": "cta-011.json"
+    },
+    {
+        "id": "wireframe-cta-012",
+        "name": "CTA 12",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-012",
+        "filename": "cta-012.json"
+    },
+    {
+        "id": "wireframe-cta-013",
+        "name": "CTA 13",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-013",
+        "filename": "cta-013.json"
+    },
+    {
+        "id": "wireframe-cta-014",
+        "name": "CTA 14",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-014",
+        "filename": "cta-014.json"
+    },
+    {
+        "id": "wireframe-cta-015",
+        "name": "CTA 15",
+        "theme": "Inspiro Premium",
+        "category": "cta",
+        "thumbnail": "wireframe-cta-015",
+        "filename": "cta-015.json"
+    },
+    {
+        "id": "wireframe-testimonials-001",
+        "name": "Testimonials 1",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-001",
+        "filename": "testimonials-001.json"
+    },
+    {
+        "id": "wireframe-testimonials-002",
+        "name": "Testimonials 2",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-002",
+        "filename": "testimonials-002.json"
+    },
+    {
+        "id": "wireframe-testimonials-003",
+        "name": "Testimonials 3",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-003",
+        "filename": "testimonials-003.json"
+    },
+    {
+        "id": "wireframe-testimonials-004",
+        "name": "Testimonials 4",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-004",
+        "filename": "testimonials-004.json"
+    },
+    {
+        "id": "wireframe-testimonials-005",
+        "name": "Testimonials 5",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-005",
+        "filename": "testimonials-005.json"
+    },
+    {
+        "id": "wireframe-testimonials-006",
+        "name": "Testimonials 6",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-006",
+        "filename": "testimonials-006.json"
+    },
+    {
+        "id": "wireframe-testimonials-007",
+        "name": "Testimonials 7",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-007",
+        "filename": "testimonials-007.json"
+    },
+    {
+        "id": "wireframe-testimonials-008",
+        "name": "Testimonials 8",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-008",
+        "filename": "testimonials-008.json"
+    },
+    {
+        "id": "wireframe-testimonials-009",
+        "name": "Testimonials 9",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-009",
+        "filename": "testimonials-009.json"
+    },
+    {
+        "id": "wireframe-testimonials-010",
+        "name": "Testimonials 10",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "wireframe-testimonials-010",
+        "filename": "testimonials-010.json"
     }
 ]
