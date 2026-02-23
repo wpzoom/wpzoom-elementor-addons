@@ -358,5 +358,93 @@
         "category": "testimonials",
         "thumbnail": "wireframe-testimonials-010",
         "filename": "testimonials-010.json"
+    },
+    {
+        "id": "wireframe-pricing-001",
+        "name": "Pricing 1",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-001",
+        "filename": "pricing-001.json"
+    },
+    {
+        "id": "wireframe-pricing-002",
+        "name": "Pricing 2",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-002",
+        "filename": "pricing-002.json"
+    },
+    {
+        "id": "wireframe-pricing-003",
+        "name": "Pricing 3",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-003",
+        "filename": "pricing-003.json"
+    },
+    {
+        "id": "wireframe-pricing-004",
+        "name": "Pricing 4",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-004",
+        "filename": "pricing-004.json"
+    },
+    {
+        "id": "wireframe-pricing-005",
+        "name": "Pricing 5",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-005",
+        "filename": "pricing-005.json"
+    },
+    {
+        "id": "wireframe-pricing-006",
+        "name": "Pricing 6",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-006",
+        "filename": "pricing-006.json"
+    },
+    {
+        "id": "wireframe-pricing-007",
+        "name": "Pricing 7",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-007",
+        "filename": "pricing-007.json"
+    },
+    {
+        "id": "wireframe-pricing-008",
+        "name": "Pricing 8",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-008",
+        "filename": "pricing-008.json"
+    },
+    {
+        "id": "wireframe-pricing-009",
+        "name": "Pricing 9",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-009",
+        "filename": "pricing-009.json"
+    },
+    {
+        "id": "wireframe-pricing-010",
+        "name": "Pricing 10",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-010",
+        "filename": "pricing-010.json"
+    },
+    {
+        "id": "wireframe-pricing-011",
+        "name": "Pricing 11",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "wireframe-pricing-011",
+        "filename": "pricing-011.json"
     }
 ]
