@@ -3,7 +3,7 @@
  * Plugin Name:       Elementor Addons by WPZOOM
  * Plugin URI:        https://www.wpzoom.com/plugins/wpzoom-elementor-addons/
  * Description:       A plugin that provides a collection of Elementor Templates and advanced widgets created by the WPZOOM team
- * Version:           1.3.4
+ * Version:           1.3.5
  * Author:            WPZOOM
  * Author URI:        https://www.wpzoom.com/
  * Text Domain:       wpzoom-elementor-addons

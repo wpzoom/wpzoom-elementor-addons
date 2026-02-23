@@ -1131,7 +1131,7 @@ class Slider_Pro extends Widget_Base {
                                 <a href="#zoom-popup-<?php echo get_the_ID(); ?>" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' data-popup-type="inline" class="popup-video" aria-label="Watch Video"></a>
 
                                 <?php elseif(!empty($video_background_popup_url)): ?>
-                                    <a data-popup-type="iframe" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' class="popup-video animated slow pulse" href="<?php echo $video_background_popup_url ?>" aria-label="Watch Video"></a>
+                                    <a data-popup-type="iframe" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' class="popup-video animated slow pulse" href="<?php echo esc_url( $video_background_popup_url ); ?>" aria-label="Watch Video"></a>
                                 <?php endif; ?>
 
                             <?php } /* End Inspiro PRO markup */ ?>
@@ -1174,7 +1174,7 @@ class Slider_Pro extends Widget_Base {
                                      if( ( 'inspiro' === $current_theme && class_exists( 'WPZOOM' ) && $align_vertical != 'bottom' ) || ( 'wpzoom-inspiro-pro' === $current_theme && $align == 'center' ) ) {
 								?>
                                 <?php if($popup_video_type === 'self_hosted' && $is_video_popup): ?>
-                                    <div id="zoom-popup-<?php echo get_the_ID(); ?>"  class="animated slow mfp-hide" data-src ="<?php echo $popup_final_external_src ?>">
+                                    <div id="zoom-popup-<?php echo get_the_ID(); ?>"  class="animated slow mfp-hide" data-src ="<?php echo esc_url( $popup_final_external_src ); ?>">
 
                                         <div class="mfp-iframe-scaler">
 
@@ -1192,7 +1192,7 @@ class Slider_Pro extends Widget_Base {
                                     <a href="#zoom-popup-<?php echo get_the_ID(); ?>" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' data-popup-type="inline" class="popup-video" aria-label="Watch Video"></a>
 
                                 <?php elseif(!empty($video_background_popup_url)): ?>
-                                    <a data-popup-type="iframe" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' class="popup-video animated slow pulse" href="<?php echo $video_background_popup_url ?>" aria-label="Watch Video"></a>
+                                    <a data-popup-type="iframe" data-popup-video-options='<?php echo json_encode( $encode_lightbox_video_opts ); ?>' class="popup-video animated slow pulse" href="<?php echo esc_url( $video_background_popup_url ); ?>" aria-label="Watch Video"></a>
                                 <?php endif; ?>
 
                                 <?php } /* End Inspiro Premium markup */ ?>

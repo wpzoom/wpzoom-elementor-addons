@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      6.9
-Stable tag:        1.3.4
+Stable tag:        1.3.5
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -122,6 +122,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.3.5 =
+* Minor bug fix
 
 = 1.3.4 =
 * Added separator to Portfolio widget to multiple categories

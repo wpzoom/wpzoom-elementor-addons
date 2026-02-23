@@ -1743,7 +1743,7 @@ class Portfolio_Reel extends Widget_Base {
 
                 <?php if ( $popup_video_type === 'self_hosted' && $is_video_popup_self_hosted ): ?>
                     <div id="zoom-popup-<?php echo the_ID(); ?>" class="animated slow mfp-hide"
-                         data-src="<?php echo $popup_self_hosted_src; ?>">
+                         data-src="<?php echo esc_url( $popup_self_hosted_src ); ?>">
                         <div class="mfp-iframe-scaler">
                             <?php
                             echo wp_video_shortcode(
@@ -1771,12 +1771,12 @@ class Portfolio_Reel extends Widget_Base {
                 <a class="reel_video_item" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
                     <?php if($has_video_popup): ?>
                     <div class="entry-thumbnail-popover<?php if ($lightbox_open_thumb) { ?> lightbox_open_full<?php } ?>">
-                        <div class="entry-thumbnail-popover-content popover-content--animated" data-show-caption="<?php echo $show_popup_caption ?>">
+                        <div class="entry-thumbnail-popover-content popover-content--animated" data-show-caption="<?php echo esc_attr( $show_popup_caption ); ?>">
                             <?php if ( $popup_video_type === 'self_hosted' && $is_video_popup_self_hosted ): ?>
                                 <span href="#zoom-popup-<?php echo the_ID(); ?>" class="mfp-inline portfolio-popup-video"></span>
                             <?php elseif ( $popup_video_type === 'external_hosted' && ! empty( $portfolio_video_popup_url ) ): ?>
                                 <span class="mfp-iframe portfolio-popup-video"
-                                      href="<?php echo $portfolio_video_popup_url; ?>"></span>
+                                      href="<?php echo esc_url( $portfolio_video_popup_url ); ?>"></span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -1833,11 +1833,11 @@ class Portfolio_Reel extends Widget_Base {
 
                                 <ul>
                                     <?php if ($enable_director_name && $video_director) { ?>
-                                       <li><?php echo $video_director; ?></li>
+                                       <li><?php echo esc_html( $video_director ); ?></li>
                                     <?php } ?>
 
                                     <?php if ($enable_year && $video_year) { ?>
-                                       <li><?php echo $video_year; ?></li>
+                                       <li><?php echo esc_html( $video_year ); ?></li>
                                     <?php } ?>
 
                                     <?php if ( $enable_category ) : ?><li>
@@ -1869,11 +1869,11 @@ class Portfolio_Reel extends Widget_Base {
 
                                 <ul>
                                     <?php if ($enable_director_name && $video_director) { ?>
-                                       <li><?php echo $video_director; ?></li>
+                                       <li><?php echo esc_html( $video_director ); ?></li>
                                     <?php } ?>
 
                                     <?php if ($enable_year && $video_year) { ?>
-                                       <li><?php echo $video_year; ?></li>
+                                       <li><?php echo esc_html( $video_year ); ?></li>
                                     <?php } ?>
 
                                     <?php if ( $enable_category ) : ?><li>
@@ -1907,11 +1907,11 @@ class Portfolio_Reel extends Widget_Base {
 
                             <ul>
                                 <?php if ($enable_director_name && $video_director) { ?>
-                                   <li><?php echo $video_director; ?></li>
+                                   <li><?php echo esc_html( $video_director ); ?></li>
                                 <?php } ?>
 
                                 <?php if ($enable_year && $video_year) { ?>
-                                   <li><?php echo $video_year; ?></li>
+                                   <li><?php echo esc_html( $video_year ); ?></li>
                                 <?php } ?>
 
                                 <?php if ( $enable_category ) : ?><li>
