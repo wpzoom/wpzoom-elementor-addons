@@ -456,7 +456,8 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 					foreach ($items as $index => $entry) {
 						$slug = strtolower(str_replace(' ', '-', $entry['id']));
 						$theme = isset($entry['theme']) ? $entry['theme'] : '';
-						$is_restricted = false;
+						$is_theme_free = in_array( $theme, $free_themes );
+						$is_restricted = ! $has_premium_access && ! $is_theme_free;
 						?>
 						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
 							data-theme="<?php echo esc_attr(strtolower(str_replace(' ', '-', $theme))); ?>"
@@ -521,6 +522,10 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 			$wireframe_list = array();
 			echo '<script> var WPZ_Wireframes_Index = []; </script>';
 
+			// Check Pro plugin and premium theme status
+			$has_premium_access = class_exists( 'WPZOOM_Elementor_Addons_Pro' ) || class_exists( 'WPZOOM' );
+			$free_themes = array( 'Foodica', 'Inspiro Lite' );
+
 			$local_file = WPZOOM_EL_ADDONS_PATH . '/includes/data/wireframes/json/info.json';
 			if ( self::init()->get_filesystem()->exists( $local_file ) ) {
 				$data           = self::init()->get_filesystem()->get_contents( $local_file );
@@ -572,27 +577,45 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 						} else {
 							$slug = strtolower( str_replace( ' ', '-', $entry['id'] ) );
 						}
+						$theme = isset( $entry['theme'] ) ? $entry['theme'] : '';
+						$is_theme_free = in_array( $theme, $free_themes );
+						$is_restricted = ! $has_premium_access && ! $is_theme_free;
 						?>
-						<div class="wpzoom-templates-library-template wpzoom-item"
-							data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', isset( $entry['theme'] ) ? $entry['theme'] : '' ) ) ); ?>"
+						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
+							data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $theme ) ) ); ?>"
 							data-category="<?php echo esc_attr( $category_slug ); ?>">
 							<div class="wpzoom-template-title">
 								<?php echo esc_html( $entry['name'] ); ?>
 							</div>
-							<div class="wpzoom-template-thumb wpzoom-wireframes-index-<?php echo esc_attr( $index ); ?>"
+							<div class="wpzoom-template-thumb wpzoom-wireframes-index-<?php echo esc_attr( $index ); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
 								data-index="<?php echo esc_attr( $index ); ?>"
 								data-template="<?php echo esc_attr( wp_json_encode( $entry ) ); ?>">
 								<img src="<?php echo esc_url( $thumb_url . $entry['thumbnail'] . '-thumb.png' ); ?>"
 									alt="<?php echo esc_attr( $entry['name'] ); ?>"
 									class="wpzoom-thumb-image">
+								<?php if ( $is_restricted ) : ?>
+									<div class="wpzoom-template-overlay">
+										<div class="wpzoom-template-lock-icon">&#x1F512;</div>
+										<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
+									</div>
+								<?php endif; ?>
 							</div>
 							<div class="wpzoom-action-bar">
 								<div class="wpzoom-grow"> </div>
-								<div class="wpzoom-btn-template-insert"
-									data-version="WPZ__wireframe-version-<?php echo esc_attr( $index ); ?>"
-									data-template-name="<?php echo esc_attr( $slug ); ?>">
-									<?php esc_html_e( 'Insert Wireframe', 'wpzoom-elementor-addons' ); ?>
-								</div>
+								<?php if ( $is_restricted ) : ?>
+									<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+										class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
+										title="<?php echo esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>">
+										<?php echo esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
+									</a>
+								<?php else : ?>
+									<div class="wpzoom-btn-template-insert"
+										data-version="WPZ__wireframe-version-<?php echo esc_attr( $index ); ?>"
+										data-template-name="<?php echo esc_attr( $slug ); ?>">
+										<i class="eicon-library-download" aria-hidden="true"></i>
+										<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'wpzoom-elementor-addons' ); ?></span>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 						<?php
