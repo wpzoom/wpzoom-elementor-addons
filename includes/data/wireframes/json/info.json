@@ -446,5 +446,373 @@
         "category": "pricing",
         "thumbnail": "wireframe-pricing-011",
         "filename": "pricing-011.json"
+    },
+    {
+        "id": "wireframe-stats-001",
+        "name": "Stats 1",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-001",
+        "filename": "stats-001.json"
+    },
+    {
+        "id": "wireframe-stats-002",
+        "name": "Stats 2",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-002",
+        "filename": "stats-002.json"
+    },
+    {
+        "id": "wireframe-stats-003",
+        "name": "Stats 3",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-003",
+        "filename": "stats-003.json"
+    },
+    {
+        "id": "wireframe-stats-004",
+        "name": "Stats 4",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-004",
+        "filename": "stats-004.json"
+    },
+    {
+        "id": "wireframe-stats-005",
+        "name": "Stats 5",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-005",
+        "filename": "stats-005.json"
+    },
+    {
+        "id": "wireframe-stats-006",
+        "name": "Stats 6",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-006",
+        "filename": "stats-006.json"
+    },
+    {
+        "id": "wireframe-stats-007",
+        "name": "Stats 7",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-007",
+        "filename": "stats-007.json"
+    },
+    {
+        "id": "wireframe-stats-008",
+        "name": "Stats 8",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-008",
+        "filename": "stats-008.json"
+    },
+    {
+        "id": "wireframe-stats-009",
+        "name": "Stats 9",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-009",
+        "filename": "stats-009.json"
+    },
+    {
+        "id": "wireframe-stats-010",
+        "name": "Stats 10",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-010",
+        "filename": "stats-010.json"
+    },
+    {
+        "id": "wireframe-stats-011",
+        "name": "Stats 11",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-011",
+        "filename": "stats-011.json"
+    },
+    {
+        "id": "wireframe-stats-012",
+        "name": "Stats 12",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-012",
+        "filename": "stats-012.json"
+    },
+    {
+        "id": "wireframe-stats-013",
+        "name": "Stats 13",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-013",
+        "filename": "stats-013.json"
+    },
+    {
+        "id": "wireframe-stats-014",
+        "name": "Stats 14",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-014",
+        "filename": "stats-014.json"
+    },
+    {
+        "id": "wireframe-stats-015",
+        "name": "Stats 15",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-015",
+        "filename": "stats-015.json"
+    },
+    {
+        "id": "wireframe-stats-016",
+        "name": "Stats 16",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-016",
+        "filename": "stats-016.json"
+    },
+    {
+        "id": "wireframe-stats-017",
+        "name": "Stats 17",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "wireframe-stats-017",
+        "filename": "stats-017.json"
+    },
+    {
+        "id": "wireframe-team-001",
+        "name": "Team 1",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-001",
+        "filename": "team-001.json"
+    },
+    {
+        "id": "wireframe-team-002",
+        "name": "Team 2",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-002",
+        "filename": "team-002.json"
+    },
+    {
+        "id": "wireframe-team-003",
+        "name": "Team 3",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-003",
+        "filename": "team-003.json"
+    },
+    {
+        "id": "wireframe-team-004",
+        "name": "Team 4",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-004",
+        "filename": "team-004.json"
+    },
+    {
+        "id": "wireframe-team-005",
+        "name": "Team 5",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-005",
+        "filename": "team-005.json"
+    },
+    {
+        "id": "wireframe-team-006",
+        "name": "Team 6",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-006",
+        "filename": "team-006.json"
+    },
+    {
+        "id": "wireframe-team-007",
+        "name": "Team 7",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-007",
+        "filename": "team-007.json"
+    },
+    {
+        "id": "wireframe-team-008",
+        "name": "Team 8",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-008",
+        "filename": "team-008.json"
+    },
+    {
+        "id": "wireframe-team-009",
+        "name": "Team 9",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-009",
+        "filename": "team-009.json"
+    },
+    {
+        "id": "wireframe-team-010",
+        "name": "Team 10",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-010",
+        "filename": "team-010.json"
+    },
+    {
+        "id": "wireframe-team-011",
+        "name": "Team 11",
+        "theme": "Inspiro Premium",
+        "category": "team",
+        "thumbnail": "wireframe-team-011",
+        "filename": "team-011.json"
+    },
+    {
+        "id": "wireframe-posts-001",
+        "name": "Posts 1",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-001",
+        "filename": "posts-001.json"
+    },
+    {
+        "id": "wireframe-posts-002",
+        "name": "Posts 2",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-002",
+        "filename": "posts-002.json"
+    },
+    {
+        "id": "wireframe-posts-003",
+        "name": "Posts 3",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-003",
+        "filename": "posts-003.json"
+    },
+    {
+        "id": "wireframe-posts-004",
+        "name": "Posts 4",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-004",
+        "filename": "posts-004.json"
+    },
+    {
+        "id": "wireframe-posts-005",
+        "name": "Posts 5",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-005",
+        "filename": "posts-005.json"
+    },
+    {
+        "id": "wireframe-posts-006",
+        "name": "Posts 6",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-006",
+        "filename": "posts-006.json"
+    },
+    {
+        "id": "wireframe-posts-007",
+        "name": "Posts 7",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-007",
+        "filename": "posts-007.json"
+    },
+    {
+        "id": "wireframe-posts-008",
+        "name": "Posts 8",
+        "theme": "Inspiro Premium",
+        "category": "posts",
+        "thumbnail": "wireframe-posts-008",
+        "filename": "posts-008.json"
+    },
+    {
+        "id": "wireframe-logos-001",
+        "name": "Logos 1",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-001",
+        "filename": "logos-001.json"
+    },
+    {
+        "id": "wireframe-logos-002",
+        "name": "Logos 2",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-002",
+        "filename": "logos-002.json"
+    },
+    {
+        "id": "wireframe-logos-003",
+        "name": "Logos 3",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-003",
+        "filename": "logos-003.json"
+    },
+    {
+        "id": "wireframe-logos-004",
+        "name": "Logos 4",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-004",
+        "filename": "logos-004.json"
+    },
+    {
+        "id": "wireframe-logos-005",
+        "name": "Logos 5",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-005",
+        "filename": "logos-005.json"
+    },
+    {
+        "id": "wireframe-logos-006",
+        "name": "Logos 6",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-006",
+        "filename": "logos-006.json"
+    },
+    {
+        "id": "wireframe-logos-007",
+        "name": "Logos 7",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-007",
+        "filename": "logos-007.json"
+    },
+    {
+        "id": "wireframe-logos-008",
+        "name": "Logos 8",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-008",
+        "filename": "logos-008.json"
+    },
+    {
+        "id": "wireframe-logos-009",
+        "name": "Logos 9",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-009",
+        "filename": "logos-009.json"
+    },
+    {
+        "id": "wireframe-logos-010",
+        "name": "Logos 10",
+        "theme": "Inspiro Premium",
+        "category": "logos",
+        "thumbnail": "wireframe-logos-010",
+        "filename": "logos-010.json"
     }
 ]
