@@ -2,7 +2,7 @@
     {
         "id": "wireframe-hero-001",
         "name": "Hero 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "wireframe-hero-001",
         "filename": "hero-001.json"
@@ -10,7 +10,7 @@
     {
         "id": "wireframe-hero-002",
         "name": "Hero 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "wireframe-hero-002",
         "filename": "hero-002.json"
@@ -18,7 +18,7 @@
     {
         "id": "wireframe-hero-003",
         "name": "Hero 3",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "wireframe-hero-003",
         "filename": "hero-003.json"
@@ -26,7 +26,7 @@
     {
         "id": "wireframe-hero-004",
         "name": "Hero 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "wireframe-hero-004",
         "filename": "hero-004.json"
@@ -82,7 +82,7 @@
     {
         "id": "wireframe-features-001",
         "name": "Features 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "wireframe-features-001",
         "filename": "features-001.json"
@@ -90,7 +90,7 @@
     {
         "id": "wireframe-features-002",
         "name": "Features 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "wireframe-features-002",
         "filename": "features-002.json"
@@ -106,7 +106,7 @@
     {
         "id": "wireframe-features-004",
         "name": "Features 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "wireframe-features-004",
         "filename": "features-004.json"
@@ -114,7 +114,7 @@
     {
         "id": "wireframe-features-005",
         "name": "Features 5",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "wireframe-features-005",
         "filename": "features-005.json"
@@ -162,7 +162,7 @@
     {
         "id": "wireframe-cta-001",
         "name": "CTA 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "cta",
         "thumbnail": "wireframe-cta-001",
         "filename": "cta-001.json"
@@ -170,7 +170,7 @@
     {
         "id": "wireframe-cta-002",
         "name": "CTA 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "cta",
         "thumbnail": "wireframe-cta-002",
         "filename": "cta-002.json"
@@ -194,7 +194,7 @@
     {
         "id": "wireframe-cta-005",
         "name": "CTA 5",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "cta",
         "thumbnail": "wireframe-cta-005",
         "filename": "cta-005.json"
@@ -250,7 +250,7 @@
     {
         "id": "wireframe-cta-012",
         "name": "CTA 12",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "cta",
         "thumbnail": "wireframe-cta-012",
         "filename": "cta-012.json"
@@ -282,7 +282,7 @@
     {
         "id": "wireframe-testimonials-001",
         "name": "Testimonials 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "testimonials",
         "thumbnail": "wireframe-testimonials-001",
         "filename": "testimonials-001.json"
@@ -298,7 +298,7 @@
     {
         "id": "wireframe-testimonials-003",
         "name": "Testimonials 3",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "testimonials",
         "thumbnail": "wireframe-testimonials-003",
         "filename": "testimonials-003.json"
@@ -306,7 +306,7 @@
     {
         "id": "wireframe-testimonials-004",
         "name": "Testimonials 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "testimonials",
         "thumbnail": "wireframe-testimonials-004",
         "filename": "testimonials-004.json"
@@ -362,7 +362,7 @@
     {
         "id": "wireframe-pricing-001",
         "name": "Pricing 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "wireframe-pricing-001",
         "filename": "pricing-001.json"
@@ -370,7 +370,7 @@
     {
         "id": "wireframe-pricing-002",
         "name": "Pricing 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "wireframe-pricing-002",
         "filename": "pricing-002.json"
@@ -394,7 +394,7 @@
     {
         "id": "wireframe-pricing-005",
         "name": "Pricing 5",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "wireframe-pricing-005",
         "filename": "pricing-005.json"
@@ -450,7 +450,7 @@
     {
         "id": "wireframe-stats-001",
         "name": "Stats 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "wireframe-stats-001",
         "filename": "stats-001.json"
@@ -458,7 +458,7 @@
     {
         "id": "wireframe-stats-002",
         "name": "Stats 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "wireframe-stats-002",
         "filename": "stats-002.json"
@@ -466,7 +466,7 @@
     {
         "id": "wireframe-stats-003",
         "name": "Stats 3",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "wireframe-stats-003",
         "filename": "stats-003.json"
@@ -474,7 +474,7 @@
     {
         "id": "wireframe-stats-004",
         "name": "Stats 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "wireframe-stats-004",
         "filename": "stats-004.json"
@@ -522,7 +522,7 @@
     {
         "id": "wireframe-stats-010",
         "name": "Stats 10",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "wireframe-stats-010",
         "filename": "stats-010.json"
@@ -602,7 +602,7 @@
     {
         "id": "wireframe-team-003",
         "name": "Team 3",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "team",
         "thumbnail": "wireframe-team-003",
         "filename": "team-003.json"
@@ -618,7 +618,7 @@
     {
         "id": "wireframe-team-005",
         "name": "Team 5",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "team",
         "thumbnail": "wireframe-team-005",
         "filename": "team-005.json"
@@ -650,7 +650,7 @@
     {
         "id": "wireframe-team-009",
         "name": "Team 9",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "team",
         "thumbnail": "wireframe-team-009",
         "filename": "team-009.json"
@@ -674,7 +674,7 @@
     {
         "id": "wireframe-posts-001",
         "name": "Posts 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "posts",
         "thumbnail": "wireframe-posts-001",
         "filename": "posts-001.json"
@@ -698,7 +698,7 @@
     {
         "id": "wireframe-posts-004",
         "name": "Posts 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "posts",
         "thumbnail": "wireframe-posts-004",
         "filename": "posts-004.json"
@@ -738,7 +738,7 @@
     {
         "id": "wireframe-logos-001",
         "name": "Logos 1",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "logos",
         "thumbnail": "wireframe-logos-001",
         "filename": "logos-001.json"
@@ -746,7 +746,7 @@
     {
         "id": "wireframe-logos-002",
         "name": "Logos 2",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "logos",
         "thumbnail": "wireframe-logos-002",
         "filename": "logos-002.json"
@@ -754,7 +754,7 @@
     {
         "id": "wireframe-logos-003",
         "name": "Logos 3",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "logos",
         "thumbnail": "wireframe-logos-003",
         "filename": "logos-003.json"
@@ -762,7 +762,7 @@
     {
         "id": "wireframe-logos-004",
         "name": "Logos 4",
-        "theme": "Inspiro Premium",
+        "theme": "Inspiro Lite",
         "category": "logos",
         "thumbnail": "wireframe-logos-004",
         "filename": "logos-004.json"
