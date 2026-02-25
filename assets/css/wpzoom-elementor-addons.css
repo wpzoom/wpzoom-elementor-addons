@@ -677,3 +677,9 @@
 .wpzoom-dark-mode .wpzoom-toggle-label {
     color: #bbb;
 }
+/* Disabled state — used when the toggle is locked (e.g. wireframes tab) */
+.wpzoom-toggle-wrap.wpzoom-toggle-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}

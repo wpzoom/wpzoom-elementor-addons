@@ -253,6 +253,8 @@ var WPZCachedWireframes = null;
 								$('.wpzoom-search-clear').hide();
 								// Update filter visibility using centralized function
 								wpzoom_update_filter_visibility();
+								// Update no-media toggle state for the new tab
+								wpzoom_update_media_toggle_for_tab(windowWPZ.currentTab);
 
 								// Load content for new tab
 								wpzoom_get_library_view(windowWPZ.currentTab);
@@ -358,7 +360,7 @@ var WPZCachedWireframes = null;
 						});
 						windowWPZ.mediaToggleInitialized = true;
 					}
-					wpzoom_update_media_toggle_ui();
+					wpzoom_update_media_toggle_for_tab(windowWPZ.currentTab || 'templates');
 					// Set initial filter visibility after select2 is fully initialized
 							// Small delay ensures select2's DOM manipulation is complete
 							setTimeout(function () {
@@ -411,7 +413,7 @@ var WPZCachedWireframes = null;
 					action: 'get_content_from_elementor_export_file',
 					filename: filename,
 					type: importType,
-					no_media: windowWPZ.noMedia ? '1' : '0'
+					no_media: ('wireframe' === importType || windowWPZ.noMedia) ? '1' : '0'
 				},
 				function (data) {
 					try {
@@ -542,6 +544,19 @@ var WPZCachedWireframes = null;
 			$track.addClass('wpzoom-media-btn-active').attr('aria-checked', 'true');
 		} else {
 			$track.removeClass('wpzoom-media-btn-active').attr('aria-checked', 'false');
+		}
+	}
+
+	/* Set toggle appearance + disabled state based on the active tab.
+	 * Wireframes always import without media, so the toggle is locked ON. */
+	function wpzoom_update_media_toggle_for_tab(tab) {
+		var $wrap = $('#wpzoom-no-media-toggle-wrap');
+		if (tab === 'wireframes') {
+			$('#wpzoom-no-media-toggle').addClass('wpzoom-media-btn-active').attr('aria-checked', 'true');
+			$wrap.addClass('wpzoom-toggle-disabled');
+		} else {
+			$wrap.removeClass('wpzoom-toggle-disabled');
+			wpzoom_update_media_toggle_ui();
 		}
 	}
 

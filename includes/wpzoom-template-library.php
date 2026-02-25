@@ -140,12 +140,59 @@ if ( did_action( 'elementor/loaded' ) ) {
 		$no_media = isset( $_POST['no_media'] ) && '1' === $_POST['no_media'];
 		if ( ! $no_media ) {
 			$content = $this->process_export_import_content( $content, 'on_import' );
+		} elseif ( 'template' === $import_type || 'section' === $import_type ) {
+			// For pages & sections with no_media: replace all image URLs with a local placeholder.
+			// Attach the filter only for the duration of this apply_filters call, then remove it.
+			$placeholder_url = WPZOOM_EL_ADDONS_URL . 'assets/images/placeholder.png';
+			$replace_callback = function( $data ) use ( $placeholder_url ) {
+				return $this->replace_image_urls_with_placeholder( $data, $placeholder_url );
+			};
+			add_filter( 'elementor/template-library/import/pre_process_data', $replace_callback );
+			$content = apply_filters( 'elementor/template-library/import/pre_process_data', $content );
+			remove_filter( 'elementor/template-library/import/pre_process_data', $replace_callback );
 		}
+		// For wireframes with no_media: CDN URLs are kept as-is (no replacement, no sideloading).
 		$content = $this->replace_elements_ids( $content );
 		
 		echo json_encode( $content );
 		wp_die();
 
+	}
+
+	/**
+	 * Recursively replace external image URLs in Elementor content with a placeholder.
+	 *
+	 * Only arrays that carry both a 'url' and an 'id' key are treated as image
+	 * objects (Elementor's standard media-control shape). Link objects use
+	 * 'is_external' / 'nofollow' instead of 'id', so they are left untouched.
+	 *
+	 * @param array  $data            Elementor elements/settings array.
+	 * @param string $placeholder_url Absolute URL of the placeholder image.
+	 * @return array
+	 */
+	private function replace_image_urls_with_placeholder( array $data, $placeholder_url ) {
+		foreach ( $data as $key => &$value ) {
+			if ( ! is_array( $value ) ) {
+				continue;
+			}
+
+			// Elementor image object: has both 'url' (non-empty HTTP URL) and 'id'.
+			if (
+				isset( $value['url'] ) &&
+				array_key_exists( 'id', $value ) &&
+				is_string( $value['url'] ) &&
+				'' !== $value['url'] &&
+				preg_match( '/^https?:\/\//i', $value['url'] )
+			) {
+				$value['url'] = $placeholder_url;
+				$value['id']  = 0;
+			} else {
+				// Recurse into nested elements / settings / repeater rows.
+				$value = $this->replace_image_urls_with_placeholder( $value, $placeholder_url );
+			}
+		}
+
+		return $data;
 	}
 
 	/**
