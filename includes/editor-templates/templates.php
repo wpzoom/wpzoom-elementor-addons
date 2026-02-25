@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </script>
 <script type="text/template" id="tmpl-wpzoom-elementor-template-library-tools">
-		<div id="wpzoom-elementor-template-library-toolbar">
+	<div id="wpzoom-elementor-template-library-toolbar">
 		<div id="elementor-template-library-filter-toolbar-remote" class="elementor-template-library-filter-toolbar wpzoom-toolbar-row">
 			<div class="wpzoom-toolbar-left">
 				<div id="elementor-template-library-filter">
@@ -83,6 +83,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input id="wpzoom-elementor-template-library-filter-text" type="text" placeholder="<?php esc_attr_e( 'Search...', 'wpzoom-elementor-addons' ); ?>">
 					<button class="wpzoom-search-clear" aria-label="<?php esc_attr_e( 'Clear', 'wpzoom-elementor-addons' ); ?>" style="display:none;"><i class="eicon-close" aria-hidden="true"></i></button>
 				</div>
+				<label id="wpzoom-no-media-toggle-wrap" class="wpzoom-toggle-wrap" title="<?php esc_attr_e( 'Insert without importing images to media library', 'wpzoom-elementor-addons' ); ?>">
+					<div id="wpzoom-no-media-toggle" class="wpzoom-toggle-track" role="switch" aria-checked="false">
+						<span class="wpzoom-toggle-thumb"></span>
+					</div>
+					<span class="wpzoom-toggle-label"><?php esc_html_e( 'No Media', 'wpzoom-elementor-addons' ); ?></span>
+				</label>
 			</div>
 			<div class="wpzoom-toolbar-grid-size">
 				<button class="wpzoom-grid-btn" data-cols="3" title="3 columns">

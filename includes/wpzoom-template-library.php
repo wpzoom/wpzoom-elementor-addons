@@ -136,7 +136,11 @@ if ( did_action( 'elementor/loaded' ) ) {
 		}
 		
 		$content = $data['content'];
-		$content = $this->process_export_import_content( $content, 'on_import' );
+		// Skip media import (sideloading images) when no_media flag is set
+		$no_media = isset( $_POST['no_media'] ) && '1' === $_POST['no_media'];
+		if ( ! $no_media ) {
+			$content = $this->process_export_import_content( $content, 'on_import' );
+		}
 		$content = $this->replace_elements_ids( $content );
 		
 		echo json_encode( $content );
