@@ -174,36 +174,42 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 						data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $template_list[$i]['theme'] ) ) ) ?>" 
 						data-category="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $template_list[$i]['category'] ) ) ) ?>"
 						>
-						<div class="wpzoom-template-title">
-							<?php echo esc_html( $template_list[$i]['name'] ); ?>
-
+						<div 
+							class="wpzoom-template-thumb wpzoom-index-<?php echo esc_attr($i); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
+							data-index="<?php echo esc_attr($i); ?>"
+							data-template="<?php echo esc_attr(wp_json_encode($template_list[$i])); ?>">
+							<img src="<?php echo esc_url($thumb_url . $template_list[$i]['thumbnail']); ?>-thumb.png" 
+								alt="<?php echo esc_attr($template_list[$i]['name']); ?>" 
+								class="wpzoom-thumb-image">
+								<?php if ( $is_restricted ) : ?>
+									<div class="wpzoom-template-overlay">
+										<div class="wpzoom-template-lock-icon">🔒</div>
+										<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
+									</div>
+								<?php endif; ?>
+						
+						<div class="wpzoom-badge-container">
+							<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+							<?php if ( ! empty( $template_list[$i]['badges'] ) && in_array( 'new', $template_list[$i]['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
 						</div>
-					<div 
-						class="wpzoom-template-thumb wpzoom-index-<?php echo esc_attr($i); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
-						data-index="<?php echo esc_attr($i); ?>"
-						data-template="<?php echo esc_attr(wp_json_encode($template_list[$i])); ?>">
-						<img src="<?php echo esc_url($thumb_url . $template_list[$i]['thumbnail']); ?>-thumb.png" 
-							alt="<?php echo esc_attr($template_list[$i]['name']); ?>" 
-							class="wpzoom-thumb-image">
-							<?php if ( $is_restricted ) : ?>
-								<div class="wpzoom-template-overlay">
-									<div class="wpzoom-template-lock-icon">🔒</div>
-									<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
-								</div>
-							<?php endif; ?>
-					</div>
-						<div class="wpzoom-action-bar">
-							<div class="wpzoom-grow"> </div>
-							<?php if ( $is_restricted ) : ?>
-								<a href="<?php echo esc_url( $button_data['url'] ); ?>" target="_blank" class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required" title="<?php echo esc_attr( $button_data['text'] ); ?>">
-									<?php echo esc_html( $button_data['text'] ); ?>
-								</a>
-                            <?php else: ?>
-								<div class="wpzoom-btn-template-insert" data-version="WPZ__version-<?php echo esc_attr($i); ?>"
-									data-template-name="<?php echo esc_attr($slug); ?>">
-									<?php esc_html_e('Insert Page', 'wpzoom-elementor-addons'); ?>
-								</div>
-							<?php endif; ?>
+</div>
+						<div class="wpzoom-template-footer">
+							<div class="wpzoom-template-title">
+								<?php echo esc_html( $template_list[$i]['name'] ); ?>
+							</div>
+							<div class="wpzoom-action-bar">
+								<div class="wpzoom-grow"> </div>
+								<?php if ( $is_restricted ) : ?>
+									<a href="<?php echo esc_url( $button_data['url'] ); ?>" target="_blank" class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required" title="<?php echo esc_attr( $button_data['text'] ); ?>">
+										<?php echo esc_html( $button_data['text'] ); ?>
+									</a>
+								<?php else: ?>
+									<div class="wpzoom-btn-template-insert" data-version="WPZ__version-<?php echo esc_attr($i); ?>"
+										data-template-name="<?php echo esc_attr($slug); ?>">
+										<?php esc_html_e('Insert Page', 'wpzoom-elementor-addons'); ?>
+									</div>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				<?php
@@ -462,9 +468,6 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
 							data-theme="<?php echo esc_attr(strtolower(str_replace(' ', '-', $theme))); ?>"
 							data-category="<?php echo esc_attr($category_slug); ?>">
-							<div class="wpzoom-template-title">
-								<?php echo esc_html($entry['name']); ?>
-							</div>
 							<div class="wpzoom-template-thumb wpzoom-sections-index-<?php echo esc_attr($index); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
 								data-index="<?php echo esc_attr($index); ?>" data-template="<?php echo esc_attr(wp_json_encode($entry)); ?>">
 								<img src="<?php echo esc_url($thumb_url . $entry['thumbnail'] . '-thumb.png'); ?>" 
@@ -476,22 +479,32 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 										<div class="wpzoom-template-pro-text"><?php esc_html_e('PRO Only', 'wpzoom-elementor-addons'); ?></div>
 									</div>
 								<?php endif; ?>
+							
+							<div class="wpzoom-badge-container">
+								<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+								<?php if ( ! empty( $entry['badges'] ) && in_array( 'new', $entry['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
 							</div>
-							<div class="wpzoom-action-bar">
-								<div class="wpzoom-grow"> </div>
-								<?php if ($is_restricted): ?>
-									<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
-										class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
-										title="<?php echo esc_attr__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>">
-										<?php echo esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>
-									</a>
-								<?php else: ?>
-									<div class="wpzoom-btn-template-insert"
-										data-version="WPZ__section-version-<?php echo esc_attr($index); ?>"
-										data-template-name="<?php echo esc_attr($slug); ?>">
-										<?php esc_html_e('Insert Section', 'wpzoom-elementor-addons'); ?>
-									</div>
-								<?php endif; ?>
+</div>
+							<div class="wpzoom-template-footer">
+								<div class="wpzoom-template-title">
+									<?php echo esc_html($entry['name']); ?>
+								</div>
+								<div class="wpzoom-action-bar">
+									<div class="wpzoom-grow"> </div>
+									<?php if ($is_restricted): ?>
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
+											title="<?php echo esc_attr__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>">
+											<?php echo esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>
+										</a>
+									<?php else: ?>
+										<div class="wpzoom-btn-template-insert"
+											data-version="WPZ__section-version-<?php echo esc_attr($index); ?>"
+											data-template-name="<?php echo esc_attr($slug); ?>">
+											<?php esc_html_e('Insert Section', 'wpzoom-elementor-addons'); ?>
+										</div>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
 					<?php
@@ -584,9 +597,6 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
 							data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $theme ) ) ); ?>"
 							data-category="<?php echo esc_attr( $category_slug ); ?>">
-							<div class="wpzoom-template-title">
-								<?php echo esc_html( $entry['name'] ); ?>
-							</div>
 							<div class="wpzoom-template-thumb wpzoom-wireframes-index-<?php echo esc_attr( $index ); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
 								data-index="<?php echo esc_attr( $index ); ?>"
 								data-template="<?php echo esc_attr( wp_json_encode( $entry ) ); ?>">
@@ -599,23 +609,33 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 										<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
 									</div>
 								<?php endif; ?>
+							
+							<div class="wpzoom-badge-container">
+								<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+								<?php if ( ! empty( $entry['badges'] ) && in_array( 'new', $entry['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
 							</div>
-							<div class="wpzoom-action-bar">
-								<div class="wpzoom-grow"> </div>
-								<?php if ( $is_restricted ) : ?>
-									<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
-										class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
-										title="<?php echo esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>">
-										<?php echo esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
-									</a>
-								<?php else : ?>
-									<div class="wpzoom-btn-template-insert"
-										data-version="WPZ__wireframe-version-<?php echo esc_attr( $index ); ?>"
-										data-template-name="<?php echo esc_attr( $slug ); ?>">
-										<i class="eicon-library-download" aria-hidden="true"></i>
-										<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'wpzoom-elementor-addons' ); ?></span>
-									</div>
-								<?php endif; ?>
+</div>
+							<div class="wpzoom-template-footer">
+								<div class="wpzoom-template-title">
+									<?php echo esc_html( $entry['name'] ); ?>
+								</div>
+								<div class="wpzoom-action-bar">
+									<div class="wpzoom-grow"> </div>
+									<?php if ( $is_restricted ) : ?>
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
+											title="<?php echo esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>">
+											<?php echo esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
+										</a>
+									<?php else : ?>
+										<div class="wpzoom-btn-template-insert"
+											data-version="WPZ__wireframe-version-<?php echo esc_attr( $index ); ?>"
+											data-template-name="<?php echo esc_attr( $slug ); ?>">
+											<i class="eicon-library-download" aria-hidden="true"></i>
+											<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'wpzoom-elementor-addons' ); ?></span>
+										</div>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
 						<?php
