@@ -463,3 +463,152 @@
 #wpzoom-elementor-template-library-filter-category[style*="display: none"]+.select2-container {
 	display: none !important;
 }
+
+/* ── Toolbar row layout ─────────────────────────────────────────── */
+#wpzoom-elementor-template-library-toolbar .wpzoom-toolbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+}
+.wpzoom-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ── Tab count badge ────────────────────────────────────────────── */
+.wpzoom-tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #e0e0e0;
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    vertical-align: middle;
+}
+.elementor-template-library-menu-item.elementor-active .wpzoom-tab-count {
+    background: #292929;
+    color: #fff;
+}
+
+/* ── Grid size buttons ──────────────────────────────────────────── */
+.wpzoom-toolbar-grid-size {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.wpzoom-grid-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #888;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.wpzoom-grid-btn svg {
+    fill: currentColor;
+}
+.wpzoom-grid-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+.wpzoom-grid-btn.wpzoom-grid-btn-active {
+    background: #292929;
+    border-color: #292929;
+    color: #fff;
+}
+
+/* ── Grid column classes ────────────────────────────────────────── */
+.wpzoom-main-tiled-view.wpzoom-grid-cols-3 .wpzoom-item { width: calc(33.333% - 30px) !important; }
+.wpzoom-main-tiled-view.wpzoom-grid-cols-4 .wpzoom-item { width: calc(25% - 30px) !important; }
+.wpzoom-main-tiled-view.wpzoom-grid-cols-5 .wpzoom-item { width: calc(20% - 30px) !important; }
+
+/* ── Dark mode overrides ────────────────────────────────────────── */
+.wpzoom-dark-mode .wpzoom-tab-count {
+    background: #444;
+    color: #ccc;
+}
+.wpzoom-dark-mode .elementor-template-library-menu-item.elementor-active .wpzoom-tab-count {
+    background: #292929;
+    color: #fff;
+}
+.wpzoom-dark-mode .wpzoom-grid-btn:hover {
+    background: #3a3a3a;
+    color: #eee;
+}
+
+/* ── Search input ───────────────────────────────────────────────── */
+.wpzoom-toolbar-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 8px;
+    height: 32px;
+    flex-shrink: 0;
+}
+.wpzoom-toolbar-search .eicon-search {
+    color: #aaa;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+#wpzoom-elementor-template-library-filter-text {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    width: 160px;
+    color: #333;
+    line-height: 1;
+    padding: 0;
+}
+#wpzoom-elementor-template-library-filter-text::placeholder {
+    color: #bbb;
+}
+.wpzoom-search-clear {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #aaa;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.wpzoom-search-clear:hover {
+    color: #555;
+}
+
+/* Dark mode search */
+.wpzoom-dark-mode .wpzoom-toolbar-search {
+    background: #2b2b2b;
+    border-color: #444;
+}
+.wpzoom-dark-mode #wpzoom-elementor-template-library-filter-text {
+    color: #ddd;
+}
+.wpzoom-dark-mode .wpzoom-toolbar-search .eicon-search,
+.wpzoom-dark-mode .wpzoom-search-clear {
+    color: #777;
+}
+.wpzoom-dark-mode .wpzoom-search-clear:hover {
+    color: #ccc;
+}

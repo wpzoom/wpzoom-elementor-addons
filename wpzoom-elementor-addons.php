@@ -171,10 +171,41 @@ final class WPZOOM_Elementor_Addons {
 		wp_enqueue_script( 'select2', WPZOOM_EL_ADDONS_URL . 'assets/vendors/select2/select2.full.min.js', array( 'jquery' ), WPZOOM_EL_ADDONS_VER, true );
 		wp_enqueue_script( 'wpzoom-elementor-addons', WPZOOM_EL_ADDONS_URL . 'assets/js/wpzoom-elementor-addons.js', array( 'jquery', 'wp-util', 'select2' ), WPZOOM_EL_ADDONS_VER, true );
 		
+		// Count pages (templates), excluding separator entries
+		$pages_count = 0;
+		$templates_json = WPZOOM_EL_ADDONS_PATH . 'includes/data/templates/json/info.json';
+		if ( file_exists( $templates_json ) ) {
+			$data = json_decode( file_get_contents( $templates_json ), true );
+			if ( is_array( $data ) ) {
+				$pages_count = count( array_filter( $data, function( $item ) {
+					return empty( $item['separator'] );
+				} ) );
+			}
+		}
+
+		// Count sections
+		$sections_count = 0;
+		$sections_json = WPZOOM_EL_ADDONS_PATH . 'includes/data/sections/json/info.json';
+		if ( file_exists( $sections_json ) ) {
+			$data = json_decode( file_get_contents( $sections_json ), true );
+			if ( is_array( $data ) ) { $sections_count = count( $data ); }
+		}
+
+		// Count wireframes
+		$wireframes_count = 0;
+		$wireframes_json = WPZOOM_EL_ADDONS_PATH . 'includes/data/wireframes/json/info.json';
+		if ( file_exists( $wireframes_json ) ) {
+			$data = json_decode( file_get_contents( $wireframes_json ), true );
+			if ( is_array( $data ) ) { $wireframes_count = count( $data ); }
+		}
+
 		// Localize script with admin URL for Pro plugin links
 		wp_localize_script( 'wpzoom-elementor-addons', 'wpzoom_admin_data', array(
-			'admin_url' => admin_url(),
-			'get_pro_url' => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/'
+			'admin_url'        => admin_url(),
+			'get_pro_url'      => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/',
+			'pages_count'      => $pages_count,
+			'sections_count'   => $sections_count,
+			'wireframes_count' => $wireframes_count,
 		) );
 	}
 
