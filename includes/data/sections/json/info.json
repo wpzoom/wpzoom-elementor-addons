@@ -1,7 +1,7 @@
 [
     {
         "id": "real-estate-features",
-        "name": "Real Estate Features",
+        "name": "Features #1",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "real-estate-features",
@@ -12,7 +12,7 @@
     },
     {
         "id": "real-estate-hero",
-        "name": "Real Estate Hero",
+        "name": "Hero #1",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "real-estate-hero",
@@ -23,7 +23,7 @@
     },
     {
         "id": "testimonials-gird-3-col",
-        "name": "Testimonials Grid 3 Columns",
+        "name": "Testimonials #1",
         "theme": "Inspiro Lite",
         "category": "testimonials",
         "thumbnail": "testimonials-gird-3-col",
@@ -34,7 +34,7 @@
     },
     {
         "id": "testimonials-single",
-        "name": "Testimonials Single",
+        "name": "Testimonials #2",
         "theme": "Inspiro Lite",
         "category": "testimonials",
         "thumbnail": "testimonials-single",
@@ -45,7 +45,7 @@
     },
     {
         "id": "energy-hero",
-        "name": "Energy Hero",
+        "name": "Hero #2",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "energy-hero",
@@ -56,7 +56,7 @@
     },
     {
         "id": "energy-about",
-        "name": "Energy About",
+        "name": "About #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "energy-about",
@@ -67,7 +67,7 @@
     },
     {
         "id": "inspiro-studio-believes",
-        "name": "Inspiro Studio Believes",
+        "name": "Our Believes #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "inspiro-studio-believes",
@@ -78,7 +78,7 @@
     },
     {
         "id": "inspiro-agency-services",
-        "name": "Inspiro Agency Services",
+        "name": "Features #2",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "inspiro-agency-services",
@@ -89,7 +89,7 @@
     },
     {
         "id": "inspiro-construction-hero",
-        "name": "Inspiro Construction Hero",
+        "name": "Hero #3",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "inspiro-construction-hero",
@@ -100,7 +100,7 @@
     },
     {
         "id": "inspiro-construction-about",
-        "name": "Inspiro Construction About",
+        "name": "About #2",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "inspiro-construction-about",
@@ -111,7 +111,7 @@
     },
     {
         "id": "inspiro-construction-stats",
-        "name": "Inspiro Construction Stats",
+        "name": "Stats #1",
         "theme": "Inspiro Lite",
         "category": "stats",
         "thumbnail": "inspiro-construction-stats",
@@ -122,7 +122,7 @@
     },
     {
         "id": "inspiro-construction-cta",
-        "name": "Inspiro Construction CTA",
+        "name": "CTA #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "inspiro-construction-cta",
@@ -133,7 +133,7 @@
     },
     {
         "id": "inspiro-premium-about-restaurant",
-        "name": "Intro Centered",
+        "name": "About #3",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "intro-center",
@@ -141,7 +141,7 @@
     },
     {
         "id": "inspiro-lite-hero",
-        "name": "Hero",
+        "name": "Hero #4",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "hero",
@@ -149,7 +149,7 @@
     },
     {
         "id": "inspiro-lite-about-agency",
-        "name": "Intro with Button",
+        "name": "About #4",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about-agency",
@@ -157,7 +157,7 @@
     },
     {
         "id": "inspiro-lite-about",
-        "name": "About",
+        "name": "About #5",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about2",
@@ -165,7 +165,7 @@
     },
     {
         "id": "inspiro-lite-services",
-        "name": "Our Services",
+        "name": "Features #3",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "services2",
@@ -173,7 +173,7 @@
     },
     {
         "id": "inspiro-lite-team",
-        "name": "Our Team",
+        "name": "Team #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "team",
@@ -181,7 +181,7 @@
     },
     {
         "id": "inspiro-lite-why-us",
-        "name": "Why Us?",
+        "name": "Features #4",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "why-us",
@@ -189,7 +189,7 @@
     },
     {
         "id": "inspiro-lite-blog",
-        "name": "Blog",
+        "name": "Posts #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "blog",
@@ -197,7 +197,7 @@
     },
     {
         "id": "inspiro-lite-expertise",
-        "name": "Expertise",
+        "name": "Features #5",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "expertise",
@@ -205,7 +205,7 @@
     },
     {
         "id": "inspiro-lite-address",
-        "name": "Our Address",
+        "name": "Contact #1",
         "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "address2",
@@ -213,7 +213,7 @@
     },
     {
         "id": "inspiro-lite-contact",
-        "name": "Contact with Map",
+        "name": "Contact #2",
         "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "contact",
@@ -221,7 +221,7 @@
     },
     {
         "id": "eccentric-about",
-        "name": "About (Dark)",
+        "name": "About #6",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "eccentric-about",
@@ -229,7 +229,7 @@
     },
     {
         "id": "eccentric-portfolio-gallery-showcase",
-        "name": "Portfolio Gallery Showcase",
+        "name": "Portfolio #1",
         "theme": "Inspiro Lite",
         "category": "portfolio",
         "thumbnail": "portfolio-gallery-showcase",
@@ -237,7 +237,7 @@
     },
     {
         "id": "eccentric-price-plans",
-        "name": "Pricing Plans (Dark)",
+        "name": "Pricing #1",
         "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing-dark",
@@ -245,7 +245,7 @@
     },
     {
         "id": "eccentric-our-story",
-        "name": "Our Story",
+        "name": "Our Story #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "our-story",
@@ -253,7 +253,7 @@
     },
     {
         "id": "inspiro-premium-pricing",
-        "name": "Pricing",
+        "name": "Pricing #2",
         "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing",
@@ -261,7 +261,7 @@
     },
     {
         "id": "inspiro-premium-about",
-        "name": "About",
+        "name": "About #7",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about",
@@ -269,7 +269,7 @@
     },
     {
         "id": "inspiro-premium-banner",
-        "name": "Section with Video Lightbox",
+        "name": "Hero #5",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner",
@@ -277,7 +277,7 @@
     },
     {
         "id": "inspiro-premium-services",
-        "name": "Our Services",
+        "name": "Features #6",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "services",
@@ -285,7 +285,7 @@
     },
     {
         "id": "inspiro-premium-portfolio-showcase",
-        "name": "Portfolio Showcase",
+        "name": "Portfolio #2",
         "theme": "Inspiro Lite",
         "category": "portfolio",
         "thumbnail": "portfolio-showcase",
@@ -293,7 +293,7 @@
     },
     {
         "id": "inspiro-premium-our-specials",
-        "name": "Restaurant Menu",
+        "name": "Features #7",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "menu",
@@ -301,7 +301,7 @@
     },
     {
         "id": "inspiro-premium-banner-restaurant",
-        "name": "Hero Banner Restaurant",
+        "name": "Hero #6",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner-restaurant",
@@ -309,7 +309,7 @@
     },
     {
         "id": "inspiro-premium-banner-hotel",
-        "name": "Section with Button",
+        "name": "Hero #7",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner-button",
@@ -317,7 +317,7 @@
     },
     {
         "id": "inspiro-premium-address",
-        "name": "Address",
+        "name": "Contact #3",
         "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "address",
@@ -325,7 +325,7 @@
     },
     {
         "id": "inspiro-premium-tickets",
-        "name": "Pricing Plans v2",
+        "name": "Pricing #3",
         "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing-tickets",
@@ -333,7 +333,7 @@
     },
     {
         "id": "inspiro-premium-sponsors",
-        "name": "Sponsors",
+        "name": "Logos #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "sponsors",
@@ -341,7 +341,7 @@
     },
     {
         "id": "inspiro-premium-schedule",
-        "name": "Event Schedule",
+        "name": "Schedule #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "schedule",
@@ -349,7 +349,7 @@
     },
     {
         "id": "inspiro-premium-about-event",
-        "name": "About Event",
+        "name": "About #8",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about-event",
@@ -357,7 +357,7 @@
     },
     {
         "id": "inspiro-premium-speakers",
-        "name": "Event Speakers",
+        "name": "Team #2",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "speakers",
@@ -365,7 +365,7 @@
     },
     {
         "id": "inspiro-premium-section-with-button",
-        "name": "Section With Button",
+        "name": "Section #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "section-with-button",
@@ -373,7 +373,7 @@
     },
     {
         "id": "inspiro-premium-section-with-2-buttons",
-        "name": "Team (2 Members)",
+        "name": "Section #2",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "team-2",
@@ -381,7 +381,7 @@
     },
     {
         "id": "inspiro-premium-faq",
-        "name": "FAQ",
+        "name": "FAQ #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "faq",
@@ -389,7 +389,7 @@
     },
     {
         "id": "reel-video-hero",
-        "name": "Video Slideshow",
+        "name": "Hero #8",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "video-slide",
@@ -397,7 +397,7 @@
     },
     {
         "id": "reel-hero-banner",
-        "name": "Video Background Section",
+        "name": "Hero #9",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "hero-banner",
@@ -405,7 +405,7 @@
     },
     {
         "id": "cookbook-about-us",
-        "name": "Authors/Team",
+        "name": "About #9",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "authors",
@@ -413,7 +413,7 @@
     },
     {
         "id": "inspiro-testimonials",
-        "name": "Testimonials",
+        "name": "Testimonials #3",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "testimonials",
@@ -421,7 +421,7 @@
     },
     {
         "id": "construction-hero",
-        "name": "Construction Hero",
+        "name": "Hero #10",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "construction-hero",
@@ -432,7 +432,7 @@
     },
     {
         "id": "construction-stats",
-        "name": "Construction Stats",
+        "name": "Stats #2",
         "theme": "Inspiro Premium",
         "category": "stats",
         "thumbnail": "construction-stats",
@@ -443,7 +443,7 @@
     },
     {
         "id": "construction-testimonial",
-        "name": "Construction Testimonials",
+        "name": "Testimonials #4",
         "theme": "Inspiro Premium",
         "category": "testimonials",
         "thumbnail": "construction-testimonial",
@@ -454,7 +454,7 @@
     },
     {
         "id": "construction-cta",
-        "name": "Construction CTA",
+        "name": "CTA #2",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "construction-cta",
@@ -465,7 +465,7 @@
     },
     {
         "id": "construction-features-grid",
-        "name": "Construction Features Grid",
+        "name": "Features #8",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "construction-features-grid",
@@ -476,7 +476,7 @@
     },
     {
         "id": "construction-features-list",
-        "name": "Construction Features List",
+        "name": "Features #9",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "construction-features-list",
@@ -487,7 +487,7 @@
     },
     {
         "id": "pricing-two-columns",
-        "name": "Pricing Two Columns",
+        "name": "Pricing #4",
         "theme": "Inspiro Premium",
         "category": "pricing",
         "thumbnail": "pricing-two-columns",
@@ -498,7 +498,7 @@
     },
     {
         "id": "pricing-with-image",
-        "name": "Pricing with Image",
+        "name": "Pricing #5",
         "theme": "Inspiro Premium",
         "category": "pricing",
         "thumbnail": "pricing-with-image",
@@ -509,7 +509,7 @@
     },
     {
         "id": "real-estate-about-us",
-        "name": "Real Estate About Us",
+        "name": "About #10",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "real-estate-about-us",
@@ -520,7 +520,7 @@
     },
     {
         "id": "real-estate-cta",
-        "name": "Real Estate CTA",
+        "name": "CTA #3",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "real-estate-cta",
@@ -531,7 +531,7 @@
     },
     {
         "id": "real-estate-feature",
-        "name": "Real Estate Feature",
+        "name": "Features #10",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "real-estate-feature",
@@ -542,7 +542,7 @@
     },
     {
         "id": "real-estate-hero-2",
-        "name": "Real Estate Hero 2",
+        "name": "Hero #11",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "real-estate-hero-2",
@@ -553,7 +553,7 @@
     },
     {
         "id": "real-estate-stats",
-        "name": "Real Estate Stats",
+        "name": "Stats #3",
         "theme": "Inspiro Premium",
         "category": "stats",
         "thumbnail": "real-estate-stats",
@@ -564,7 +564,7 @@
     },
     {
         "id": "saas-hero",
-        "name": "SaaS Hero",
+        "name": "Hero #12",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "saas-hero",
@@ -575,7 +575,7 @@
     },
     {
         "id": "saas-features",
-        "name": "SaaS Features",
+        "name": "Features #11",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "saas-features",
@@ -586,7 +586,7 @@
     },
     {
         "id": "saas-services",
-        "name": "SaaS Services",
+        "name": "Features #12",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "saas-services",
@@ -597,7 +597,7 @@
     },
     {
         "id": "testimonials-3-col",
-        "name": "Testimonials 3 Columns",
+        "name": "Testimonials #5",
         "theme": "Inspiro Premium",
         "category": "testimonials",
         "thumbnail": "testimonials-3-col",
@@ -608,7 +608,7 @@
     },
     {
         "id": "testimonials-single-with-shadow",
-        "name": "Testimonials Single with Shadow",
+        "name": "Testimonials #6",
         "theme": "Inspiro Premium",
         "category": "testimonials",
         "thumbnail": "testimonials-single-with-shadow",
@@ -619,7 +619,7 @@
     },
     {
         "id": "energy-benefits",
-        "name": "Energy Benefits",
+        "name": "Features #13",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "energy-benefits",
@@ -630,7 +630,7 @@
     },
     {
         "id": "energy-cta",
-        "name": "Energy CTA",
+        "name": "CTA #4",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "energy-cta",
@@ -641,7 +641,7 @@
     },
     {
         "id": "energy-news",
-        "name": "Energy News",
+        "name": "Posts #2",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "energy-news",
@@ -652,7 +652,7 @@
     },
     {
         "id": "energy-solutions",
-        "name": "Energy Solutions",
+        "name": "Features #14",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "energy-solutions",
@@ -663,7 +663,7 @@
     },
     {
         "id": "energy-stats",
-        "name": "Energy Stats",
+        "name": "Stats #4",
         "theme": "Inspiro Premium",
         "category": "stats",
         "thumbnail": "energy-stats",
@@ -674,7 +674,7 @@
     },
     {
         "id": "logistics-hero",
-        "name": "Logistics Hero",
+        "name": "Hero #13",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "logistics-hero",
@@ -685,7 +685,7 @@
     },
     {
         "id": "inspiro-business-hero",
-        "name": "Inspiro Business Hero",
+        "name": "Hero #14",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "inspiro-business-hero",
@@ -696,7 +696,7 @@
     },
     {
         "id": "inspiro-business-services",
-        "name": "Inspiro Business Services",
+        "name": "Features #15",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-business-services",
@@ -707,7 +707,7 @@
     },
     {
         "id": "inspiro-studio-hero",
-        "name": "Inspiro Studio Hero",
+        "name": "Hero #15",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "inspiro-studio-hero",
@@ -718,7 +718,7 @@
     },
     {
         "id": "inspiro-studio-about",
-        "name": "Inspiro Studio About",
+        "name": "About #11",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-studio-about",
@@ -729,7 +729,7 @@
     },
     {
         "id": "inspiro-studio-services",
-        "name": "Inspiro Studio Services",
+        "name": "Features #16",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-studio-services",
@@ -740,7 +740,7 @@
     },
     {
         "id": "inspiro-studio-awards",
-        "name": "Inspiro Studio Awards",
+        "name": "Awards #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-studio-awards",
@@ -751,7 +751,7 @@
     },
     {
         "id": "inspiro-studio-process",
-        "name": "Inspiro Studio Process",
+        "name": "Process #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-studio-process",
@@ -762,7 +762,7 @@
     },
     {
         "id": "inspiro-studio-news",
-        "name": "Inspiro Studio News",
+        "name": "Posts #3",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-studio-news",
@@ -773,7 +773,7 @@
     },
     {
         "id": "logistics-about",
-        "name": "Logistics About",
+        "name": "About #12",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "logistics-about",
@@ -784,7 +784,7 @@
     },
     {
         "id": "logistics-cta",
-        "name": "Logistics CTA",
+        "name": "CTA #5",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "logistics-cta",
@@ -795,7 +795,7 @@
     },
     {
         "id": "logistics-features",
-        "name": "Logistics Features",
+        "name": "Features #17",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "logistics-features",
@@ -806,7 +806,7 @@
     },
     {
         "id": "logistics-logos",
-        "name": "Logistics Logos",
+        "name": "Logos #2",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "logistics-logos",
@@ -817,7 +817,7 @@
     },
     {
         "id": "inspiro-moving-hero",
-        "name": "Inspiro Moving Hero",
+        "name": "Hero #16",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "inspiro-moving-hero",
@@ -828,7 +828,7 @@
     },
     {
         "id": "inspiro-moving-services",
-        "name": "Inspiro Moving Services",
+        "name": "Features #18",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-moving-services",
@@ -839,7 +839,7 @@
     },
     {
         "id": "inspiro-moving-stats",
-        "name": "Inspiro Moving Stats",
+        "name": "Stats #5",
         "theme": "Inspiro Premium",
         "category": "stats",
         "thumbnail": "inspiro-moving-stats",
@@ -850,7 +850,7 @@
     },
     {
         "id": "inspiro-moving-about",
-        "name": "Inspiro Moving About",
+        "name": "About #13",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-moving-about",
@@ -861,7 +861,7 @@
     },
     {
         "id": "inspiro-moving-advices",
-        "name": "Inspiro Moving Advices",
+        "name": "Advices #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-moving-advices",
@@ -872,7 +872,7 @@
     },
     {
         "id": "inspiro-moving-cta",
-        "name": "Inspiro Moving CTA",
+        "name": "CTA #6",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-moving-cta",
@@ -883,7 +883,7 @@
     },
     {
         "id": "inspiro-moving-contact",
-        "name": "Inspiro Moving Contact",
+        "name": "Contact #4",
         "theme": "Inspiro Premium",
         "category": "contact",
         "thumbnail": "inspiro-moving-contact",
@@ -894,7 +894,7 @@
     },
     {
         "id": "inspiro-podcast-hero",
-        "name": "Inspiro Podcast Hero",
+        "name": "Hero #17",
         "theme": "Inspiro Premium",
         "category": "hero",
         "thumbnail": "inspiro-podcast-hero",
@@ -905,7 +905,7 @@
     },
     {
         "id": "inspiro-podcast-about",
-        "name": "Inspiro Podcast About",
+        "name": "About #14",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-podcast-about",
@@ -916,7 +916,7 @@
     },
     {
         "id": "inspiro-podcast-topics",
-        "name": "Inspiro Podcast Topics",
+        "name": "Topics #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-podcast-topics",
@@ -927,7 +927,7 @@
     },
     {
         "id": "inspiro-podcast-testimonials",
-        "name": "Inspiro Podcast Testimonials",
+        "name": "Testimonials #7",
         "theme": "Inspiro Premium",
         "category": "testimonials",
         "thumbnail": "inspiro-podcast-testimonials",
@@ -938,7 +938,7 @@
     },
     {
         "id": "inspiro-construction-services",
-        "name": "Inspiro Construction Services",
+        "name": "Features #19",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-construction-services",
@@ -949,7 +949,7 @@
     },
     {
         "id": "inspiro-construction-projects",
-        "name": "Inspiro Construction Projects",
+        "name": "Portfolio #3",
         "theme": "Inspiro Premium",
         "category": "portfolio",
         "thumbnail": "inspiro-construction-projects",
@@ -960,7 +960,7 @@
     },
     {
         "id": "inspiro-construction-sustainability",
-        "name": "Inspiro Construction Sustainability",
+        "name": "Features #20",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-construction-sustainability",
@@ -971,7 +971,7 @@
     },
     {
         "id": "inspiro-construction-contact",
-        "name": "Inspiro Construction Contact",
+        "name": "Contact #5",
         "theme": "Inspiro Premium",
         "category": "contact",
         "thumbnail": "inspiro-construction-contact",
@@ -982,7 +982,7 @@
     },
     {
         "id": "inspiro-furniture-benefits",
-        "name": "Inspiro Furniture Benefits",
+        "name": "Features #21",
         "theme": "Inspiro Premium",
         "category": "features",
         "thumbnail": "inspiro-furniture-benefits",
@@ -993,7 +993,7 @@
     },
     {
         "id": "inspiro-furniture-contact",
-        "name": "Inspiro Furniture Contact",
+        "name": "Contact #6",
         "theme": "Inspiro Premium",
         "category": "contact",
         "thumbnail": "inspiro-furniture-contact",
@@ -1004,7 +1004,7 @@
     },
     {
         "id": "inspiro-furniture-testimonial",
-        "name": "Inspiro Furniture Testimonial",
+        "name": "Testimonials #8",
         "theme": "Inspiro Premium",
         "category": "testimonials",
         "thumbnail": "inspiro-furniture-testimonial",
@@ -1015,7 +1015,7 @@
     },
     {
         "id": "inspiro-real-estate-about",
-        "name": "Inspiro Real Estate About",
+        "name": "About #15",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-real-estate-about",
@@ -1026,7 +1026,7 @@
     },
     {
         "id": "inspiro-real-estate-categories",
-        "name": "Inspiro Real Estate Categories",
+        "name": "Categories #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-real-estate-categories",
@@ -1037,7 +1037,7 @@
     },
     {
         "id": "inspiro-real-estate-one-lisiting",
-        "name": "Inspiro Real Estate One Listing",
+        "name": "Listing #1",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-real-estate-one-lisiting",
@@ -1048,7 +1048,7 @@
     },
     {
         "id": "inspiro-real-estate-posts",
-        "name": "Inspiro Real Estate Posts",
+        "name": "Posts #4",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-real-estate-posts",
@@ -1059,7 +1059,7 @@
     },
     {
         "id": "inspiro-real-estate-teams",
-        "name": "Inspiro Real Estate Teams",
+        "name": "Team #3",
         "theme": "Inspiro Premium",
         "category": "general",
         "thumbnail": "inspiro-real-estate-teams",
