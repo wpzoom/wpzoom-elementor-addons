@@ -1,5 +1,137 @@
 [
     {
+        "id": "real-estate-features",
+        "name": "Real Estate Features",
+        "theme": "Inspiro Lite",
+        "category": "features",
+        "thumbnail": "real-estate-features",
+        "filename": "real-estate-features.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-hero",
+        "name": "Real Estate Hero",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "real-estate-hero",
+        "filename": "real-estate-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-gird-3-col",
+        "name": "Testimonials Grid 3 Columns",
+        "theme": "Inspiro Lite",
+        "category": "testimonials",
+        "thumbnail": "testimonials-gird-3-col",
+        "filename": "testimonials-gird-3-col.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-single",
+        "name": "Testimonials Single",
+        "theme": "Inspiro Lite",
+        "category": "testimonials",
+        "thumbnail": "testimonials-single",
+        "filename": "testimonials-single.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-hero",
+        "name": "Energy Hero",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "energy-hero",
+        "filename": "energy-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-about",
+        "name": "Energy About",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "energy-about",
+        "filename": "energy-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-believes",
+        "name": "Inspiro Studio Believes",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-studio-believes",
+        "filename": "inspiro-studio-believes.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-agency-services",
+        "name": "Inspiro Agency Services",
+        "theme": "Inspiro Lite",
+        "category": "features",
+        "thumbnail": "inspiro-agency-services",
+        "filename": "inspiro-agency-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-hero",
+        "name": "Inspiro Construction Hero",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "inspiro-construction-hero",
+        "filename": "inspiro-construction-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-about",
+        "name": "Inspiro Construction About",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-construction-about",
+        "filename": "inspiro-construction-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-stats",
+        "name": "Inspiro Construction Stats",
+        "theme": "Inspiro Lite",
+        "category": "stats",
+        "thumbnail": "inspiro-construction-stats",
+        "filename": "inspiro-construction-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-cta",
+        "name": "Inspiro Construction CTA",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-construction-cta",
+        "filename": "inspiro-construction-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
         "id": "inspiro-premium-about-restaurant",
         "name": "Intro Centered",
         "theme": "Inspiro Lite",
@@ -294,7 +426,9 @@
         "category": "hero",
         "thumbnail": "construction-hero",
         "filename": "construction-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "construction-stats",
@@ -303,7 +437,9 @@
         "category": "stats",
         "thumbnail": "construction-stats",
         "filename": "construction-stats.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "construction-testimonial",
@@ -312,7 +448,9 @@
         "category": "testimonials",
         "thumbnail": "construction-testimonial",
         "filename": "construction-testimonial.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "construction-cta",
@@ -321,7 +459,9 @@
         "category": "general",
         "thumbnail": "construction-cta",
         "filename": "construction-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "construction-features-grid",
@@ -330,7 +470,9 @@
         "category": "features",
         "thumbnail": "construction-features-grid",
         "filename": "construction-features-grid.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "construction-features-list",
@@ -339,7 +481,9 @@
         "category": "features",
         "thumbnail": "construction-features-list",
         "filename": "construction-features-list.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "pricing-two-columns",
@@ -348,7 +492,9 @@
         "category": "pricing",
         "thumbnail": "pricing-two-columns",
         "filename": "pricing-two-columns.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "pricing-with-image",
@@ -357,7 +503,9 @@
         "category": "pricing",
         "thumbnail": "pricing-with-image",
         "filename": "pricing-with-image.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "real-estate-about-us",
@@ -366,7 +514,9 @@
         "category": "general",
         "thumbnail": "real-estate-about-us",
         "filename": "real-estate-about-us.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "real-estate-cta",
@@ -375,7 +525,9 @@
         "category": "general",
         "thumbnail": "real-estate-cta",
         "filename": "real-estate-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "real-estate-feature",
@@ -384,25 +536,9 @@
         "category": "features",
         "thumbnail": "real-estate-feature",
         "filename": "real-estate-feature.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "real-estate-features",
-        "name": "Real Estate Features",
-        "theme": "Inspiro Lite",
-        "category": "features",
-        "thumbnail": "real-estate-features",
-        "filename": "real-estate-features.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "real-estate-hero",
-        "name": "Real Estate Hero",
-        "theme": "Inspiro Lite",
-        "category": "hero",
-        "thumbnail": "real-estate-hero",
-        "filename": "real-estate-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "real-estate-hero-2",
@@ -411,7 +547,9 @@
         "category": "hero",
         "thumbnail": "real-estate-hero-2",
         "filename": "real-estate-hero-2.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "real-estate-stats",
@@ -420,7 +558,9 @@
         "category": "stats",
         "thumbnail": "real-estate-stats",
         "filename": "real-estate-stats.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "saas-hero",
@@ -429,7 +569,9 @@
         "category": "hero",
         "thumbnail": "saas-hero",
         "filename": "saas-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "saas-features",
@@ -438,7 +580,9 @@
         "category": "features",
         "thumbnail": "saas-features",
         "filename": "saas-features.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "saas-services",
@@ -447,7 +591,9 @@
         "category": "features",
         "thumbnail": "saas-services",
         "filename": "saas-services.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "testimonials-3-col",
@@ -456,25 +602,9 @@
         "category": "testimonials",
         "thumbnail": "testimonials-3-col",
         "filename": "testimonials-3-col.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "testimonials-gird-3-col",
-        "name": "Testimonials Grid 3 Columns",
-        "theme": "Inspiro Lite",
-        "category": "testimonials",
-        "thumbnail": "testimonials-gird-3-col",
-        "filename": "testimonials-gird-3-col.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "testimonials-single",
-        "name": "Testimonials Single",
-        "theme": "Inspiro Lite",
-        "category": "testimonials",
-        "thumbnail": "testimonials-single",
-        "filename": "testimonials-single.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "testimonials-single-with-shadow",
@@ -483,25 +613,9 @@
         "category": "testimonials",
         "thumbnail": "testimonials-single-with-shadow",
         "filename": "testimonials-single-with-shadow.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "energy-hero",
-        "name": "Energy Hero",
-        "theme": "Inspiro Lite",
-        "category": "hero",
-        "thumbnail": "energy-hero",
-        "filename": "energy-hero.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "energy-about",
-        "name": "Energy About",
-        "theme": "Inspiro Lite",
-        "category": "general",
-        "thumbnail": "energy-about",
-        "filename": "energy-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "energy-benefits",
@@ -510,7 +624,9 @@
         "category": "features",
         "thumbnail": "energy-benefits",
         "filename": "energy-benefits.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "energy-cta",
@@ -519,7 +635,9 @@
         "category": "general",
         "thumbnail": "energy-cta",
         "filename": "energy-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "energy-news",
@@ -528,7 +646,9 @@
         "category": "general",
         "thumbnail": "energy-news",
         "filename": "energy-news.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "energy-solutions",
@@ -537,7 +657,9 @@
         "category": "features",
         "thumbnail": "energy-solutions",
         "filename": "energy-solutions.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "energy-stats",
@@ -546,7 +668,9 @@
         "category": "stats",
         "thumbnail": "energy-stats",
         "filename": "energy-stats.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "logistics-hero",
@@ -555,7 +679,9 @@
         "category": "hero",
         "thumbnail": "logistics-hero",
         "filename": "logistics-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-business-hero",
@@ -564,7 +690,9 @@
         "category": "hero",
         "thumbnail": "inspiro-business-hero",
         "filename": "inspiro-business-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-business-services",
@@ -573,7 +701,9 @@
         "category": "features",
         "thumbnail": "inspiro-business-services",
         "filename": "inspiro-business-services.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-hero",
@@ -582,7 +712,9 @@
         "category": "hero",
         "thumbnail": "inspiro-studio-hero",
         "filename": "inspiro-studio-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-about",
@@ -591,7 +723,9 @@
         "category": "general",
         "thumbnail": "inspiro-studio-about",
         "filename": "inspiro-studio-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-services",
@@ -600,16 +734,9 @@
         "category": "features",
         "thumbnail": "inspiro-studio-services",
         "filename": "inspiro-studio-services.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-studio-believes",
-        "name": "Inspiro Studio Believes",
-        "theme": "Inspiro Lite",
-        "category": "general",
-        "thumbnail": "inspiro-studio-believes",
-        "filename": "inspiro-studio-believes.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-awards",
@@ -618,7 +745,9 @@
         "category": "general",
         "thumbnail": "inspiro-studio-awards",
         "filename": "inspiro-studio-awards.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-process",
@@ -627,7 +756,9 @@
         "category": "general",
         "thumbnail": "inspiro-studio-process",
         "filename": "inspiro-studio-process.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-studio-news",
@@ -636,7 +767,9 @@
         "category": "general",
         "thumbnail": "inspiro-studio-news",
         "filename": "inspiro-studio-news.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "logistics-about",
@@ -645,7 +778,9 @@
         "category": "general",
         "thumbnail": "logistics-about",
         "filename": "logistics-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "logistics-cta",
@@ -654,7 +789,9 @@
         "category": "general",
         "thumbnail": "logistics-cta",
         "filename": "logistics-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "logistics-features",
@@ -663,7 +800,9 @@
         "category": "features",
         "thumbnail": "logistics-features",
         "filename": "logistics-features.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "logistics-logos",
@@ -672,16 +811,9 @@
         "category": "general",
         "thumbnail": "logistics-logos",
         "filename": "logistics-logos.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-agency-services",
-        "name": "Inspiro Agency Services",
-        "theme": "Inspiro Lite",
-        "category": "features",
-        "thumbnail": "inspiro-agency-services",
-        "filename": "inspiro-agency-services.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-hero",
@@ -690,7 +822,9 @@
         "category": "hero",
         "thumbnail": "inspiro-moving-hero",
         "filename": "inspiro-moving-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-services",
@@ -699,7 +833,9 @@
         "category": "features",
         "thumbnail": "inspiro-moving-services",
         "filename": "inspiro-moving-services.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-stats",
@@ -708,7 +844,9 @@
         "category": "stats",
         "thumbnail": "inspiro-moving-stats",
         "filename": "inspiro-moving-stats.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-about",
@@ -717,7 +855,9 @@
         "category": "general",
         "thumbnail": "inspiro-moving-about",
         "filename": "inspiro-moving-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-advices",
@@ -726,7 +866,9 @@
         "category": "general",
         "thumbnail": "inspiro-moving-advices",
         "filename": "inspiro-moving-advices.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-cta",
@@ -735,7 +877,9 @@
         "category": "general",
         "thumbnail": "inspiro-moving-cta",
         "filename": "inspiro-moving-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-moving-contact",
@@ -744,7 +888,9 @@
         "category": "contact",
         "thumbnail": "inspiro-moving-contact",
         "filename": "inspiro-moving-contact.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-podcast-hero",
@@ -753,7 +899,9 @@
         "category": "hero",
         "thumbnail": "inspiro-podcast-hero",
         "filename": "inspiro-podcast-hero.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-podcast-about",
@@ -762,7 +910,9 @@
         "category": "general",
         "thumbnail": "inspiro-podcast-about",
         "filename": "inspiro-podcast-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-podcast-topics",
@@ -771,7 +921,9 @@
         "category": "general",
         "thumbnail": "inspiro-podcast-topics",
         "filename": "inspiro-podcast-topics.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-podcast-testimonials",
@@ -780,25 +932,9 @@
         "category": "testimonials",
         "thumbnail": "inspiro-podcast-testimonials",
         "filename": "inspiro-podcast-testimonials.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-construction-hero",
-        "name": "Inspiro Construction Hero",
-        "theme": "Inspiro Lite",
-        "category": "hero",
-        "thumbnail": "inspiro-construction-hero",
-        "filename": "inspiro-construction-hero.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-construction-about",
-        "name": "Inspiro Construction About",
-        "theme": "Inspiro Lite",
-        "category": "general",
-        "thumbnail": "inspiro-construction-about",
-        "filename": "inspiro-construction-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-construction-services",
@@ -807,16 +943,9 @@
         "category": "features",
         "thumbnail": "inspiro-construction-services",
         "filename": "inspiro-construction-services.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-construction-stats",
-        "name": "Inspiro Construction Stats",
-        "theme": "Inspiro Lite",
-        "category": "stats",
-        "thumbnail": "inspiro-construction-stats",
-        "filename": "inspiro-construction-stats.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-construction-projects",
@@ -825,7 +954,9 @@
         "category": "portfolio",
         "thumbnail": "inspiro-construction-projects",
         "filename": "inspiro-construction-projects.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-construction-sustainability",
@@ -834,16 +965,9 @@
         "category": "features",
         "thumbnail": "inspiro-construction-sustainability",
         "filename": "inspiro-construction-sustainability.json",
-        "badges": ["new"]
-    },
-    {
-        "id": "inspiro-construction-cta",
-        "name": "Inspiro Construction CTA",
-        "theme": "Inspiro Lite",
-        "category": "general",
-        "thumbnail": "inspiro-construction-cta",
-        "filename": "inspiro-construction-cta.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-construction-contact",
@@ -852,7 +976,9 @@
         "category": "contact",
         "thumbnail": "inspiro-construction-contact",
         "filename": "inspiro-construction-contact.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-furniture-benefits",
@@ -861,7 +987,9 @@
         "category": "features",
         "thumbnail": "inspiro-furniture-benefits",
         "filename": "inspiro-furniture-benefits.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-furniture-contact",
@@ -870,7 +998,9 @@
         "category": "contact",
         "thumbnail": "inspiro-furniture-contact",
         "filename": "inspiro-furniture-contact.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-furniture-testimonial",
@@ -879,7 +1009,9 @@
         "category": "testimonials",
         "thumbnail": "inspiro-furniture-testimonial",
         "filename": "inspiro-furniture-testimonial.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-real-estate-about",
@@ -888,7 +1020,9 @@
         "category": "general",
         "thumbnail": "inspiro-real-estate-about",
         "filename": "inspiro-real-estate-about.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-real-estate-categories",
@@ -897,7 +1031,9 @@
         "category": "general",
         "thumbnail": "inspiro-real-estate-categories",
         "filename": "inspiro-real-estate-categories.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-real-estate-one-lisiting",
@@ -906,7 +1042,9 @@
         "category": "general",
         "thumbnail": "inspiro-real-estate-one-lisiting",
         "filename": "inspiro-real-estate-one-lisiting.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-real-estate-posts",
@@ -915,7 +1053,9 @@
         "category": "general",
         "thumbnail": "inspiro-real-estate-posts",
         "filename": "inspiro-real-estate-posts.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     },
     {
         "id": "inspiro-real-estate-teams",
@@ -924,6 +1064,8 @@
         "category": "general",
         "thumbnail": "inspiro-real-estate-teams",
         "filename": "inspiro-real-estate-teams.json",
-        "badges": ["new"]
+        "badges": [
+            "new"
+        ]
     }
 ]
