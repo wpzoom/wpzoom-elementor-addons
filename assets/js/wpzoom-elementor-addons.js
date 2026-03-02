@@ -2,6 +2,7 @@ const windowWPZ = window.wpzoom = window.wpzoom || {};
 var WPZCached = null; // legacy cache (templates)
 var WPZCachedTemplates = null;
 var WPZCachedSections = null;
+var WPZCachedWireframes = null;
 
 (function( $ ) {
 
@@ -50,9 +51,40 @@ var WPZCachedSections = null;
 							allowClear: true,
 							width: 180
 						});
+						wpzoom_update_filter_visibility();
 					}
 				} catch (e) {
 					console.error('Error loading section categories:', e);
+				}
+			});
+		}
+
+		/* Load wireframe categories from server and populate dropdown */
+		function wpzoom_load_wireframe_categories() {
+			$.post(ajaxurl, { action: 'get_wireframes_filter_options' }, function (data) {
+				try {
+					var categories = JSON.parse(data);
+					var $categorySelect = $('#wpzoom-elementor-template-library-filter-wireframe-category');
+
+					$categorySelect.find('option:not(:first)').remove();
+
+					if (categories && categories.length > 0) {
+						categories.forEach(function (category) {
+							var categoryLabel = category.replace(/-/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); });
+							$categorySelect.append('<option value="' + category + '">' + categoryLabel + '</option>');
+						});
+					}
+
+					if ($categorySelect.hasClass('select2-hidden-accessible')) {
+						$categorySelect.select2('destroy').select2({
+							placeholder: 'Category',
+							allowClear: true,
+							width: 180
+						});
+						wpzoom_update_filter_visibility();
+					}
+				} catch (e) {
+					console.error('Error loading wireframe categories:', e);
 				}
 			});
 		}
@@ -62,15 +94,27 @@ var WPZCachedSections = null;
 			var currentTab = windowWPZ.currentTab || 'templates';
 
 			if (currentTab === 'sections') {
-				// Sections tab: show category, hide theme
+				// Sections tab: show category, hide theme and wireframe category
 				$('#wpzoom-elementor-template-library-filter-theme').hide();
 				$('#wpzoom-elementor-template-library-filter-theme').next('.select2-container').hide();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').hide();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').next('.select2-container').hide();
 				$('#wpzoom-elementor-template-library-filter-category').show();
 				$('#wpzoom-elementor-template-library-filter-category').next('.select2-container').show();
-			} else {
-				// Templates tab: show theme, hide category
+			} else if (currentTab === 'wireframes') {
+				// Wireframes tab: show wireframe category, hide theme and sections category
+				$('#wpzoom-elementor-template-library-filter-theme').hide();
+				$('#wpzoom-elementor-template-library-filter-theme').next('.select2-container').hide();
 				$('#wpzoom-elementor-template-library-filter-category').hide();
 				$('#wpzoom-elementor-template-library-filter-category').next('.select2-container').hide();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').show();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').next('.select2-container').show();
+			} else {
+				// Templates tab: show theme, hide category and wireframe category
+				$('#wpzoom-elementor-template-library-filter-category').hide();
+				$('#wpzoom-elementor-template-library-filter-category').next('.select2-container').hide();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').hide();
+				$('#wpzoom-elementor-template-library-filter-wireframe-category').next('.select2-container').hide();
 				$('#wpzoom-elementor-template-library-filter-theme').show();
 				$('#wpzoom-elementor-template-library-filter-theme').next('.select2-container').show();
 			}
@@ -130,15 +174,23 @@ var WPZCachedSections = null;
 							// Ensure filters show Pages theme by default
 							$('#wpzoom-elementor-template-library-filter-theme').show();
 							$('#wpzoom-elementor-template-library-filter-category').hide();
-							// Also clear any previous filter values
-							$('#wpzoom-elementor-template-library-filter-theme').val('');
-							$('#wpzoom-elementor-template-library-filter-category').val('');
+							$('#wpzoom-elementor-template-library-filter-wireframe-category').hide();
+							// Also clear any previous filter values (trigger change so Select2 UI updates)
+							$('#wpzoom-elementor-template-library-filter-theme').val(null).trigger('change');
+							$('#wpzoom-elementor-template-library-filter-category').val(null).trigger('change');
+							$('#wpzoom-elementor-template-library-filter-wireframe-category').val(null).trigger('change');
+							$('#wpzoom-elementor-template-library-filter-text').val('');
+							$('.wpzoom-search-clear').hide();
 
-							// Immediately hide category select2 container if it already exists
+							// Immediately hide category select2 containers if they already exist
 							// This handles the case when modal is opened for the 2nd+ time
 							var $categoryContainer = $('#wpzoom-elementor-template-library-filter-category').next('.select2-container');
 							if ($categoryContainer.length) {
 								$categoryContainer.hide();
+							}
+							var $wireframeCategoryContainer = $('#wpzoom-elementor-template-library-filter-wireframe-category').next('.select2-container');
+							if ($wireframeCategoryContainer.length) {
+								$wireframeCategoryContainer.hide();
 							}
 							if (!$('#wpzoom-elementor-templates-header').length) {
 								content.append('<div id="wpzoom-elementor-templates-header" class="wrap"></div>');
@@ -181,17 +233,28 @@ var WPZCachedSections = null;
 								$btn.addClass('elementor-active').attr('aria-selected', 'true');
 
 								// Update current tab
-								windowWPZ.currentTab = $btn.data('tab') === 'sections' ? 'sections' : 'templates';
+								var tabData = $btn.data('tab');
+								windowWPZ.currentTab = tabData === 'sections' ? 'sections' : (tabData === 'wireframes' ? 'wireframes' : 'templates');
 
-								// Clear the other filter
+								// Clear filters not belonging to the active tab
 								if (windowWPZ.currentTab === 'sections') {
 									$('#wpzoom-elementor-template-library-filter-theme').val(null).trigger('change');
-							} else {
-								$('#wpzoom-elementor-template-library-filter-category').val(null).trigger('change');
-							}
+									$('#wpzoom-elementor-template-library-filter-wireframe-category').val(null).trigger('change');
+								} else if (windowWPZ.currentTab === 'wireframes') {
+									$('#wpzoom-elementor-template-library-filter-theme').val(null).trigger('change');
+									$('#wpzoom-elementor-template-library-filter-category').val(null).trigger('change');
+								} else {
+									$('#wpzoom-elementor-template-library-filter-category').val(null).trigger('change');
+									$('#wpzoom-elementor-template-library-filter-wireframe-category').val(null).trigger('change');
+								}
 
+								// Reset search on tab switch
+								$('#wpzoom-elementor-template-library-filter-text').val('');
+								$('.wpzoom-search-clear').hide();
 								// Update filter visibility using centralized function
 								wpzoom_update_filter_visibility();
+								// Update no-media toggle state for the new tab
+								wpzoom_update_media_toggle_for_tab(windowWPZ.currentTab);
 
 								// Load content for new tab
 								wpzoom_get_library_view(windowWPZ.currentTab);
@@ -218,71 +281,87 @@ var WPZCachedSections = null;
 								// This prevents race condition with setTimeout visibility update
 								$('#wpzoom-elementor-template-library-filter-category').next('.select2-container').hide();
 							}
+							if (!$('#wpzoom-elementor-template-library-filter-wireframe-category').hasClass('select2-hidden-accessible')) {
+								$('#wpzoom-elementor-template-library-filter-wireframe-category').select2({
+									placeholder: 'Category',
+									allowClear: true,
+									width: 180,
+								});
+								// Load wireframe categories from server
+								wpzoom_load_wireframe_categories();
+								// Immediately hide wireframe category filter since we always start on Templates tab
+								$('#wpzoom-elementor-template-library-filter-wireframe-category').next('.select2-container').hide();
+							}
 
 							// Bind filter change events (only once)
 							if (!windowWPZ.filtersInitialized) {
-								$('#wpzoom-elementor-template-library-filter-theme, #wpzoom-elementor-template-library-filter-category').on('change', function (e) {
-									var filters = {};
-
-									// Collect filters from selects whose select2 containers are visible
-									$('#elementor-template-library-filter select').each(function (index, select) {
-										var $select = $(select);
-										var $container = $select.next('.select2-container');
-
-										// Only collect filter if the select2 container is visible
-										if ($container.length && $container.is(':visible')) {
-											var value = String($select.val());
-											// Only add to filters if there's a value
-											if (value && value !== '' && value !== 'null') {
-												filters[$select.attr('name')] = value;
-											}
-										}
-									});
-
-									// Show/hide items based on filters
-									$('.wpzoom-item, h2.wpzoom-templates-library-template-category').each(function (i, item) {
-										var $item = $(item);
-										var show = true;
-
-										// If no filters, show everything
-										if (Object.keys(filters).length === 0) {
-											$item.show();
-											return;
-										}
-
-										$.each(filters, function (name, val) {
-											// Get item's data attribute value
-											var itemData = $item.data(name);
-
-											// If item doesn't have this attribute, hide it
-											if (typeof itemData === 'undefined' || itemData === null || itemData === '') {
-												show = false;
-												return false; // break out of loop
-											}
-
-											// Convert to string for comparison
-											itemData = String(itemData);
-											val = String(val);
-
-											// Check if value matches (indexOf for comma-separated values)
-											if (itemData.indexOf(val) === -1) {
-												show = false;
-												return false; // break out of loop
-											}
-										});
-
-										// Show or hide the item
-										if (show) {
-											$item.show();
-										} else {
-										$item.hide();
-									}
+								$('#wpzoom-elementor-template-library-filter-theme, #wpzoom-elementor-template-library-filter-category, #wpzoom-elementor-template-library-filter-wireframe-category').on('change', function () {
+									wpzoom_apply_all_filters();
 								});
-							});
+								$(document).on('input', '#wpzoom-elementor-template-library-filter-text', function () {
+									var val = $(this).val();
+									$('.wpzoom-search-clear').toggle(val.length > 0);
+									wpzoom_apply_all_filters();
+								});
+								$(document).on('click', '.wpzoom-search-clear', function () {
+									$('#wpzoom-elementor-template-library-filter-text').val('');
+									$(this).hide();
+									wpzoom_apply_all_filters();
+								});
 								windowWPZ.filtersInitialized = true;
 							}
 
-							// Set initial filter visibility after select2 is fully initialized
+							// Set tab counts immediately from PHP-provided data
+					if (typeof wpzoom_admin_data !== 'undefined') {
+						if (wpzoom_admin_data.pages_count) { $('[data-tab="templates"] .wpzoom-tab-count').text(wpzoom_admin_data.pages_count); }
+						if (wpzoom_admin_data.sections_count) { $('[data-tab="sections"] .wpzoom-tab-count').text(wpzoom_admin_data.sections_count); }
+						if (wpzoom_admin_data.wireframes_count) { $('[data-tab="wireframes"] .wpzoom-tab-count').text(wpzoom_admin_data.wireframes_count); }
+					}
+
+					// Initialize grid preference from localStorage
+					if (!windowWPZ.gridCols) {
+						var savedCols = 5;
+						try {
+							var stored = localStorage.getItem('wpzoom_library_grid_cols');
+							if (stored) {
+								var parsedCols = parseInt(stored);
+								if ([3, 4, 5].indexOf(parsedCols) !== -1) { savedCols = parsedCols; }
+							}
+						} catch(e) {}
+						windowWPZ.gridCols = savedCols;
+					}
+
+					// Bind grid size buttons (only once)
+					if (!windowWPZ.gridInitialized) {
+						$(document).on('click', '.wpzoom-grid-btn', function () {
+							var cols = parseInt($(this).data('cols')) || 5;
+							windowWPZ.gridCols = cols;
+							wpzoom_apply_grid_cols(cols);
+						});
+						windowWPZ.gridInitialized = true;
+					}
+
+					// Apply saved grid pref to buttons immediately
+					$('.wpzoom-grid-btn').removeClass('wpzoom-grid-btn-active');
+					$('.wpzoom-grid-btn[data-cols="' + windowWPZ.gridCols + '"]').addClass('wpzoom-grid-btn-active');
+
+					// Initialize no-media toggle preference
+					if (typeof windowWPZ.noMedia === 'undefined') {
+						var savedNoMedia = false;
+						try { savedNoMedia = localStorage.getItem('wpzoom_no_media') === '1'; } catch(e) {}
+						windowWPZ.noMedia = savedNoMedia;
+					}
+					// Bind media toggle (only once)
+					if (!windowWPZ.mediaToggleInitialized) {
+						$(document).on('click', '#wpzoom-no-media-toggle', function () {
+							windowWPZ.noMedia = !windowWPZ.noMedia;
+							try { localStorage.setItem('wpzoom_no_media', windowWPZ.noMedia ? '1' : '0'); } catch(e) {}
+							wpzoom_update_media_toggle_ui();
+						});
+						windowWPZ.mediaToggleInitialized = true;
+					}
+					wpzoom_update_media_toggle_for_tab(windowWPZ.currentTab || 'templates');
+					// Set initial filter visibility after select2 is fully initialized
 							// Small delay ensures select2's DOM manipulation is complete
 							setTimeout(function () {
 								wpzoom_update_filter_visibility();
@@ -291,6 +370,16 @@ var WPZCachedSections = null;
 							}, 150);
 						},
 						onHide: function () {
+							// Reset filter values on close so they are cleared when modal is reopened
+							var $theme = $('#wpzoom-elementor-template-library-filter-theme');
+							var $category = $('#wpzoom-elementor-template-library-filter-category');
+							var $wireframeCat = $('#wpzoom-elementor-template-library-filter-wireframe-category');
+							if ($theme.length) { $theme.val(null).trigger('change'); }
+							if ($category.length) { $category.val(null).trigger('change'); }
+							if ($wireframeCat.length) { $wireframeCat.val(null).trigger('change'); }
+							$('#wpzoom-elementor-template-library-filter-text').val('');
+							$('.wpzoom-search-clear').hide();
+
 							if ('dark' !== elementor.settings.editorPreferences.model.get('ui_theme')) {
 								$("#wpzoom_main_library_templates_panel").removeClass('wpzoom-dark-mode');
 							}
@@ -326,14 +415,15 @@ var WPZCachedSections = null;
 			var filename = $(WPZ_selectedElement).attr("data-template-name") + ".json";
 
 			// Determine import type based on active tab
-			var importType = (windowWPZ.currentTab === 'sections') ? 'section' : 'template';
+			var importType = windowWPZ.currentTab === 'sections' ? 'section' : (windowWPZ.currentTab === 'wireframes' ? 'wireframe' : 'template');
 
 			$.post(
 				ajaxurl,
 				{
 					action: 'get_content_from_elementor_export_file',
 					filename: filename,
-					type: importType
+					type: importType,
+					no_media: ('wireframe' === importType || windowWPZ.noMedia) ? '1' : '0'
 				},
 				function (data) {
 					try {
@@ -423,7 +513,7 @@ var WPZCachedSections = null;
 			} else {
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').removeClass('wpzoom-locked-template');
 				// Reset button text and style for free templates
-				var insertLabel = (windowWPZ.currentTab === 'sections') ? 'Insert Section' : 'Insert Page';
+				var insertLabel = windowWPZ.currentTab === 'sections' ? 'Insert Section' : (windowWPZ.currentTab === 'wireframes' ? 'Insert Wireframe' : 'Insert Page');
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-button-title').text(insertLabel);
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').css({
 					'background': '',
@@ -435,7 +525,7 @@ var WPZCachedSections = null;
 			$('.wpzoom-header-back-button').show();
 			showLoadingView();
 			// Use different AJAX action based on current tab
-			var previewAction = (windowWPZ.currentTab === 'sections') ? 'get_wpzoom_section_preview' : 'get_wpzoom_preview';
+			var previewAction = windowWPZ.currentTab === 'sections' ? 'get_wpzoom_section_preview' : (windowWPZ.currentTab === 'wireframes' ? 'get_wpzoom_wireframe_preview' : 'get_wpzoom_preview');
 			$.post(ajaxurl, { action: previewAction, data: data }, function (data) {
 				//console.log( slug );
 				hideLoadingView();
@@ -457,9 +547,109 @@ var WPZCachedSections = null;
 
 	}
 
+	/* Update no-media toggle switch appearance */
+	function wpzoom_update_media_toggle_ui() {
+		var $track = $('#wpzoom-no-media-toggle');
+		if (windowWPZ.noMedia) {
+			$track.addClass('wpzoom-media-btn-active').attr('aria-checked', 'true');
+		} else {
+			$track.removeClass('wpzoom-media-btn-active').attr('aria-checked', 'false');
+		}
+	}
+
+	/* Set toggle appearance + disabled state based on the active tab.
+	 * Wireframes always import without media, so the toggle is locked ON. */
+	function wpzoom_update_media_toggle_for_tab(tab) {
+		var $wrap = $('#wpzoom-no-media-toggle-wrap');
+		if (tab === 'wireframes') {
+			$('#wpzoom-no-media-toggle').addClass('wpzoom-media-btn-active').attr('aria-checked', 'true');
+			$wrap.addClass('wpzoom-toggle-disabled');
+		} else {
+			$wrap.removeClass('wpzoom-toggle-disabled');
+			wpzoom_update_media_toggle_ui();
+		}
+	}
+
+	/* Apply grid column class and persist preference */
+	function wpzoom_apply_grid_cols(cols) {
+		cols = parseInt(cols) || 5;
+		$('.wpzoom-main-tiled-view')
+			.removeClass('wpzoom-grid-cols-3 wpzoom-grid-cols-4 wpzoom-grid-cols-5')
+			.addClass('wpzoom-grid-cols-' + cols);
+		$('.wpzoom-grid-btn').removeClass('wpzoom-grid-btn-active');
+		$('.wpzoom-grid-btn[data-cols="' + cols + '"]').addClass('wpzoom-grid-btn-active');
+		try { localStorage.setItem('wpzoom_library_grid_cols', cols); } catch(e) {}
+	}
+
+	/* Apply all filters: dropdowns + search text */
+	function wpzoom_apply_all_filters() {
+		var searchText = ($('#wpzoom-elementor-template-library-filter-text').val() || '').toLowerCase().trim();
+		var filters = {};
+
+		// Collect filters from visible select2 dropdowns
+		$('#elementor-template-library-filter select').each(function (index, select) {
+			var $select = $(select);
+			var $container = $select.next('.select2-container');
+			if ($container.length && $container.is(':visible')) {
+				var value = String($select.val());
+				if (value && value !== '' && value !== 'null') {
+					filters[$select.attr('name')] = value;
+				}
+			}
+		});
+
+		// Filter items
+		$('.wpzoom-item').each(function () {
+			var $item = $(this);
+			var show = true;
+
+			// Check dropdown filters
+			if (Object.keys(filters).length > 0) {
+				$.each(filters, function (name, val) {
+					var itemData = $item.data(name);
+					if (typeof itemData === 'undefined' || itemData === null || itemData === '') {
+						show = false;
+						return false;
+					}
+					itemData = String(itemData);
+					val = String(val);
+					if (itemData.indexOf(val) === -1) {
+						show = false;
+						return false;
+					}
+				});
+			}
+
+			// Check search text
+			if (show && searchText !== '') {
+				var titleText = ($item.find('.wpzoom-template-title').text() || '').toLowerCase();
+				if (titleText.indexOf(searchText) === -1) {
+					show = false;
+				}
+			}
+
+			if (show) {
+				$item.show();
+			} else {
+				$item.hide();
+			}
+		});
+
+		// Show/hide category headers based on visible items
+		$('h2.wpzoom-templates-library-template-category').each(function () {
+			var $header = $(this);
+			var $items = $header.nextUntil('h2.wpzoom-templates-library-template-category', '.wpzoom-item');
+			if ($items.filter(':visible').length > 0) {
+				$header.show();
+			} else {
+				$header.hide();
+			}
+		});
+	}
+
 	/* Get all the templates */
 	function wpzoom_get_library_view(activeTab) {
-		var tab = activeTab === 'sections' ? 'sections' : 'templates';
+		var tab = activeTab === 'sections' ? 'sections' : (activeTab === 'wireframes' ? 'wireframes' : 'templates');
 		var filters = {};
 		if (!insertIndex) { var insertIndex = null; }
 
@@ -474,8 +664,8 @@ var WPZCachedSections = null;
 		$('#wpzoom-elementor-template-library-tabs-wrapper .elementor-template-library-menu-item[data-tab="' + tab + '"]').addClass('elementor-active').attr('aria-selected', 'true');
 
 		showLoadingView();
-		var action = (tab === 'sections') ? 'get_wpzoom_sections_library_view' : 'get_wpzoom_pages_library_view';
-		var cached = (tab === 'sections') ? WPZCachedSections : (WPZCachedTemplates || WPZCached || null);
+		var action = tab === 'sections' ? 'get_wpzoom_sections_library_view' : (tab === 'wireframes' ? 'get_wpzoom_wireframes_library_view' : 'get_wpzoom_pages_library_view');
+		var cached = tab === 'sections' ? WPZCachedSections : (tab === 'wireframes' ? WPZCachedWireframes : (WPZCachedTemplates || WPZCached || null));
 
 		if (cached == null) { // If cache not created then load it
 			/* Load library view via Ajax */
@@ -484,16 +674,20 @@ var WPZCachedSections = null;
 				$('.wpzoom__main-view').html(data);
 				if (tab === 'sections') {
 					WPZCachedSections = data;
+				} else if (tab === 'wireframes') {
+					WPZCachedWireframes = data;
 				} else {
 					WPZCachedTemplates = data;
 					WPZCached = data; // keep legacy cache in sync
 				}
 				WPZupdateActions(insertIndex);
+			wpzoom_apply_grid_cols(windowWPZ.gridCols || 5);
 			});
 		} else {
 			hideLoadingView();
 			$('.wpzoom__main-view').html(cached);
 			WPZupdateActions(insertIndex);
+			wpzoom_apply_grid_cols(windowWPZ.gridCols || 5);
 		}
 
 		//check if filter is not selected

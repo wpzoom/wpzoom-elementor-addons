@@ -1,15 +1,147 @@
 [
     {
+        "id": "real-estate-features",
+        "name": "Features #1",
+        "theme": "Inspiro Lite",
+        "category": "features",
+        "thumbnail": "real-estate-features",
+        "filename": "real-estate-features.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-hero",
+        "name": "Hero #1",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "real-estate-hero",
+        "filename": "real-estate-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-gird-3-col",
+        "name": "Testimonials #1",
+        "theme": "Inspiro Lite",
+        "category": "testimonials",
+        "thumbnail": "testimonials-gird-3-col",
+        "filename": "testimonials-gird-3-col.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-single",
+        "name": "Testimonials #2",
+        "theme": "Inspiro Lite",
+        "category": "testimonials",
+        "thumbnail": "testimonials-single",
+        "filename": "testimonials-single.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-hero",
+        "name": "Hero #2",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "energy-hero",
+        "filename": "energy-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-about",
+        "name": "About #1",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "energy-about",
+        "filename": "energy-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-believes",
+        "name": "Our Believes #1",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-studio-believes",
+        "filename": "inspiro-studio-believes.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-agency-services",
+        "name": "Features #2",
+        "theme": "Inspiro Lite",
+        "category": "features",
+        "thumbnail": "inspiro-agency-services",
+        "filename": "inspiro-agency-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-hero",
+        "name": "Hero #3",
+        "theme": "Inspiro Lite",
+        "category": "hero",
+        "thumbnail": "inspiro-construction-hero",
+        "filename": "inspiro-construction-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-about",
+        "name": "About #2",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-construction-about",
+        "filename": "inspiro-construction-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-stats",
+        "name": "Stats #1",
+        "theme": "Inspiro Lite",
+        "category": "stats",
+        "thumbnail": "inspiro-construction-stats",
+        "filename": "inspiro-construction-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-cta",
+        "name": "CTA #1",
+        "theme": "Inspiro Lite",
+        "category": "general",
+        "thumbnail": "inspiro-construction-cta",
+        "filename": "inspiro-construction-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
         "id": "inspiro-premium-about-restaurant",
-        "name": "Intro Centered",
-        "theme": "Inspiro Premium",
+        "name": "About #3",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "intro-center",
         "filename": "inspiro-premium-about-restaurant.json"
     },
     {
         "id": "inspiro-lite-hero",
-        "name": "Hero",
+        "name": "Hero #4",
         "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "hero",
@@ -17,7 +149,7 @@
     },
     {
         "id": "inspiro-lite-about-agency",
-        "name": "Intro with Button",
+        "name": "About #4",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about-agency",
@@ -25,7 +157,7 @@
     },
     {
         "id": "inspiro-lite-about",
-        "name": "About",
+        "name": "About #5",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about2",
@@ -33,7 +165,7 @@
     },
     {
         "id": "inspiro-lite-services",
-        "name": "Our Services",
+        "name": "Features #3",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "services2",
@@ -41,7 +173,7 @@
     },
     {
         "id": "inspiro-lite-team",
-        "name": "Our Team",
+        "name": "Team #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "team",
@@ -49,7 +181,7 @@
     },
     {
         "id": "inspiro-lite-why-us",
-        "name": "Why Us?",
+        "name": "Features #4",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "why-us",
@@ -57,7 +189,7 @@
     },
     {
         "id": "inspiro-lite-blog",
-        "name": "Blog",
+        "name": "Posts #1",
         "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "blog",
@@ -65,7 +197,7 @@
     },
     {
         "id": "inspiro-lite-expertise",
-        "name": "Expertise",
+        "name": "Features #5",
         "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "expertise",
@@ -73,7 +205,7 @@
     },
     {
         "id": "inspiro-lite-address",
-        "name": "Our Address",
+        "name": "Contact #1",
         "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "address2",
@@ -81,7 +213,7 @@
     },
     {
         "id": "inspiro-lite-contact",
-        "name": "Contact with Map",
+        "name": "Contact #2",
         "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "contact",
@@ -89,202 +221,851 @@
     },
     {
         "id": "eccentric-about",
-        "name": "About (Dark)",
-        "theme": "Eccentric",
+        "name": "About #6",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "eccentric-about",
         "filename": "eccentric-about.json"
     },
     {
         "id": "eccentric-portfolio-gallery-showcase",
-        "name": "Portfolio Gallery Showcase",
-        "theme": "Eccentric",
+        "name": "Portfolio #1",
+        "theme": "Inspiro Lite",
         "category": "portfolio",
         "thumbnail": "portfolio-gallery-showcase",
         "filename": "eccentric-portfolio-gallery-showcase.json"
     },
     {
         "id": "eccentric-price-plans",
-        "name": "Pricing Plans (Dark)",
-        "theme": "Eccentric",
+        "name": "Pricing #1",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing-dark",
         "filename": "eccentric-price-plans.json"
     },
     {
         "id": "eccentric-our-story",
-        "name": "Our Story",
-        "theme": "Eccentric",
+        "name": "Our Story #1",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "our-story",
         "filename": "eccentric-our-story.json"
     },
     {
         "id": "inspiro-premium-pricing",
-        "name": "Pricing",
-        "theme": "Inspiro Premium",
+        "name": "Pricing #2",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing",
         "filename": "inspiro-premium-pricing.json"
     },
     {
         "id": "inspiro-premium-about",
-        "name": "About",
-        "theme": "Inspiro Premium",
+        "name": "About #7",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about",
         "filename": "inspiro-premium-about.json"
     },
     {
         "id": "inspiro-premium-banner",
-        "name": "Section with Video Lightbox",
-        "theme": "Inspiro Premium",
+        "name": "Hero #5",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner",
         "filename": "inspiro-premium-banner.json"
     },
     {
         "id": "inspiro-premium-services",
-        "name": "Our Services",
-        "theme": "Inspiro Premium",
+        "name": "Features #6",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "services",
         "filename": "inspiro-premium-services.json"
     },
     {
         "id": "inspiro-premium-portfolio-showcase",
-        "name": "Portfolio Showcase",
-        "theme": "Inspiro Premium",
+        "name": "Portfolio #2",
+        "theme": "Inspiro Lite",
         "category": "portfolio",
         "thumbnail": "portfolio-showcase",
         "filename": "inspiro-premium-portfolio-showcase.json"
     },
     {
         "id": "inspiro-premium-our-specials",
-        "name": "Restaurant Menu",
-        "theme": "Inspiro Premium",
+        "name": "Features #7",
+        "theme": "Inspiro Lite",
         "category": "features",
         "thumbnail": "menu",
         "filename": "inspiro-premium-our-specials.json"
     },
     {
         "id": "inspiro-premium-banner-restaurant",
-        "name": "Hero Banner Restaurant",
-        "theme": "Inspiro Premium",
+        "name": "Hero #6",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner-restaurant",
         "filename": "inspiro-premium-banner-restaurant.json"
     },
     {
         "id": "inspiro-premium-banner-hotel",
-        "name": "Section with Button",
-        "theme": "Inspiro Premium",
+        "name": "Hero #7",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "banner-button",
         "filename": "inspiro-premium-banner-hotel.json"
     },
     {
         "id": "inspiro-premium-address",
-        "name": "Address",
-        "theme": "Inspiro Premium",
+        "name": "Contact #3",
+        "theme": "Inspiro Lite",
         "category": "contact",
         "thumbnail": "address",
         "filename": "inspiro-premium-address.json"
     },
     {
         "id": "inspiro-premium-tickets",
-        "name": "Pricing Plans v2",
-        "theme": "Inspiro Premium",
+        "name": "Pricing #3",
+        "theme": "Inspiro Lite",
         "category": "pricing",
         "thumbnail": "pricing-tickets",
         "filename": "inspiro-premium-tickets.json"
     },
     {
         "id": "inspiro-premium-sponsors",
-        "name": "Sponsors",
-        "theme": "Inspiro Premium",
+        "name": "Logos #1",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "sponsors",
         "filename": "inspiro-premium-sponsors.json"
     },
     {
         "id": "inspiro-premium-schedule",
-        "name": "Event Schedule",
-        "theme": "Inspiro Premium",
+        "name": "Schedule #1",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "schedule",
         "filename": "inspiro-premium-schedule.json"
     },
     {
         "id": "inspiro-premium-about-event",
-        "name": "About Event",
-        "theme": "Inspiro Premium",
+        "name": "About #8",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "about-event",
         "filename": "inspiro-premium-about-event.json"
     },
     {
         "id": "inspiro-premium-speakers",
-        "name": "Event Speakers",
-        "theme": "Inspiro Premium",
+        "name": "Team #2",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "speakers",
         "filename": "inspiro-premium-speakers.json"
     },
     {
         "id": "inspiro-premium-section-with-button",
-        "name": "Section With Button",
-        "theme": "Inspiro Premium",
+        "name": "Section #1",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "section-with-button",
         "filename": "inspiro-premium-section-with-button.json"
     },
     {
         "id": "inspiro-premium-section-with-2-buttons",
-        "name": "Team (2 Members)",
-        "theme": "Inspiro Premium",
+        "name": "Section #2",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "team-2",
         "filename": "inspiro-premium-section-with-2-buttons.json"
     },
     {
         "id": "inspiro-premium-faq",
-        "name": "FAQ",
-        "theme": "Inspiro Premium",
+        "name": "FAQ #1",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "faq",
         "filename": "inspiro-premium-faq.json"
     },
     {
         "id": "reel-video-hero",
-        "name": "Video Slideshow",
-        "theme": "Reel",
+        "name": "Hero #8",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "video-slide",
         "filename": "reel-video-hero.json"
     },
     {
         "id": "reel-hero-banner",
-        "name": "Video Background Section",
-        "theme": "Reel",
+        "name": "Hero #9",
+        "theme": "Inspiro Lite",
         "category": "hero",
         "thumbnail": "hero-banner",
         "filename": "reel-hero-banner.json"
     },
     {
         "id": "cookbook-about-us",
-        "name": "Authors/Team",
-        "theme": "Inspiro Premium",
+        "name": "About #9",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "authors",
         "filename": "cookbook-about-us.json"
     },
     {
         "id": "inspiro-testimonials",
-        "name": "Testimonials",
-        "theme": "Inspiro Premium",
+        "name": "Testimonials #3",
+        "theme": "Inspiro Lite",
         "category": "general",
         "thumbnail": "testimonials",
         "filename": "inspiro-testimonials.json"
+    },
+    {
+        "id": "construction-hero",
+        "name": "Hero #10",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "construction-hero",
+        "filename": "construction-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "construction-stats",
+        "name": "Stats #2",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "construction-stats",
+        "filename": "construction-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "construction-testimonial",
+        "name": "Testimonials #4",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "construction-testimonial",
+        "filename": "construction-testimonial.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "construction-cta",
+        "name": "CTA #2",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "construction-cta",
+        "filename": "construction-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "construction-features-grid",
+        "name": "Features #8",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "construction-features-grid",
+        "filename": "construction-features-grid.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "construction-features-list",
+        "name": "Features #9",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "construction-features-list",
+        "filename": "construction-features-list.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "pricing-two-columns",
+        "name": "Pricing #4",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "pricing-two-columns",
+        "filename": "pricing-two-columns.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "pricing-with-image",
+        "name": "Pricing #5",
+        "theme": "Inspiro Premium",
+        "category": "pricing",
+        "thumbnail": "pricing-with-image",
+        "filename": "pricing-with-image.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-about-us",
+        "name": "About #10",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "real-estate-about-us",
+        "filename": "real-estate-about-us.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-cta",
+        "name": "CTA #3",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "real-estate-cta",
+        "filename": "real-estate-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-feature",
+        "name": "Features #10",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "real-estate-feature",
+        "filename": "real-estate-feature.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-hero-2",
+        "name": "Hero #11",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "real-estate-hero-2",
+        "filename": "real-estate-hero-2.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "real-estate-stats",
+        "name": "Stats #3",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "real-estate-stats",
+        "filename": "real-estate-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "saas-hero",
+        "name": "Hero #12",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "saas-hero",
+        "filename": "saas-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "saas-features",
+        "name": "Features #11",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "saas-features",
+        "filename": "saas-features.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "saas-services",
+        "name": "Features #12",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "saas-services",
+        "filename": "saas-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-3-col",
+        "name": "Testimonials #5",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-3-col",
+        "filename": "testimonials-3-col.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "testimonials-single-with-shadow",
+        "name": "Testimonials #6",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "testimonials-single-with-shadow",
+        "filename": "testimonials-single-with-shadow.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-benefits",
+        "name": "Features #13",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "energy-benefits",
+        "filename": "energy-benefits.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-cta",
+        "name": "CTA #4",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "energy-cta",
+        "filename": "energy-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-news",
+        "name": "Posts #2",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "energy-news",
+        "filename": "energy-news.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-solutions",
+        "name": "Features #14",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "energy-solutions",
+        "filename": "energy-solutions.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "energy-stats",
+        "name": "Stats #4",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "energy-stats",
+        "filename": "energy-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "logistics-hero",
+        "name": "Hero #13",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "logistics-hero",
+        "filename": "logistics-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-business-hero",
+        "name": "Hero #14",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-business-hero",
+        "filename": "inspiro-business-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-business-services",
+        "name": "Features #15",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-business-services",
+        "filename": "inspiro-business-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-hero",
+        "name": "Hero #15",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-studio-hero",
+        "filename": "inspiro-studio-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-about",
+        "name": "About #11",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-about",
+        "filename": "inspiro-studio-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-services",
+        "name": "Features #16",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-studio-services",
+        "filename": "inspiro-studio-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-awards",
+        "name": "Awards #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-awards",
+        "filename": "inspiro-studio-awards.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-process",
+        "name": "Process #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-process",
+        "filename": "inspiro-studio-process.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-studio-news",
+        "name": "Posts #3",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-studio-news",
+        "filename": "inspiro-studio-news.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "logistics-about",
+        "name": "About #12",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-about",
+        "filename": "logistics-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "logistics-cta",
+        "name": "CTA #5",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-cta",
+        "filename": "logistics-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "logistics-features",
+        "name": "Features #17",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "logistics-features",
+        "filename": "logistics-features.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "logistics-logos",
+        "name": "Logos #2",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "logistics-logos",
+        "filename": "logistics-logos.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-hero",
+        "name": "Hero #16",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-moving-hero",
+        "filename": "inspiro-moving-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-services",
+        "name": "Features #18",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-moving-services",
+        "filename": "inspiro-moving-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-stats",
+        "name": "Stats #5",
+        "theme": "Inspiro Premium",
+        "category": "stats",
+        "thumbnail": "inspiro-moving-stats",
+        "filename": "inspiro-moving-stats.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-about",
+        "name": "About #13",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-about",
+        "filename": "inspiro-moving-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-advices",
+        "name": "Advices #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-advices",
+        "filename": "inspiro-moving-advices.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-cta",
+        "name": "CTA #6",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-moving-cta",
+        "filename": "inspiro-moving-cta.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-moving-contact",
+        "name": "Contact #4",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-moving-contact",
+        "filename": "inspiro-moving-contact.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-podcast-hero",
+        "name": "Hero #17",
+        "theme": "Inspiro Premium",
+        "category": "hero",
+        "thumbnail": "inspiro-podcast-hero",
+        "filename": "inspiro-podcast-hero.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-podcast-about",
+        "name": "About #14",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-podcast-about",
+        "filename": "inspiro-podcast-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-podcast-topics",
+        "name": "Topics #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-podcast-topics",
+        "filename": "inspiro-podcast-topics.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-podcast-testimonials",
+        "name": "Testimonials #7",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "inspiro-podcast-testimonials",
+        "filename": "inspiro-podcast-testimonials.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-services",
+        "name": "Features #19",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-construction-services",
+        "filename": "inspiro-construction-services.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-projects",
+        "name": "Portfolio #3",
+        "theme": "Inspiro Premium",
+        "category": "portfolio",
+        "thumbnail": "inspiro-construction-projects",
+        "filename": "inspiro-construction-projects.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-sustainability",
+        "name": "Features #20",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-construction-sustainability",
+        "filename": "inspiro-construction-sustainability.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-construction-contact",
+        "name": "Contact #5",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-construction-contact",
+        "filename": "inspiro-construction-contact.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-furniture-benefits",
+        "name": "Features #21",
+        "theme": "Inspiro Premium",
+        "category": "features",
+        "thumbnail": "inspiro-furniture-benefits",
+        "filename": "inspiro-furniture-benefits.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-furniture-contact",
+        "name": "Contact #6",
+        "theme": "Inspiro Premium",
+        "category": "contact",
+        "thumbnail": "inspiro-furniture-contact",
+        "filename": "inspiro-furniture-contact.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-furniture-testimonial",
+        "name": "Testimonials #8",
+        "theme": "Inspiro Premium",
+        "category": "testimonials",
+        "thumbnail": "inspiro-furniture-testimonial",
+        "filename": "inspiro-furniture-testimonial.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-real-estate-about",
+        "name": "About #15",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-about",
+        "filename": "inspiro-real-estate-about.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-real-estate-categories",
+        "name": "Categories #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-categories",
+        "filename": "inspiro-real-estate-categories.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-real-estate-one-lisiting",
+        "name": "Listing #1",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-one-lisiting",
+        "filename": "inspiro-real-estate-one-lisiting.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-real-estate-posts",
+        "name": "Posts #4",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-posts",
+        "filename": "inspiro-real-estate-posts.json",
+        "badges": [
+            "new"
+        ]
+    },
+    {
+        "id": "inspiro-real-estate-teams",
+        "name": "Team #3",
+        "theme": "Inspiro Premium",
+        "category": "general",
+        "thumbnail": "inspiro-real-estate-teams",
+        "filename": "inspiro-real-estate-teams.json",
+        "badges": [
+            "new"
+        ]
     }
 ]

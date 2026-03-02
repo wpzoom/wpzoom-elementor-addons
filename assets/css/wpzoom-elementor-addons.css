@@ -106,26 +106,21 @@
 	align-items:center;
 }
 .wpzoom-main-tiled-view .wpzoom-item {
-	display:flex;
-	flex-direction:column;
-
+	display: flex;
+    flex-direction: column;
     width: calc(20% - 30px);
-
     margin: 15px;
-    padding: 8px;
     background-color: #fff;
-    -webkit-box-shadow: 0 1px 20px 0 rgb(0 0 0 / 7%);
-    box-shadow: 0 1px 20px 0 rgb(0 0 0 / 7%);
-    -webkit-border-radius: 3px;
     border-radius: 3px;
-
-
+    border: 1px solid #ddd;
+}
+.wpzoom-main-tiled-view .wpzoom-item .wpzoom-template-footer {
+	padding: 8px;;
 }
 .wpzoom-main-tiled-view .wpzoom-item .wpzoom-template-title {
 	text-align:left;
 	font-size:14px;
     margin-bottom: 5px;
-    font-weight: 500;
 	color: #555;
 }
 .wpzoom-main-tiled-view .wpzoom-item .wpzoom-template-title i {
@@ -146,14 +141,12 @@
 }
 .wpzoom-main-tiled-view .wpzoom-item .wpzoom-template-thumb {
 	width: 100%;
-	height: 180px;
-	margin-bottom:5px;
-	border: 1px solid #ccc;
+	aspect-ratio: 5 / 4;
 	background-color: #f7f7f7;
 	overflow: hidden;
 	position: relative;
 	display: flex;
-		align-items: center;
+	align-items: center;
 }
 .wpzoom-main-tiled-view .wpzoom-item .wpzoom-template-thumb .wpzoom-thumb-image {
 	width: 100%;
@@ -179,7 +172,9 @@
     -o-transition: opacity .5s;
     transition: opacity .5s;
     cursor: pointer;
-	line-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     content: '\e92e';
     font-family: eicons;
     font-size: 22px;
@@ -287,11 +282,8 @@
 }
 
 /* PRO Template Restrictions */
-.wpzoom-template-thumb-locked {
+.wpzoom-template-pro-only {
 	border: 2px solid #3496ff !important;
-	position: relative;
-	overflow: hidden;
-    border-radius: 5px;
 }
 
 .wpzoom-template-overlay {
@@ -351,14 +343,14 @@
 
 .wpzoom-pro-badge {
 	display: inline-block;
-	padding: 2px 6px;
-	background: #3496ff;
-	border-radius: 10px;
-	font-size: 10px !important;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     color: #fff;
+    line-height: 1;
 }
 
 /* Dark mode styles for PRO elements */
@@ -374,21 +366,31 @@
 	background: #000;
 }
 
-/* Add a small PRO indicator in the corner */
-.wpzoom-template-thumb-locked::before {
-	content: 'PRO';
+/* ── Corner badges (PRO / NEW) ─────────────────────────────────── */
+.wpzoom-badge-container {
 	position: absolute;
 	top: 8px;
 	right: 8px;
-	background: #3496ff;
-	color: white;
+	display: flex;
+	gap: 4px;
+	z-index: 10;
+}
+.wpzoom-badge {
+	display: inline-block;
 	padding: 2px 6px;
 	border-radius: 3px;
 	font-size: 10px;
 	font-weight: 600;
-	z-index: 10;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
+	color: #fff;
+	line-height: 1.5;
+}
+.wpzoom-badge-pro {
+	background: #4e4e4e;
+}
+.wpzoom-badge-new {
+	background: #22c55e;
 }
 
 /* License-specific button styles */
@@ -462,4 +464,222 @@
 #wpzoom-elementor-template-library-filter-theme[style*="display: none"]+.select2-container,
 #wpzoom-elementor-template-library-filter-category[style*="display: none"]+.select2-container {
 	display: none !important;
+}
+
+/* ── Toolbar row layout ─────────────────────────────────────────── */
+#wpzoom-elementor-template-library-toolbar .wpzoom-toolbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+}
+.wpzoom-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.wpzoom-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* ── Tab count badge ────────────────────────────────────────────── */
+.wpzoom-tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #e0e0e0;
+    color: #555;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1;
+    vertical-align: middle;
+}
+.elementor-template-library-menu-item.elementor-active .wpzoom-tab-count {
+    background: #292929;
+    color: #fff;
+}
+
+/* ── Grid size buttons ──────────────────────────────────────────── */
+.wpzoom-toolbar-grid-size {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.wpzoom-grid-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #888;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.wpzoom-grid-btn svg {
+    fill: currentColor;
+}
+.wpzoom-grid-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+.wpzoom-grid-btn.wpzoom-grid-btn-active {
+    background: #292929;
+    border-color: #292929;
+    color: #fff;
+}
+
+/* ── Grid column classes ────────────────────────────────────────── */
+.wpzoom-main-tiled-view.wpzoom-grid-cols-3 .wpzoom-item { width: calc(33.333% - 30px) !important; }
+.wpzoom-main-tiled-view.wpzoom-grid-cols-4 .wpzoom-item { width: calc(25% - 30px) !important; }
+.wpzoom-main-tiled-view.wpzoom-grid-cols-5 .wpzoom-item { width: calc(20% - 30px) !important; }
+
+/* ── Dark mode overrides ────────────────────────────────────────── */
+.wpzoom-dark-mode .wpzoom-tab-count {
+    background: #444;
+    color: #ccc;
+}
+.wpzoom-dark-mode .elementor-template-library-menu-item.elementor-active .wpzoom-tab-count {
+    background: #292929;
+    color: #fff;
+}
+.wpzoom-dark-mode .wpzoom-grid-btn:hover {
+    background: #3a3a3a;
+    color: #eee;
+}
+
+/* ── Search input ───────────────────────────────────────────────── */
+.wpzoom-toolbar-search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 8px;
+    height: 27px;
+    flex-shrink: 0;
+}
+.wpzoom-toolbar-search .eicon-search {
+    color: #aaa;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+#wpzoom-elementor-template-library-filter-text {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    width: 160px;
+    color: #333;
+    line-height: 1;
+    padding: 0;
+}
+#wpzoom-elementor-template-library-filter-text::placeholder {
+    color: #bbb;
+}
+.wpzoom-search-clear {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #aaa;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.wpzoom-search-clear:hover {
+    color: #555;
+}
+
+/* Dark mode search */
+.wpzoom-dark-mode .wpzoom-toolbar-search {
+    background: #2b2b2b;
+    border-color: #444;
+}
+.wpzoom-dark-mode #wpzoom-elementor-template-library-filter-text {
+    color: #ddd;
+}
+.wpzoom-dark-mode .wpzoom-toolbar-search .eicon-search,
+.wpzoom-dark-mode .wpzoom-search-clear {
+    color: #777;
+}
+.wpzoom-dark-mode .wpzoom-search-clear:hover {
+    color: #ccc;
+}
+
+/* ── No-media toggle switch ─────────────────────────────────────── */
+.wpzoom-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+.wpzoom-toggle-track {
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 9px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.wpzoom-toggle-track.wpzoom-media-btn-active {
+    background: #292929;
+}
+.wpzoom-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.wpzoom-toggle-track.wpzoom-media-btn-active .wpzoom-toggle-thumb {
+    transform: translateX(14px);
+}
+.wpzoom-toggle-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Dark mode */
+.wpzoom-dark-mode .wpzoom-toggle-track {
+    background: #555;
+}
+.wpzoom-dark-mode .wpzoom-toggle-track.wpzoom-media-btn-active {
+    background: #fff;
+}
+.wpzoom-dark-mode .wpzoom-toggle-track.wpzoom-media-btn-active .wpzoom-toggle-thumb {
+    background: #292929;
+}
+.wpzoom-dark-mode .wpzoom-toggle-label {
+    color: #bbb;
+}
+/* Disabled state — used when the toggle is locked (e.g. wireframes tab) */
+.wpzoom-toggle-wrap.wpzoom-toggle-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
 }

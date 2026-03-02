@@ -74,6 +74,11 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 			add_action('wp_ajax_get_wpzoom_section_preview', array($this, 'ajax_get_wpzoom_section_preview'));
 			add_action('wp_ajax_get_sections_filter_options', array($this, 'get_sections_filter_options_values'));
 
+			// Wireframes AJAX endpoints
+			add_action('wp_ajax_get_wpzoom_wireframes_library_view', array($this, 'get_wpzoom_wireframes_library_view'));
+			add_action('wp_ajax_get_wpzoom_wireframe_preview', array($this, 'ajax_get_wpzoom_wireframe_preview'));
+			add_action('wp_ajax_get_wireframes_filter_options', array($this, 'get_wireframes_filter_options_values'));
+
 			/* Set initial version to the and call update on first use */
 			if( get_option( 'wpz_current_version' ) == false ) {
 				update_option( 'wpz_current_version', '0.0.0' );
@@ -169,36 +174,42 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 						data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $template_list[$i]['theme'] ) ) ) ?>" 
 						data-category="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $template_list[$i]['category'] ) ) ) ?>"
 						>
-						<div class="wpzoom-template-title">
-							<?php echo esc_html( $template_list[$i]['name'] ); ?>
-
+						<div 
+							class="wpzoom-template-thumb wpzoom-index-<?php echo esc_attr($i); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
+							data-index="<?php echo esc_attr($i); ?>"
+							data-template="<?php echo esc_attr(wp_json_encode($template_list[$i])); ?>">
+							<img src="<?php echo esc_url($thumb_url . $template_list[$i]['thumbnail']); ?>-thumb.png" 
+								alt="<?php echo esc_attr($template_list[$i]['name']); ?>" 
+								class="wpzoom-thumb-image">
+								<?php if ( $is_restricted ) : ?>
+									<div class="wpzoom-template-overlay">
+										<div class="wpzoom-template-lock-icon">🔒</div>
+										<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
+									</div>
+								<?php endif; ?>
+						
+						<div class="wpzoom-badge-container">
+							<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+							<?php if ( ! empty( $template_list[$i]['badges'] ) && in_array( 'new', $template_list[$i]['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
 						</div>
-					<div 
-						class="wpzoom-template-thumb wpzoom-index-<?php echo esc_attr($i); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
-						data-index="<?php echo esc_attr($i); ?>"
-						data-template="<?php echo esc_attr(wp_json_encode($template_list[$i])); ?>">
-						<img src="<?php echo esc_url($thumb_url . $template_list[$i]['thumbnail']); ?>-thumb.png" 
-							alt="<?php echo esc_attr($template_list[$i]['name']); ?>" 
-							class="wpzoom-thumb-image">
-							<?php if ( $is_restricted ) : ?>
-								<div class="wpzoom-template-overlay">
-									<div class="wpzoom-template-lock-icon">🔒</div>
-									<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
-								</div>
-							<?php endif; ?>
-					</div>
-						<div class="wpzoom-action-bar">
-							<div class="wpzoom-grow"> </div>
-							<?php if ( $is_restricted ) : ?>
-								<a href="<?php echo esc_url( $button_data['url'] ); ?>" target="_blank" class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required" title="<?php echo esc_attr( $button_data['text'] ); ?>">
-									<?php echo esc_html( $button_data['text'] ); ?>
-								</a>
-                            <?php else: ?>
-								<div class="wpzoom-btn-template-insert" data-version="WPZ__version-<?php echo esc_attr($i); ?>"
-									data-template-name="<?php echo esc_attr($slug); ?>">
-									<?php esc_html_e('Insert Page', 'wpzoom-elementor-addons'); ?>
-								</div>
-							<?php endif; ?>
+</div>
+						<div class="wpzoom-template-footer">
+							<div class="wpzoom-template-title">
+								<?php echo esc_html( $template_list[$i]['name'] ); ?>
+							</div>
+							<div class="wpzoom-action-bar">
+								<div class="wpzoom-grow"> </div>
+								<?php if ( $is_restricted ) : ?>
+									<a href="<?php echo esc_url( $button_data['url'] ); ?>" target="_blank" class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required" title="<?php echo esc_attr( $button_data['text'] ); ?>">
+										<?php echo esc_html( $button_data['text'] ); ?>
+									</a>
+								<?php else: ?>
+									<div class="wpzoom-btn-template-insert" data-version="WPZ__version-<?php echo esc_attr($i); ?>"
+										data-template-name="<?php echo esc_attr($slug); ?>">
+										<?php esc_html_e('Insert Page', 'wpzoom-elementor-addons'); ?>
+									</div>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				<?php
@@ -332,9 +343,11 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 			if (wp_http_validate_url($data['thumbnail'])) {
 				$thumb_url = $data['thumbnail'];
 			} else {
-				// Use local plugin assets for sections, AWS S3 for templates (pages)
+				// Use local plugin assets for sections/wireframes, AWS S3 for templates (pages)
 				if ($type === 'sections') {
                     $thumb_url = 'https://wpzoom.s3.us-east-1.amazonaws.com/elementor/templates/assets/thumbs/inspiro/sections/' . $data['thumbnail'];
+				} elseif ($type === 'wireframes') {
+					$thumb_url = 'https://wpzoom.s3.us-east-1.amazonaws.com/elementor/templates/assets/thumbs/inspiro/wireframes/' . $data['thumbnail'];
 				} else {
 					$thumb_url = 'https://wpzoom.s3.us-east-1.amazonaws.com/elementor/' . $type . '/assets/thumbs/' . $data['thumbnail'];
 				}
@@ -449,14 +462,12 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 					foreach ($items as $index => $entry) {
 						$slug = strtolower(str_replace(' ', '-', $entry['id']));
 						$theme = isset($entry['theme']) ? $entry['theme'] : '';
-						$is_restricted = false;
+						$is_theme_free = in_array( $theme, $free_themes );
+						$is_restricted = ! $has_premium_access && ! $is_theme_free;
 						?>
 						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
 							data-theme="<?php echo esc_attr(strtolower(str_replace(' ', '-', $theme))); ?>"
 							data-category="<?php echo esc_attr($category_slug); ?>">
-							<div class="wpzoom-template-title">
-								<?php echo esc_html($entry['name']); ?>
-							</div>
 							<div class="wpzoom-template-thumb wpzoom-sections-index-<?php echo esc_attr($index); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
 								data-index="<?php echo esc_attr($index); ?>" data-template="<?php echo esc_attr(wp_json_encode($entry)); ?>">
 								<img src="<?php echo esc_url($thumb_url . $entry['thumbnail'] . '-thumb.png'); ?>" 
@@ -468,22 +479,32 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 										<div class="wpzoom-template-pro-text"><?php esc_html_e('PRO Only', 'wpzoom-elementor-addons'); ?></div>
 									</div>
 								<?php endif; ?>
+							
+							<div class="wpzoom-badge-container">
+								<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+								<?php if ( ! empty( $entry['badges'] ) && in_array( 'new', $entry['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
 							</div>
-							<div class="wpzoom-action-bar">
-								<div class="wpzoom-grow"> </div>
-								<?php if ($is_restricted): ?>
-									<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
-										class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
-										title="<?php echo esc_attr__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>">
-										<?php echo esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>
-									</a>
-								<?php else: ?>
-									<div class="wpzoom-btn-template-insert"
-										data-version="WPZ__section-version-<?php echo esc_attr($index); ?>"
-										data-template-name="<?php echo esc_attr($slug); ?>">
-										<?php esc_html_e('Insert Section', 'wpzoom-elementor-addons'); ?>
-									</div>
-								<?php endif; ?>
+</div>
+							<div class="wpzoom-template-footer">
+								<div class="wpzoom-template-title">
+									<?php echo esc_html($entry['name']); ?>
+								</div>
+								<div class="wpzoom-action-bar">
+									<div class="wpzoom-grow"> </div>
+									<?php if ($is_restricted): ?>
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
+											title="<?php echo esc_attr__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>">
+											<?php echo esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>
+										</a>
+									<?php else: ?>
+										<div class="wpzoom-btn-template-insert"
+											data-version="WPZ__section-version-<?php echo esc_attr($index); ?>"
+											data-template-name="<?php echo esc_attr($slug); ?>">
+											<?php esc_html_e('Insert Section', 'wpzoom-elementor-addons'); ?>
+										</div>
+									<?php endif; ?>
+								</div>
 							</div>
 						</div>
 					<?php
@@ -503,6 +524,177 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 		public function ajax_get_wpzoom_section_preview()
 		{
 			$this->get_preview_template($_POST['data'], 'sections');
+			wp_die();
+		}
+
+		/**
+		 * Wireframes: List view
+		 */
+		public function get_wpzoom_wireframes_library_view()
+		{
+			$wireframe_list = array();
+			echo '<script> var WPZ_Wireframes_Index = []; </script>';
+
+			// Check Pro plugin and premium theme status
+			$has_premium_access = class_exists( 'WPZOOM_Elementor_Addons_Pro' ) || class_exists( 'WPZOOM' );
+			$free_themes = array( 'Foodica', 'Inspiro Lite' );
+
+			$local_file = WPZOOM_EL_ADDONS_PATH . '/includes/data/wireframes/json/info.json';
+			if ( self::init()->get_filesystem()->exists( $local_file ) ) {
+				$data           = self::init()->get_filesystem()->get_contents( $local_file );
+				$wireframe_list = json_decode( $data, true );
+			}
+
+			$thumb_url = 'https://wpzoom.s3.us-east-1.amazonaws.com/elementor/templates/assets/thumbs/inspiro/wireframes/';
+
+			echo '<div class="wpzoom-main-tiled-view">';
+			if ( count( $wireframe_list ) != 0 ) {
+				$category_to_items  = array();
+				$category_to_themes = array();
+				foreach ( $wireframe_list as $item ) {
+					$category = isset( $item['category'] ) ? strtolower( str_replace( ' ', '-', $item['category'] ) ) : 'general';
+					$category_to_items[ $category ][] = $item;
+					$theme_slug = strtolower( str_replace( ' ', '-', isset( $item['theme'] ) ? $item['theme'] : '' ) );
+					if ( ! isset( $category_to_themes[ $category ] ) ) {
+						$category_to_themes[ $category ] = array();
+					}
+					if ( ! empty( $theme_slug ) ) {
+						$category_to_themes[ $category ][ $theme_slug ] = true;
+					}
+				}
+
+				$desired_order  = array( 'general', 'hero', 'features', 'contact' );
+				$category_slugs = array_keys( $category_to_items );
+				usort(
+					$category_slugs,
+					function ( $a, $b ) use ( $desired_order ) {
+						$pos_a = array_search( $a, $desired_order, true );
+						$pos_b = array_search( $b, $desired_order, true );
+						if ( false === $pos_a ) { $pos_a = PHP_INT_MAX; }
+						if ( false === $pos_b ) { $pos_b = PHP_INT_MAX; }
+						if ( $pos_a === $pos_b ) { return strcmp( $a, $b ); }
+						return $pos_a <=> $pos_b;
+					}
+				);
+
+				foreach ( $category_slugs as $category_slug ) {
+					$items          = $category_to_items[ $category_slug ];
+					$category_title = ucwords( str_replace( '-', ' ', $category_slug ) );
+					$themes_for_cat = implode( ',', array_keys( $category_to_themes[ $category_slug ] ) );
+					echo '<h2 class="wpzoom-templates-library-template-category" data-theme="' . esc_attr( $themes_for_cat ) . '" data-category="' . esc_attr( $category_slug ) . '">' . esc_html( $category_title ) . '</h2>';
+					foreach ( $items as $index => $entry ) {
+						// Use the filename field (without .json) if present, otherwise derive from id.
+						// This ensures the correct file is loaded even when id and filename differ.
+						if ( isset( $entry['filename'] ) && ! empty( $entry['filename'] ) ) {
+							$slug = str_replace( '.json', '', $entry['filename'] );
+						} else {
+							$slug = strtolower( str_replace( ' ', '-', $entry['id'] ) );
+						}
+						$theme = isset( $entry['theme'] ) ? $entry['theme'] : '';
+						$is_theme_free = in_array( $theme, $free_themes );
+						$is_restricted = ! $has_premium_access && ! $is_theme_free;
+						?>
+						<div class="wpzoom-templates-library-template wpzoom-item <?php echo $is_restricted ? 'wpzoom-template-pro-only' : ''; ?>"
+							data-theme="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $theme ) ) ); ?>"
+							data-category="<?php echo esc_attr( $category_slug ); ?>">
+							<div class="wpzoom-template-thumb wpzoom-wireframes-index-<?php echo esc_attr( $index ); ?> <?php echo $is_restricted ? 'wpzoom-template-thumb-locked' : ''; ?>"
+								data-index="<?php echo esc_attr( $index ); ?>"
+								data-template="<?php echo esc_attr( wp_json_encode( $entry ) ); ?>">
+								<img src="<?php echo esc_url( $thumb_url . $entry['thumbnail'] . '-thumb.png' ); ?>"
+									alt="<?php echo esc_attr( $entry['name'] ); ?>"
+									class="wpzoom-thumb-image">
+								<?php if ( $is_restricted ) : ?>
+									<div class="wpzoom-template-overlay">
+										<div class="wpzoom-template-lock-icon">&#x1F512;</div>
+										<div class="wpzoom-template-pro-text"><?php esc_html_e( 'PRO Only', 'wpzoom-elementor-addons' ); ?></div>
+									</div>
+								<?php endif; ?>
+							
+							<div class="wpzoom-badge-container">
+								<?php if ( $is_restricted ) : ?><span class="wpzoom-badge wpzoom-badge-pro"><?php esc_html_e( 'PRO', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+								<?php if ( ! empty( $entry['badges'] ) && in_array( 'new', $entry['badges'] ) ) : ?><span class="wpzoom-badge wpzoom-badge-new"><?php esc_html_e( 'NEW', 'wpzoom-elementor-addons' ); ?></span><?php endif; ?>
+							</div>
+</div>
+							<div class="wpzoom-template-footer">
+								<div class="wpzoom-template-title">
+									<?php echo esc_html( $entry['name'] ); ?>
+								</div>
+								<div class="wpzoom-action-bar">
+									<div class="wpzoom-grow"> </div>
+									<?php if ( $is_restricted ) : ?>
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
+											title="<?php echo esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>">
+											<?php echo esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
+										</a>
+									<?php else : ?>
+										<div class="wpzoom-btn-template-insert"
+											data-version="WPZ__wireframe-version-<?php echo esc_attr( $index ); ?>"
+											data-template-name="<?php echo esc_attr( $slug ); ?>">
+											<i class="eicon-library-download" aria-hidden="true"></i>
+											<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'wpzoom-elementor-addons' ); ?></span>
+										</div>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+					}
+				}
+			} else {
+				echo '<div class="wpzoom-no-results"> <i class="fa fa-frown-o"></i> ' . esc_html__( 'No Wireframes Found!', 'wpzoom-elementor-addons' ) . ' </div>';
+			}
+
+			echo '</div>';
+			wp_die();
+		}
+
+		/**
+		 * Wireframes: Preview handler
+		 */
+		public function ajax_get_wpzoom_wireframe_preview()
+		{
+			$this->get_preview_template( $_POST['data'], 'wireframes' );
+			wp_die();
+		}
+
+		/**
+		 * Get wireframe categories for filter dropdown
+		 */
+		public function get_wireframes_filter_options_values()
+		{
+			$categoriesList = $wireframes = array();
+
+			$localJson = WPZOOM_EL_ADDONS_PATH . '/includes/data/wireframes/json/info.json';
+			if ( self::init()->get_filesystem()->exists( $localJson ) ) {
+				$data       = self::init()->get_filesystem()->get_contents( $localJson );
+				$wireframes = json_decode( $data, true );
+			}
+
+			if ( count( $wireframes ) != 0 ) {
+				foreach ( $wireframes as $wireframe ) {
+					if ( isset( $wireframe['category'] ) ) {
+						$categoriesList[] = strtolower( str_replace( ' ', '-', $wireframe['category'] ) );
+					}
+				}
+			}
+
+			$categoriesList = array_unique( $categoriesList );
+			$desired_order  = array( 'general', 'hero', 'features', 'contact' );
+
+			usort(
+				$categoriesList,
+				function ( $a, $b ) use ( $desired_order ) {
+					$pos_a = array_search( $a, $desired_order, true );
+					$pos_b = array_search( $b, $desired_order, true );
+					if ( false === $pos_a ) { $pos_a = PHP_INT_MAX; }
+					if ( false === $pos_b ) { $pos_b = PHP_INT_MAX; }
+					if ( $pos_a === $pos_b ) { return strcmp( $a, $b ); }
+					return $pos_a <=> $pos_b;
+				}
+			);
+
+			echo json_encode( $categoriesList );
 			wp_die();
 		}
 
@@ -557,7 +749,5 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 
 	// Initialize the Elementor library
 	WPZOOM_Elementor_Library_Manager::init();
-
-	require __DIR__ . '/wpzoom-template-library.php';
 
 } // Make sure class doesn't already exist
