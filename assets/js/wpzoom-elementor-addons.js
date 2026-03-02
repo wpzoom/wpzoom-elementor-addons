@@ -175,10 +175,10 @@ var WPZCachedWireframes = null;
 							$('#wpzoom-elementor-template-library-filter-theme').show();
 							$('#wpzoom-elementor-template-library-filter-category').hide();
 							$('#wpzoom-elementor-template-library-filter-wireframe-category').hide();
-							// Also clear any previous filter values
-							$('#wpzoom-elementor-template-library-filter-theme').val('');
-							$('#wpzoom-elementor-template-library-filter-category').val('');
-							$('#wpzoom-elementor-template-library-filter-wireframe-category').val('');
+							// Also clear any previous filter values (trigger change so Select2 UI updates)
+							$('#wpzoom-elementor-template-library-filter-theme').val(null).trigger('change');
+							$('#wpzoom-elementor-template-library-filter-category').val(null).trigger('change');
+							$('#wpzoom-elementor-template-library-filter-wireframe-category').val(null).trigger('change');
 							$('#wpzoom-elementor-template-library-filter-text').val('');
 							$('.wpzoom-search-clear').hide();
 
@@ -370,6 +370,16 @@ var WPZCachedWireframes = null;
 							}, 150);
 						},
 						onHide: function () {
+							// Reset filter values on close so they are cleared when modal is reopened
+							var $theme = $('#wpzoom-elementor-template-library-filter-theme');
+							var $category = $('#wpzoom-elementor-template-library-filter-category');
+							var $wireframeCat = $('#wpzoom-elementor-template-library-filter-wireframe-category');
+							if ($theme.length) { $theme.val(null).trigger('change'); }
+							if ($category.length) { $category.val(null).trigger('change'); }
+							if ($wireframeCat.length) { $wireframeCat.val(null).trigger('change'); }
+							$('#wpzoom-elementor-template-library-filter-text').val('');
+							$('.wpzoom-search-clear').hide();
+
 							if ('dark' !== elementor.settings.editorPreferences.model.get('ui_theme')) {
 								$("#wpzoom_main_library_templates_panel").removeClass('wpzoom-dark-mode');
 							}
