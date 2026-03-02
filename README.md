@@ -10,11 +10,23 @@ A collection of pre-designed templates and advanced widgets for the Elementor pa
 ## Features
 
 ### Free Features
+- **Pages, Sections, and Wireframes** in one Elementor library
+- **Redesigned Library UI** with tab counts, search, filters, and grid controls
+- **No Media Import Mode** to insert layouts without downloading images
 - **Beautiful Pre-designed Templates** for professionals
 - **Theme-specific Templates** for WPZOOM themes
 - **Advanced Elementor Widgets** with multiple options
+- **Flexible Wireframes** for faster page prototyping
 - **Unique Layouts** for video & photo professionals
 - Works with any theme
+
+## What's New in 1.4.0
+
+- Added a new Wireframes tab in the WPZOOM Library
+- Redesigned the library toolbar with tab counts, search, filters, and grid size controls
+- Added a No Media import mode with local placeholder support
+- Expanded the library with many new sections and wireframes
+- Improved badges, sorting, and general library browsing
 
 ### Included Widgets
 - **Slideshow** - Beautiful fullscreen slideshows
@@ -61,9 +73,10 @@ git clone https://github.com/wpzoom/wpzoom-elementor-addons.git
 
 1. Edit any page with Elementor
 2. Click the **WPZOOM** button in the editor
-3. Browse the template library
-4. Click to import a template
-5. Customize to match your design
+3. Browse the **Pages**, **Sections**, or **Wireframes** tabs
+4. Use search, filters, grid controls, or the **No Media** toggle if needed
+5. Click to import a template
+6. Customize to match your design
 
 ### Using Widgets
 

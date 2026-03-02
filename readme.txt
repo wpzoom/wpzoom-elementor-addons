@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      6.9
-Stable tag:        1.3.5
+Stable tag:        1.4.0
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -15,12 +15,15 @@ Elementor templates and widgets - Import professionally designed page templates,
 
 = Elementor Templates & Widgets - Build Pages Faster =
 
-**The best starter templates plugin for Elementor.** Import professionally designed page templates, sections, and widgets with one click. Build beautiful, responsive pages in minutes - no coding required.
+**The best starter templates plugin for Elementor.** Import professionally designed page templates, sections, wireframes, and widgets with one click. Build beautiful, responsive pages in minutes - no coding required.
 
 = Features =
 
 * **Page Templates** - Import full page layouts with one click
-* **Section Templates** - Insert individual sections (hero, features, contact, etc.) - *NEW in 1.3.0*
+* **Section Templates** - Insert individual sections (hero, features, contact, pricing, etc.)
+* **Wireframes Library** - Start faster with flexible wireframe blocks and layouts - *NEW in 1.4.0*
+* **Redesigned Template Library** - Browse faster with tab counters, search, filters, and grid size controls - *NEW in 1.4.0*
+* **No Media Import Mode** - Import templates without downloading images to the Media Library - *NEW in 1.4.0*
 * Advanced Elementor widgets with multiple options and settings
 * Beautiful pre-designed templates for professionals
 * Unique layouts for **video & photo professionals**
@@ -85,7 +88,7 @@ To contribute to this plugin, please visit the [GitHub repository](https://githu
 
 **Usage:**
 
-Once activated, edit any page with Elementor and click the **WPZOOM Library** button to browse and import templates or sections.
+Once activated, edit any page with Elementor and click the **WPZOOM Library** button to browse and import pages, sections, or wireframes. Use the search, filters, and the **No Media** toggle to speed up imports.
 
 
 == Frequently Asked Questions ==
@@ -113,15 +116,21 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 == Screenshots ==
 
-1. Template Library with Pages and Sections tabs
-2. Sections Library with category filtering
-3. Additional Widgets
+1. Template Library
+2. Sections Library
+3. Wireframes Library
 4. Pricing Table widget in Inspiro PRO theme
 5. Team Members widget
 6. WooCommerce Products widget
+7. Custom Elementor Widgets
 
 
 == Changelog ==
+
+= 1.4.0 =
+* NEW: Added Wireframes library
+* NEW: Added a No Media import mode to skip downloading template images to the Media Library
+* IMPROVEMENT: Expanded the library with many new sections and wireframes
 
 = 1.3.5 =
 * Minor bug fix
