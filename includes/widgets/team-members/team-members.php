@@ -184,6 +184,7 @@ class Team_Members extends Widget_Base {
 			'x-twitter'      => esc_html__( 'X', 'wpzoom-elementor-addons' ),
 			'yelp'           => esc_html__( 'Yelp', 'wpzoom-elementor-addons' ),
 			'youtube'        => esc_html__( 'YouTube', 'wpzoom-elementor-addons' ),
+			'substack'       => esc_html__( 'Substack', 'wpzoom-elementor-addons' ),
 		];
 	}
 
@@ -1468,11 +1469,19 @@ class Team_Members extends Widget_Base {
 							$icon .= ' fab';
 						}
 
-						printf( '<a target="_blank" rel="noopener" href="%s" class="elementor-repeater-item-%s"><i class="fa-%s" aria-hidden="true"></i></a>',
-							esc_url( $url ),
-							esc_attr( $profile['_id'] ),
-							esc_attr( $icon )
-						);
+						if ( $profile['name'] === 'substack' ) {
+							printf(
+								'<a target="_blank" rel="noopener" href="%s" class="elementor-repeater-item-%s"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><title>Substack</title><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>',
+								esc_url( $url ),
+								esc_attr( $profile['_id'] )
+							);
+						} else {
+							printf( '<a target="_blank" rel="noopener" href="%s" class="elementor-repeater-item-%s"><i class="fa-%s" aria-hidden="true"></i></a>',
+								esc_url( $url ),
+								esc_attr( $profile['_id'] ),
+								esc_attr( $icon )
+							);
+						}
 					endforeach; ?>
 				</div>
 			<?php endif; ?>
