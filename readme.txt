@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.0
-Stable tag:        1.4.1
+Stable tag:        1.4.2
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -126,6 +126,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.2 =
+* Updating "Elementor tested up to" version
 
 = 1.4.1 =
 * Added Substack icon in the Team Members widget
