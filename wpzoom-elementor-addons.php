@@ -11,8 +11,8 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 6.5
  * Tested up to:      7.0
- * Elementor tested up to: 3.99
- * Elementor Pro tested up to: 3.99
+ * Elementor tested up to: 4.99
+ * Elementor Pro tested up to: 4.99
  *
  * @package WPZOOM_Elementor_Addons
  */
