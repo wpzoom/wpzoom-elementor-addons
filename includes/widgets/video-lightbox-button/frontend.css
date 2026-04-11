@@ -1,0 +1,169 @@
+/*
+ * Scope trigger styles under the Elementor widget wrapper so they win over
+ * theme link rules (e.g. .entry-content a) without !important.
+ * Modal (.wpz-vlb-modal) stays unscoped — it is rendered on body.
+ */
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button .wpz-vlb {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button
+	a.wpz-vlb-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	text-decoration: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	transition:
+		color 0.25s ease,
+		background-color 0.25s ease,
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button
+	a.wpz-vlb-trigger[aria-disabled="true"] {
+	cursor: not-allowed;
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button
+	.wpz-vlb-trigger__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 0;
+	flex-shrink: 0;
+}
+
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button
+	.wpz-vlb-trigger__icon
+	svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+.elementor-widget-wpzoom-elementor-addons-video-lightbox-button
+	.wpz-vlb-trigger__text {
+	display: inline-block;
+	line-height: 1.3;
+}
+
+/* Modal overlay */
+.wpz-vlb-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.9);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+}
+
+.wpz-vlb-modal.wpz-vlb-modal--active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.wpz-vlb-modal__overlay {
+	position: absolute;
+	inset: 0;
+	cursor: pointer;
+	z-index: 1;
+	background: transparent;
+}
+
+.wpz-vlb-modal__close {
+	position: fixed;
+	top: 16px;
+	right: 16px;
+	z-index: 3;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	margin: 0;
+	border: none;
+	border-radius: 50%;
+	background: transparent;
+	color: #ededede6;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		transform 0.2s ease,
+		opacity 0.2s ease;
+}
+
+.wpz-vlb-modal__close:hover {
+	transform: scale(1.08);
+	opacity: 0.9;
+}
+
+.wpz-vlb-modal__close svg {
+	display: block;
+	width: 28px;
+	height: 28px;
+}
+
+.wpz-vlb-modal__container {
+	position: relative;
+	z-index: 2;
+	width: 85vw;
+	max-height: 85vh;
+	aspect-ratio: 16 / 9;
+	max-height: min(85vh, calc(100vw - 48px) * 9 / 16);
+}
+
+.wpz-vlb-modal__content {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 4px;
+	background: #000;
+}
+
+.wpz-vlb-modal__iframe,
+.wpz-vlb-modal__video-el {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: #000;
+}
+
+.wpz-vlb-modal__video-el {
+	object-fit: contain;
+}
+
+@media (max-width: 767px) {
+	.wpz-vlb-modal {
+		padding: 16px;
+	}
+
+	.wpz-vlb-modal__close {
+		top: 8px;
+		right: 8px;
+		width: 40px;
+		height: 40px;
+	}
+
+	.wpz-vlb-modal__close svg {
+		width: 22px;
+		height: 22px;
+	}
+}
