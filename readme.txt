@@ -50,6 +50,7 @@ Elementor templates and widgets - Import professionally designed page templates,
 * **Portfolio** - Portfolio showcase (Inspiro/Inspiro PRO themes)
 * **Pricing Table** - Pricing plan comparisons
 * **Directors** - Showcase for video creators and filmmakers
+* **Video Lightbox Button** - Button that opens a video (YouTube, Vimeo, or MP4) in a modal lightbox
 
 == Recommended Themes & DEMO ==
 
@@ -128,8 +129,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 == Changelog ==
 
 = 1.4.3 =
-* New widget: Video Lightbox Button
-* New styling option for Inspiro Portfolio widget
+* NEW: Video Lightbox Button widget - Opens YouTube, Vimeo, or MP4 videos in a modal lightbox
+* NEW: Portfolio Showcase widget - Added extensive styling options for the category filter (border, border-radius, background, active state, item spacing)
+* NEW: Portfolio Showcase widget - Eccentric style now has its own Posts Settings (year, category, excerpts, button text)
 
 = 1.4.2 =
 * Updating "Elementor tested up to" version
