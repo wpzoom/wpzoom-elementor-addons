@@ -940,9 +940,49 @@ class Portfolio_Showcase extends Widget_Base
             ]
         );
 
+        // Image hover scale.
+        $this->add_control(
+            'portfolio_item_hover_scale',
+            [
+            'label'     => esc_html__('Image Hover Scale', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::SLIDER,
+            'range'     => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 2,
+                        'step' => 0.01
+                    ]
+            ],
+            'selectors' => [
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item:hover img' => 'transform: scale({{SIZE}});'
+            ]
+            ]
+        );
+
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
+
+        // Transition duration.
+        $this->add_control(
+            'portfolio_item_transition_duration',
+            [
+            'label'     => esc_html__('Transition Duration (ms)', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::SLIDER,
+            'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 2000,
+                        'step' => 50
+                    ]
+            ],
+            'selectors' => [
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item img' => 'transition-duration: {{SIZE}}ms;',
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover' => 'transition-duration: {{SIZE}}ms;'
+            ],
+            'separator' => 'before'
+            ]
+        );
 
         // Box internal padding.
         $this->add_responsive_control(
@@ -956,6 +996,116 @@ class Portfolio_Showcase extends Widget_Base
             ]
             ]
         );
+
+        $this->end_controls_section();
+
+        //Overlay Content Styles section
+        $this->start_controls_section(
+            'section_portfolio_overlay_style',
+            array(
+            'label' => esc_html__('Overlay Content', 'wpzoom-elementor-addons'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+            )
+        );
+
+        // Overlay content padding.
+        $this->add_responsive_control(
+            'portfolio_overlay_content_padding',
+            array(
+            'label'      => esc_html__('Content Padding', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'selectors'  => [
+            '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ]
+            )
+        );
+
+        // Overlay content vertical position.
+        $this->add_responsive_control(
+            'portfolio_overlay_content_vertical_position',
+            array(
+            'label'   => esc_html__('Vertical Position', 'wpzoom-elementor-addons'),
+            'type'    => Controls_Manager::CHOOSE,
+            'options' => array(
+                    'flex-start' => array(
+                        'title' => esc_html__('Top', 'wpzoom-elementor-addons'),
+                        'icon' => 'eicon-v-align-top',
+                    ),
+                    'center' => array(
+                        'title' => esc_html__('Middle', 'wpzoom-elementor-addons'),
+                        'icon' => 'eicon-v-align-middle',
+                    ),
+                    'flex-end' => array(
+                        'title' => esc_html__('Bottom', 'wpzoom-elementor-addons'),
+                        'icon' => 'eicon-v-align-bottom',
+                    ),
+            ),
+            'default' => '',
+            'selectors' => array(
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover' => 'display: flex; align-items: {{VALUE}};',
+            ),
+            )
+        );
+
+        // Overlay title typography.
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            array(
+            'name'     => 'portfolio_overlay_title_typography',
+            'label'    => esc_html__('Title Typography', 'wpzoom-elementor-addons'),
+            'selector' => '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content h3'
+            )
+        );
+
+        $this->start_controls_tabs('portfolio_overlay_title_color_style');
+
+        // Normal tab.
+        $this->start_controls_tab(
+            'portfolio_overlay_title_style_normal',
+            array(
+            'label' => esc_html__('Normal', 'wpzoom-elementor-addons')
+            )
+        );
+
+        // Overlay title color.
+        $this->add_control(
+            'portfolio_overlay_title_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Title Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content h3, {{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content h3 a' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        $this->end_controls_tab();
+
+        // Hover tab.
+        $this->start_controls_tab(
+            'portfolio_overlay_title_style_hover',
+            array(
+            'label' => esc_html__('Hover', 'wpzoom-elementor-addons')
+            )
+        );
+
+        // Overlay title hover color.
+        $this->add_control(
+            'portfolio_overlay_title_hover_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Title Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content h3:hover, {{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content h3 a:hover' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -1053,6 +1203,33 @@ class Portfolio_Showcase extends Widget_Base
             )
             )
         );
+
+        // Filter background color.
+        $this->add_control(
+            'portfolio_filter_style_bg_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Background Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies a' => 'background-color: {{VALUE}};'
+            )
+            )
+        );
+
+        // Filter border color.
+        $this->add_control(
+            'portfolio_filter_style_border_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Border Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies a' => 'border-color: {{VALUE}};'
+            )
+            )
+        );
+
         $this->end_controls_tab();
 
         // Hover tab.
@@ -1076,8 +1253,146 @@ class Portfolio_Showcase extends Widget_Base
             )
         );
 
+        // Filter hover background color.
+        $this->add_control(
+            'portfolio_filter_style_hover_bg_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Background Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies a:hover' => 'background-color: {{VALUE}};'
+            )
+            )
+        );
+
+        // Filter hover border color.
+        $this->add_control(
+            'portfolio_filter_style_hover_border_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Border Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies a:hover' => 'border-color: {{VALUE}};'
+            )
+            )
+        );
+
+        $this->end_controls_tab();
+
+        // Active tab.
+        $this->start_controls_tab(
+            'portfolio_filter_style_active',
+            array(
+            'label' => esc_html__('Active', 'wpzoom-elementor-addons')
+            )
+        );
+
+        // Filter active color.
+        $this->add_control(
+            'portfolio_filter_style_active_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies li.current-cat a' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        // Filter active background color.
+        $this->add_control(
+            'portfolio_filter_style_active_bg_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Background Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies li.current-cat a' => 'background-color: {{VALUE}};'
+            )
+            )
+        );
+
+        // Filter active border color.
+        $this->add_control(
+            'portfolio_filter_style_active_border_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Border Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-archive-taxonomies li.current-cat a' => 'border-color: {{VALUE}};'
+            )
+            )
+        );
+
         $this->end_controls_tab();
         $this->end_controls_tabs();
+
+        // Filter border width.
+        $this->add_control(
+            'portfolio_filter_border_width',
+            array(
+            'label'      => esc_html__('Border Width', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px' ],
+            'selectors'  => [
+            '{{WRAPPER}} .portfolio-archive-taxonomies a' => 'border-style: solid; border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ],
+            'separator' => 'before'
+            )
+        );
+
+        // Filter border radius.
+        $this->add_control(
+            'portfolio_filter_border_radius',
+            array(
+            'label'     => esc_html__('Border Radius', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::SLIDER,
+            'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200
+                    ]
+            ],
+            'selectors' => [
+                    '{{WRAPPER}} .portfolio-archive-taxonomies a' => 'border-radius: {{SIZE}}{{UNIT}};'
+            ]
+            )
+        );
+
+        // Filter item padding.
+        $this->add_responsive_control(
+            'filter_item_style_padding',
+            array(
+            'label'      => esc_html__('Item Padding', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%', 'em' ],
+            'selectors'  => [
+            '{{WRAPPER}} .portfolio-archive-taxonomies a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ]
+            )
+        );
+
+        // Filter item spacing.
+        $this->add_responsive_control(
+            'filter_item_spacing',
+            array(
+            'label'     => esc_html__('Item Spacing', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::SLIDER,
+            'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50
+                    ]
+            ],
+            'selectors' => [
+                    '{{WRAPPER}} .portfolio-archive-taxonomies li + li' => 'margin-left: {{SIZE}}{{UNIT}};'
+            ]
+            )
+        );
 
         $this->add_responsive_control(
             'filter_align',
@@ -1106,15 +1421,28 @@ class Portfolio_Showcase extends Widget_Base
             )
         );
 
-        // Filter padding.
+        // Filter container padding.
         $this->add_responsive_control(
             'filter_style_padding',
             array(
-            'label'      => esc_html__('Padding', 'wpzoom-elementor-addons'),
+            'label'      => esc_html__('Container Padding', 'wpzoom-elementor-addons'),
             'type'       => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%' ],
             'selectors'  => [
             '{{WRAPPER}} .portfolio-archive-taxonomies ul' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important'
+            ]
+            )
+        );
+
+        // Filter container margin.
+        $this->add_responsive_control(
+            'filter_style_margin',
+            array(
+            'label'      => esc_html__('Container Margin', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'selectors'  => [
+            '{{WRAPPER}} .portfolio-archive-taxonomies' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ]
             )
         );
@@ -1140,6 +1468,66 @@ class Portfolio_Showcase extends Widget_Base
             'selector' => '{{WRAPPER}} .portfolio-grid .clean_skin_wrap_post'
             )
         );
+
+        // Details box title typography.
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            array(
+            'name'     => 'portfolio_info_title_typography',
+            'label'    => esc_html__('Title Typography', 'wpzoom-elementor-addons'),
+            'selector' => '{{WRAPPER}} .portfolio-grid .clean_skin_wrap_post h3'
+            )
+        );
+
+        $this->start_controls_tabs('portfolio_info_link_color_style');
+
+        // Normal tab.
+        $this->start_controls_tab(
+            'portfolio_info_link_style_normal',
+            array(
+            'label' => esc_html__('Normal', 'wpzoom-elementor-addons')
+            )
+        );
+
+        // Details box link color.
+        $this->add_control(
+            'portfolio_info_link_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Link Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-grid .clean_skin_wrap_post a' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        $this->end_controls_tab();
+
+        // Hover tab.
+        $this->start_controls_tab(
+            'portfolio_info_link_style_hover',
+            array(
+            'label' => esc_html__('Hover', 'wpzoom-elementor-addons')
+            )
+        );
+
+        // Details box link hover color.
+        $this->add_control(
+            'portfolio_info_link_hover_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Link Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-grid .clean_skin_wrap_post a:hover' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        $this->end_controls_tab();
+        $this->end_controls_tabs();
+
         // Paddings.
         $this->add_responsive_control(
             'portfolio_info_style_padding',
@@ -1369,7 +1757,7 @@ class Portfolio_Showcase extends Widget_Base
             ),
             )
         );
-        // Title margins.
+        // Meta margins.
         $this->add_responsive_control(
             'portfolio_cat_margin',
             array(
@@ -1378,6 +1766,48 @@ class Portfolio_Showcase extends Widget_Base
             'size_units' => [ 'px', '%' ],
             'selectors'  => [
             '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}'
+            ]
+            )
+        );
+
+        // Meta separator heading.
+        $this->add_control(
+            'portfolio_meta_separator_heading',
+            array(
+            'label'     => esc_html__('Separator', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::HEADING,
+            'separator' => 'before',
+            )
+        );
+
+        // Meta separator color.
+        $this->add_control(
+            'portfolio_meta_separator_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-meta ul li + li:before, {{WRAPPER}} .clean_skin_wrap_post .entry-meta ul li + li:before' => 'color: {{VALUE}};'
+            )
+            )
+        );
+
+        // Meta separator opacity.
+        $this->add_control(
+            'portfolio_meta_separator_opacity',
+            array(
+            'label'     => esc_html__('Opacity', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::SLIDER,
+            'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1,
+                        'step' => 0.05
+                    ]
+            ],
+            'selectors' => [
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-meta ul li + li:before, {{WRAPPER}} .clean_skin_wrap_post .entry-meta ul li + li:before' => 'opacity: {{SIZE}};'
             ]
             )
         );
@@ -1883,6 +2313,42 @@ class Portfolio_Showcase extends Widget_Base
             '{{WRAPPER}} .portfolio-view_all-link a.btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
             ]
             ]
+        );
+
+        // View All container heading.
+        $this->add_control(
+            'portfolio_viewall_container_heading',
+            array(
+            'label'     => esc_html__('Container', 'wpzoom-elementor-addons'),
+            'type'      => Controls_Manager::HEADING,
+            'separator' => 'before',
+            )
+        );
+
+        // View All container background.
+        $this->add_control(
+            'portfolio_viewall_container_bg_color',
+            array(
+            'type'      => Controls_Manager::COLOR,
+            'label'     => esc_html__('Background Color', 'wpzoom-elementor-addons'),
+            'default'   => '',
+            'selectors' => array(
+            '{{WRAPPER}} .portfolio-view_all-link' => 'background-color: {{VALUE}};'
+            )
+            )
+        );
+
+        // View All container padding.
+        $this->add_responsive_control(
+            'portfolio_viewall_container_padding',
+            array(
+            'label'      => esc_html__('Padding', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'selectors'  => [
+            '{{WRAPPER}} .portfolio-view_all-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ]
+            )
         );
 
         $this->end_controls_section();
