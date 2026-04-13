@@ -132,6 +132,7 @@ class Video_Lightbox_Button extends Widget_Base {
 				'label_block' => true,
 				'options'     => false,
 				'placeholder' => esc_html__( 'YouTube, Vimeo, or direct video file URL', 'wpzoom-elementor-addons' ),
+                'description' => esc_html__( 'YouTube, Vimeo, or direct link to MP4 file', 'wpzoom-elementor-addons' ),
 				'dynamic'     => array(
 					'active' => true,
 				),
@@ -258,6 +259,7 @@ class Video_Lightbox_Button extends Widget_Base {
 			array(
 				'label'     => esc_html__( 'Text Color', 'wpzoom-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
 				'selectors' => array(
 					'{{WRAPPER}} .wpz-vlb-trigger' => 'color: {{VALUE}};',
 				),
@@ -269,6 +271,7 @@ class Video_Lightbox_Button extends Widget_Base {
 			array(
 				'label'     => esc_html__( 'Background', 'wpzoom-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
+				'default'   => '#1a1a2e',
 				'selectors' => array(
 					'{{WRAPPER}} .wpz-vlb-trigger' => 'background-color: {{VALUE}};',
 				),
@@ -300,6 +303,7 @@ class Video_Lightbox_Button extends Widget_Base {
 			array(
 				'label'     => esc_html__( 'Background', 'wpzoom-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
+				'default'   => '#2a2a4a',
 				'selectors' => array(
 					'{{WRAPPER}} .wpz-vlb-trigger:hover' => 'background-color: {{VALUE}};',
 				),
@@ -316,10 +320,10 @@ class Video_Lightbox_Button extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'default'    => array(
-					'top'      => 10,
-					'right'    => 0,
-					'bottom'   => 10,
-					'left'     => 0,
+					'top'      => 14,
+					'right'    => 28,
+					'bottom'   => 14,
+					'left'     => 28,
 					'unit'     => 'px',
 					'isLinked' => false,
 				),
@@ -344,6 +348,14 @@ class Video_Lightbox_Button extends Widget_Base {
 				'label'      => esc_html__( 'Border Radius', 'wpzoom-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
+				'default'    => array(
+					'top'      => 5,
+					'right'    => 5,
+					'bottom'   => 5,
+					'left'     => 5,
+					'unit'     => 'px',
+					'isLinked' => true,
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wpz-vlb-trigger' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
