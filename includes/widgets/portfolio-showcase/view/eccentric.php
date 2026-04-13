@@ -48,7 +48,7 @@ $count = $wp_query->found_posts;
 
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-            <?php get_template_part( 'portfolio/content-fresh' ); ?>
+            <?php include __DIR__ . '/content-fresh.php'; ?>
 
         <?php endwhile; ?>
 

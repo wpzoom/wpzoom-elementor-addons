@@ -512,7 +512,78 @@ class Portfolio_Showcase extends Widget_Base
             )
         );
         $this->end_controls_section();
-    
+
+        //Eccentric Posts Settings
+        $this->start_controls_section(
+            'section_eccentric_post_settings',
+            array(
+            'label' => esc_html__('Posts Settings', 'wpzoom-elementor-addons'),
+            'tab'   => Controls_Manager::TAB_CONTENT,
+            'condition' => array(
+            'portfolio_showcase_styles' => 'eccentric',
+            ),
+            )
+        );
+
+        $this->add_control(
+            'eccentric_enable_year',
+            array(
+            'label'       => esc_html__('Display Year of Production', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::SWITCHER,
+            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+            'default'     => 'yes',
+            )
+        );
+
+        $this->add_control(
+            'eccentric_enable_category',
+            array(
+            'label'       => esc_html__('Display Category Name', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::SWITCHER,
+            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+            'default'     => 'yes',
+            )
+        );
+
+        $this->add_control(
+            'eccentric_show_excerpt',
+            array(
+            'label'       => esc_html__('Display Excerpts', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::SWITCHER,
+            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+            'default'     => 'yes',
+            )
+        );
+
+        $this->add_control(
+            'eccentric_enable_btn',
+            array(
+            'label'       => esc_html__('Display "Go to project" Button', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::SWITCHER,
+            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+            'default'     => 'yes',
+            )
+        );
+
+        $this->add_control(
+            'eccentric_btn_text',
+            array(
+            'label'       => esc_html__('Button Text', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::TEXT,
+            'default'     => esc_html__('Go to project', 'wpzoom-elementor-addons'),
+            'label_block' => true,
+            'condition'   => array(
+            'eccentric_enable_btn' => 'yes',
+            ),
+            )
+        );
+
+        $this->end_controls_section();
+
         //Posts Settings
         $this->start_controls_section(
             'section_post_settings',
@@ -2481,6 +2552,11 @@ class Portfolio_Showcase extends Widget_Base
         $view_all_ajax_loading              = ( 'yes' == $settings['view_all_ajax_loading'] ? true : false );
         $view_all_enabled                   = ( 'yes' == $settings['view_all_enabled'] ? true : false );
         $enable_dark_mode                   = ( 'yes' == $settings['enable_dark_mode'] ? true : false );
+        $eccentric_enable_year              = ( 'yes' == $settings['eccentric_enable_year'] ? true : false );
+        $eccentric_enable_category          = ( 'yes' == $settings['eccentric_enable_category'] ? true : false );
+        $eccentric_show_excerpt             = ( 'yes' == $settings['eccentric_show_excerpt'] ? true : false );
+        $eccentric_enable_btn               = ( 'yes' == $settings['eccentric_enable_btn'] ? true : false );
+        $eccentric_btn_text                 = $settings['eccentric_btn_text'];
         $readmore_text                      = $settings['readmore_text'];
         $view_all_text                      = $settings['view_all_text'];
         $view_all_link                      = !empty($settings['view_all_link']['url']) ? $settings['view_all_link']['url'] : $settings['view_all_link']['url'] = get_page_link(\option::get('portfolio_url'));
