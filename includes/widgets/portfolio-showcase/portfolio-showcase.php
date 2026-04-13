@@ -249,7 +249,20 @@ class Portfolio_Showcase extends Widget_Base
                 'frontend_available' => true,
             )
         );
-        
+
+        $this->add_control(
+            'enable_dark_mode',
+            array(
+            'label'       => esc_html__('Enable Dark Mode', 'wpzoom-elementor-addons'),
+            'type'        => Controls_Manager::SWITCHER,
+            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+            'default'     => 'no',
+            'condition' => array(
+            'portfolio_showcase_styles' => 'eccentric',
+            ),
+            )
+        );
 
         $this->add_control(
             'widget_title',
@@ -411,19 +424,8 @@ class Portfolio_Showcase extends Widget_Base
             array(
             'label' => esc_html__('Design & Appearance', 'wpzoom-elementor-addons'),
             'tab'   => Controls_Manager::TAB_CONTENT,
-            )
-        );
-
-        $this->add_control(
-            'enable_dark_mode',
-            array(
-            'label'       => esc_html__('Enable Dark Mode', 'wpzoom-elementor-addons'),
-            'type'        => Controls_Manager::SWITCHER,
-            'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
-            'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
-            'default'     => 'no',
             'condition' => array(
-            'portfolio_showcase_styles' => 'eccentric', 
+            'portfolio_showcase_styles!' => 'eccentric',
             ),
             )
         );
@@ -795,6 +797,7 @@ class Portfolio_Showcase extends Widget_Base
         $this->end_controls_section();
 
         //Style and Design Options
+
         //Portfolio Item Styling.
         $this->start_controls_section(
             'section_portfolio_item',
