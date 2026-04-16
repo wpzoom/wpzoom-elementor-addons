@@ -630,7 +630,6 @@ class Portfolio_Showcase extends Widget_Base
             'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
             'default'     => 'no',
             'condition' => array(
-            'show_popup_caption' => 'yes',
             'portfolio_showcase_styles!' => 'eccentric',
             ),
             )
@@ -2591,13 +2590,15 @@ class Portfolio_Showcase extends Widget_Base
                                                 ) 
                                             );
                                             ?>
-                                            <?php if ($show_popup_caption ) : ?>
+                                            <?php if ($show_popup_caption || $show_popup_excerpt ) : ?>
                                                 <div class="mfp-bottom-bar">
                                                     <div class="mfp-title">
-                                                        <a href="<?php echo esc_url(get_permalink()); ?>"
-                                                           title="<?php echo esc_attr(get_the_title()); ?>">
-                                                            <?php the_title(); ?>
-                                                        </a>
+                                                        <?php if ($show_popup_caption ) : ?>
+                                                            <a href="<?php echo esc_url(get_permalink()); ?>"
+                                                               title="<?php echo esc_attr(get_the_title()); ?>">
+                                                                <?php the_title(); ?>
+                                                            </a>
+                                                        <?php endif; ?>
                                                         <?php if ($show_popup_excerpt ) : ?>
                                                             <p class="mfp-excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
                                                         <?php endif; ?>
@@ -2740,13 +2741,15 @@ class Portfolio_Showcase extends Widget_Base
                                                 ) 
                                             );
                                             ?>
-                                            <?php if ($show_popup_caption ) : ?>
+                                            <?php if ($show_popup_caption || $show_popup_excerpt ) : ?>
                                                 <div class="mfp-bottom-bar">
                                                     <div class="mfp-title">
-                                                        <a href="<?php echo esc_url(get_permalink()); ?>"
-                                                           title="<?php echo esc_attr(get_the_title()); ?>">
-                                                            <?php the_title(); ?>
-                                                        </a>
+                                                        <?php if ($show_popup_caption ) : ?>
+                                                            <a href="<?php echo esc_url(get_permalink()); ?>"
+                                                               title="<?php echo esc_attr(get_the_title()); ?>">
+                                                                <?php the_title(); ?>
+                                                            </a>
+                                                        <?php endif; ?>
                                                         <?php if ($show_popup_excerpt ) : ?>
                                                             <p class="mfp-excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
                                                         <?php endif; ?>
