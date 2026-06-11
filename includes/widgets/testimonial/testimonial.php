@@ -29,8 +29,9 @@ class Testimonial extends Widget_Base {
 		parent::__construct( $data, $args );
 
 		wp_register_style( 'wpzoom-elementor-addons-css-frontend-testimonial', plugins_url( 'frontend.css', __FILE__ ), [], WPZOOM_EL_ADDONS_VER );
-		if ( ! wp_script_is( 'font-awesome-pro' ) ) {
-			wp_enqueue_style(
+		// Register only — widgets pull it in via get_style_depends() when actually rendered.
+		if ( ! wp_script_is( 'font-awesome-pro' ) && ! wp_style_is( 'font-awesome-5-all', 'registered' ) ) {
+			wp_register_style(
 				'font-awesome-5-all',
 				self::get_fa_asset_url( 'all' ),
 				[],
