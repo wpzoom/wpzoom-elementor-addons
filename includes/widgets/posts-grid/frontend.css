@@ -84,10 +84,10 @@
 }
 
 /* Layout 8 - Overlay View Styles */
-.grid-overlay-layout .post-grid-inner {
+.grid-overlay-layout .wpz-post {
 	position: relative;
 	overflow: hidden;
-	min-height: 420px;
+	min-height: 300px;
 	height: 100%;
 	display: flex;
 }
@@ -114,7 +114,7 @@
 }
 
 /* Darkening gradient so overlaid text stays readable */
-.grid-overlay-layout .post-grid-inner:before {
+.grid-overlay-layout .wpz-post:before {
 	content: "";
 	position: absolute;
 	inset: 0;

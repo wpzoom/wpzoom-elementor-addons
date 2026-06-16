@@ -5,20 +5,16 @@ while ( $all_posts->have_posts() ) :
 
         <article id="post-<?php the_ID(); ?>" <?php post_class('wpz-post'); ?>>
 
-            <div class="post-grid-inner">
+            <?php $this->render_thumbnail(); ?>
 
-                <?php $this->render_thumbnail(); ?>
+            <div class="post-grid-overlay-content">
+                <?php $this->render_meta( array( 'categories' ), false ); ?>
+                <?php $this->render_title(); ?>
+                <?php $this->render_meta( array( 'categories' ), true ); ?>
+            </div>
 
-                <div class="post-grid-overlay-content">
-                    <?php $this->render_meta( array( 'categories' ), false ); ?>
-                    <?php $this->render_title(); ?>
-                    <?php $this->render_meta( array( 'categories' ), true ); ?>
-                </div>
-
-                <?php // Stretched link makes the whole card clickable without nesting <a> tags. ?>
-                <a class="post-grid-overlay-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>" tabindex="-1" aria-hidden="true"></a>
-
-            </div><!-- .post-grid-inner -->
+            <?php // Stretched link makes the whole card clickable without nesting <a> tags. ?>
+            <a class="post-grid-overlay-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>" tabindex="-1" aria-hidden="true"></a>
 
         </article>
 
