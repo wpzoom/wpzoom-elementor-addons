@@ -15,6 +15,9 @@ while ( $all_posts->have_posts() ) :
                     <?php $this->render_meta( array( 'categories' ), true ); ?>
                 </div>
 
+                <?php // Stretched link makes the whole card clickable without nesting <a> tags. ?>
+                <a class="post-grid-overlay-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>" tabindex="-1" aria-hidden="true"></a>
+
             </div><!-- .post-grid-inner -->
 
         </article>

@@ -124,11 +124,27 @@
 
 .grid-overlay-layout .post-grid-overlay-content {
 	position: relative;
-	z-index: 3;
+	z-index: 6;
 	width: 100%;
 	margin-top: auto;
 	padding: 30px;
 	text-align: center;
+	/* Let clicks fall through to the stretched link, except on real links below */
+	pointer-events: none;
+}
+
+/* Stretched link covering the whole card */
+.grid-overlay-layout .post-grid-overlay-link {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+}
+
+/* Keep genuine links (title, category) clickable on top of the stretched link */
+.grid-overlay-layout .post-grid-overlay-content a {
+	position: relative;
+	z-index: 4;
+	pointer-events: auto;
 }
 
 /* Category badge / pill */
