@@ -1883,21 +1883,31 @@ class Posts_Grid extends Widget_Base {
 	 * @access public
 	 */
 	protected function render_excerpt() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
-		$show_excerpt = $settings[ 'show_excerpt' ];
-
-		if ( 'yes' !== $show_excerpt ) {
+		if ( 'yes' !== $settings[ 'show_excerpt' ] ) {
 			return;
 		}
 
-		add_filter( 'excerpt_more', [ $this, 'wpz_filter_excerpt_more' ], 20 );
-		add_filter( 'excerpt_length', [ $this, 'wpz_filter_excerpt_length' ], 9999 );
+		$excerpt_length = ( ! empty( $settings[ 'excerpt_length' ] ) ) ? absint( $settings[ 'excerpt_length' ] ) : 25;
 
-		?><div class="post-grid-excerpt"><?php the_excerpt(); ?></div><?php
+		$post = get_post();
 
-		remove_filter( 'excerpt_length', [ $this, 'wpz_filter_excerpt_length' ], 9999 );
-		remove_filter( 'excerpt_more', [ $this, 'wpz_filter_excerpt_more' ], 20 );
+		if ( ! $post ) {
+			return;
+		}
+
+		$source = ! empty( $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
+
+		$source = strip_shortcodes( $source );
+
+		if ( function_exists( 'excerpt_remove_blocks' ) ) {
+			$source = excerpt_remove_blocks( $source );
+		}
+
+		$excerpt = wp_trim_words( $source, $excerpt_length, $this->wpz_filter_excerpt_more( '' ) );
+
+		printf( '<div class="post-grid-excerpt"><p>%s</p></div>', wp_kses_post( $excerpt ) );
 	}
 
 	/**
