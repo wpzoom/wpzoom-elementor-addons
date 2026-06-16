@@ -82,3 +82,77 @@
 .grid-list-layout.wpz-grid-container {
 	grid-template-columns: 1fr !important;
 }
+
+/* Layout 8 - Overlay View Styles */
+.grid-overlay-layout .post-grid-inner {
+	position: relative;
+	overflow: hidden;
+	min-height: 420px;
+	height: 100%;
+	display: flex;
+}
+
+.grid-overlay-layout .post-grid-thumbnail {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	z-index: 1;
+}
+
+.grid-overlay-layout .post-grid-thumbnail,
+.grid-overlay-layout .post-grid-thumbnail a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.grid-overlay-layout .post-grid-thumbnail img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Darkening gradient so overlaid text stays readable */
+.grid-overlay-layout .post-grid-inner:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.grid-overlay-layout .post-grid-overlay-content {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+	margin-top: auto;
+	padding: 30px;
+	text-align: center;
+}
+
+/* Category badge / pill */
+.grid-overlay-layout .post-grid-overlay-content .post-grid-meta .post-categories a {
+	display: inline-block;
+	padding: 4px 12px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	line-height: 1.4;
+}
+
+/* Title and meta sit on the image, default to white */
+.grid-overlay-layout .post-grid-overlay-content .title,
+.grid-overlay-layout .post-grid-overlay-content .title > a,
+.grid-overlay-layout .post-grid-overlay-content .post-grid-meta span,
+.grid-overlay-layout .post-grid-overlay-content .post-grid-meta span a {
+	color: #fff;
+}
+
+.grid-overlay-layout .post-grid-overlay-content .title {
+	margin: 12px 0;
+}

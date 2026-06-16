@@ -221,7 +221,8 @@ class Posts_Grid extends Widget_Base {
 					'4' => esc_html__( 'Layout 4', 'wpzoom-elementor-addons' ),
 					'5' => esc_html__( 'Layout 5', 'wpzoom-elementor-addons' ),
 					'6' => esc_html__( 'Layout 6', 'wpzoom-elementor-addons' ),
-					'7' => esc_html__( 'Layout 7 (List)', 'wpzoom-elementor-addons' )
+					'7' => esc_html__( 'Layout 7 (List)', 'wpzoom-elementor-addons' ),
+					'8' => esc_html__( 'Layout 8 (Overlay)', 'wpzoom-elementor-addons' )
 				]
 			]
 		);
@@ -1637,13 +1638,17 @@ class Posts_Grid extends Widget_Base {
 				$grid_class = ' grid-meta-bottom';
 			} elseif( 7 == $grid_style ){
 				$grid_class = ' grid-list-layout';
+			} elseif( 8 == $grid_style ){
+				$grid_class = ' grid-overlay-layout';
 			}
 
 			?>
 			<div class="wpz-grid-container elementor-grid <?php echo esc_attr( $columns_desktop ); ?> <?php echo esc_attr( $columns_tablet ); ?> <?php echo esc_attr( $columns_mobile ); ?> <?php echo esc_attr( $grid_class ); ?>">
 				<?php
 				if ( $all_posts->have_posts() ) {
-					if ( 7 == $grid_style ) {
+					if ( 8 == $grid_style ) {
+						include( __DIR__ . '/layouts/layout-8.php' );
+					} elseif ( 7 == $grid_style ) {
 						include( __DIR__ . '/layouts/layout-7.php' );
 					} elseif ( 6 == $grid_style ) {
 						include( __DIR__ . '/layouts/layout-6.php' );
