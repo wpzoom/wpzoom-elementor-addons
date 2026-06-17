@@ -124,12 +124,10 @@
 
 .grid-overlay-layout .post-grid-overlay-content {
 	position: relative;
-	z-index: 6;
+	z-index: 20;
 	width: 100%;
 	margin-top: auto;
 	padding: 30px;
-	text-align: center;
-	/* Let clicks fall through to the stretched link, except on real links below */
 	pointer-events: none;
 }
 
@@ -161,14 +159,25 @@
 	line-height: 1.4;
 }
 
-/* Title and meta sit on the image, default to white */
+/* Title, meta, excerpt and read more sit on the image, default to white */
 .grid-overlay-layout .post-grid-overlay-content .title,
 .grid-overlay-layout .post-grid-overlay-content .title > a,
 .grid-overlay-layout .post-grid-overlay-content .post-grid-meta span,
-.grid-overlay-layout .post-grid-overlay-content .post-grid-meta span a {
+.grid-overlay-layout .post-grid-overlay-content .post-grid-meta span a,
+.grid-overlay-layout .post-grid-overlay-content .post-grid-excerpt,
+.grid-overlay-layout .post-grid-overlay-content .post-grid-excerpt p,
+.grid-overlay-layout .post-grid-overlay-content a.read-more-btn {
 	color: #fff;
 }
 
 .grid-overlay-layout .post-grid-overlay-content .title {
 	margin: 12px 0;
+}
+
+.grid-overlay-layout .post-grid-overlay-content .post-grid-excerpt {
+	margin: 12px 0 0;
+}
+
+.grid-overlay-layout .post-grid-overlay-content a.read-more-btn {
+	margin-top: 14px;
 }

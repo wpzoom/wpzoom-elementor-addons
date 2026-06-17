@@ -11,6 +11,8 @@ while ( $all_posts->have_posts() ) :
                 <?php $this->render_meta( array( 'categories' ), false ); ?>
                 <?php $this->render_title(); ?>
                 <?php $this->render_meta( array( 'categories' ), true ); ?>
+                <?php $this->render_excerpt(); ?>
+                <?php $this->render_readmore(); ?>
             </div>
 
             <?php // Stretched link makes the whole card clickable without nesting <a> tags. ?>

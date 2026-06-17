@@ -427,7 +427,41 @@ class Posts_Grid extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .post-grid-inner' => 'text-align: {{VALUE}};'
 				],
-				'separator' => 'before'
+				'separator' => 'before',
+				'condition' => [
+					'grid_style!' => '8'
+				]
+			]
+		);
+
+		// Overlay layout uses its own content wrapper and defaults to centered.
+		$this->add_control(
+			'content_align_overlay',
+			[
+				'label' => esc_html__( 'Alignment', 'wpzoom-elementor-addons' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-left'
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-center'
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-right'
+					]
+				],
+				'default' => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .grid-overlay-layout .post-grid-overlay-content' => 'text-align: {{VALUE}};'
+				],
+				'separator' => 'before',
+				'condition' => [
+					'grid_style' => '8'
+				]
 			]
 		);
 
