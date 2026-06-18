@@ -42,6 +42,13 @@
     font-style: normal;
 }
 
+.wpz-member-links > a > svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	vertical-align: middle;
+}
+
 .wpz-member-links > a:not(:last-child) {
 	margin-right: 10px;
 }

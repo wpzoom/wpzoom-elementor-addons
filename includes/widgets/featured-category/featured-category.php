@@ -46,7 +46,10 @@ class Featured_Category extends Widget_Base {
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
 
-		wp_enqueue_style( 'wpzoom-elementor-addons-css-backend-featured-category', plugins_url( 'backend.css', __FILE__ ), array(), WPZOOM_EL_ADDONS_VER );
+		// backend.css holds Elementor editor control styles — never needed by visitors.
+		if ( is_admin() || ( class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->preview->is_preview_mode() ) ) {
+			wp_enqueue_style( 'wpzoom-elementor-addons-css-backend-featured-category', plugins_url( 'backend.css', __FILE__ ), array(), WPZOOM_EL_ADDONS_VER );
+		}
 		wp_register_style( 'wpzoom-elementor-addons-css-frontend-featured-category', plugins_url( 'frontend.css', __FILE__ ), array(), WPZOOM_EL_ADDONS_VER );
 	}
 

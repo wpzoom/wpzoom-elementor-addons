@@ -265,7 +265,7 @@
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: none !important;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -279,7 +279,7 @@
 .wpzoom-notice-btn-primary {
     background: #483082;
     border-color: #483082;
-    color: #fff;
+    color: #fff !important;
 }
 
 .wpzoom-btn-primary:hover,
@@ -299,14 +299,14 @@
 .wpzoom-notice-btn-secondary {
     background: #fff;
     border-color: #483082;
-    color: #483082;
+    color: #483082 !important;
 }
 
 .wpzoom-btn-secondary:hover,
 .wpzoom-notice-btn-secondary:hover {
     background: #483082;
     border-color: #483082;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     box-shadow: none;
 }
