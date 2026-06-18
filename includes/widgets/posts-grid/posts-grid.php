@@ -221,7 +221,8 @@ class Posts_Grid extends Widget_Base {
 					'4' => esc_html__( 'Layout 4', 'wpzoom-elementor-addons' ),
 					'5' => esc_html__( 'Layout 5', 'wpzoom-elementor-addons' ),
 					'6' => esc_html__( 'Layout 6', 'wpzoom-elementor-addons' ),
-					'7' => esc_html__( 'Layout 7 (List)', 'wpzoom-elementor-addons' )
+					'7' => esc_html__( 'Layout 7 (List)', 'wpzoom-elementor-addons' ),
+					'8' => esc_html__( 'Layout 8 (Overlay)', 'wpzoom-elementor-addons' )
 				]
 			]
 		);
@@ -426,7 +427,41 @@ class Posts_Grid extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .post-grid-inner' => 'text-align: {{VALUE}};'
 				],
-				'separator' => 'before'
+				'separator' => 'before',
+				'condition' => [
+					'grid_style!' => '8'
+				]
+			]
+		);
+
+		// Overlay layout uses its own content wrapper and defaults to centered.
+		$this->add_control(
+			'content_align_overlay',
+			[
+				'label' => esc_html__( 'Alignment', 'wpzoom-elementor-addons' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-left'
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-center'
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpzoom-elementor-addons' ),
+						'icon' => 'eicon-text-align-right'
+					]
+				],
+				'default' => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .grid-overlay-layout .post-grid-overlay-content' => 'text-align: {{VALUE}};'
+				],
+				'separator' => 'before',
+				'condition' => [
+					'grid_style' => '8'
+				]
 			]
 		);
 
@@ -1637,13 +1672,17 @@ class Posts_Grid extends Widget_Base {
 				$grid_class = ' grid-meta-bottom';
 			} elseif( 7 == $grid_style ){
 				$grid_class = ' grid-list-layout';
+			} elseif( 8 == $grid_style ){
+				$grid_class = ' grid-overlay-layout';
 			}
 
 			?>
 			<div class="wpz-grid-container elementor-grid <?php echo esc_attr( $columns_desktop ); ?> <?php echo esc_attr( $columns_tablet ); ?> <?php echo esc_attr( $columns_mobile ); ?> <?php echo esc_attr( $grid_class ); ?>">
 				<?php
 				if ( $all_posts->have_posts() ) {
-					if ( 7 == $grid_style ) {
+					if ( 8 == $grid_style ) {
+						include( __DIR__ . '/layouts/layout-8.php' );
+					} elseif ( 7 == $grid_style ) {
 						include( __DIR__ . '/layouts/layout-7.php' );
 					} elseif ( 6 == $grid_style ) {
 						include( __DIR__ . '/layouts/layout-6.php' );
@@ -1878,21 +1917,31 @@ class Posts_Grid extends Widget_Base {
 	 * @access public
 	 */
 	protected function render_excerpt() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
-		$show_excerpt = $settings[ 'show_excerpt' ];
-
-		if ( 'yes' !== $show_excerpt ) {
+		if ( 'yes' !== $settings[ 'show_excerpt' ] ) {
 			return;
 		}
 
-		add_filter( 'excerpt_more', [ $this, 'wpz_filter_excerpt_more' ], 20 );
-		add_filter( 'excerpt_length', [ $this, 'wpz_filter_excerpt_length' ], 9999 );
+		$excerpt_length = ( ! empty( $settings[ 'excerpt_length' ] ) ) ? absint( $settings[ 'excerpt_length' ] ) : 25;
 
-		?><div class="post-grid-excerpt"><?php the_excerpt(); ?></div><?php
+		$post = get_post();
 
-		remove_filter( 'excerpt_length', [ $this, 'wpz_filter_excerpt_length' ], 9999 );
-		remove_filter( 'excerpt_more', [ $this, 'wpz_filter_excerpt_more' ], 20 );
+		if ( ! $post ) {
+			return;
+		}
+
+		$source = ! empty( $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
+
+		$source = strip_shortcodes( $source );
+
+		if ( function_exists( 'excerpt_remove_blocks' ) ) {
+			$source = excerpt_remove_blocks( $source );
+		}
+
+		$excerpt = wp_trim_words( $source, $excerpt_length, $this->wpz_filter_excerpt_more( '' ) );
+
+		printf( '<div class="post-grid-excerpt"><p>%s</p></div>', wp_kses_post( $excerpt ) );
 	}
 
 	/**
