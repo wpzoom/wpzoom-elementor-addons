@@ -279,6 +279,52 @@ class Slider extends Widget_Base {
 	}
 
 	/**
+	 * Get Featured Posts settings registered by the active theme.
+	 *
+	 * WPZOOM themes (e.g. Indigo) register a Featured Posts module via
+	 * add_theme_support( 'wpz-featured-posts-settings', [ ... ] ). This reads
+	 * that registration and returns the list of usable settings (those that
+	 * define both a post type and the meta key used to flag featured posts),
+	 * so the slider can offer the theme's featured posts as a slides source.
+	 *
+	 * @since 1.4.8
+	 * @access public
+	 * @return array List of featured posts settings; empty when unsupported.
+	 */
+	public function get_featured_posts_settings() {
+		if ( ! current_theme_supports( 'wpz-featured-posts-settings' ) ) {
+			return [];
+		}
+
+		$wrapped = get_theme_support( 'wpz-featured-posts-settings' );
+
+		if ( ! is_array( $wrapped ) || empty( $wrapped ) ) {
+			return [];
+		}
+
+		// add_theme_support() wraps the passed array in an outer array.
+		$settings = array_pop( $wrapped );
+
+		if ( ! is_array( $settings ) ) {
+			return [];
+		}
+
+		$available = [];
+
+		foreach ( $settings as $setting ) {
+			// A usable setting must define the post type and the meta key
+			// that flags a post as featured.
+			if ( empty( $setting['post_type'] ) || empty( $setting['name'] ) ) {
+				continue;
+			}
+
+			$available[] = $setting;
+		}
+
+		return $available;
+	}
+
+	/**
 	 * Register Controls.
 	 *
 	 * Registers all the controls for this widget.
@@ -308,16 +354,25 @@ class Slider extends Widget_Base {
 			]
 		);
 
+		$featured_settings = $this->get_featured_posts_settings();
+
+		$slides_source_options = [
+			'custom' => esc_html__( 'Custom', 'wpzoom-elementor-addons' ),
+			'posts' => esc_html__( 'WordPress Posts', 'wpzoom-elementor-addons' )
+		];
+
+		// Only expose the theme's Featured Posts when the active theme registers it.
+		if ( ! empty( $featured_settings ) ) {
+			$slides_source_options['featured'] = esc_html__( 'Featured Posts (Theme)', 'wpzoom-elementor-addons' );
+		}
+
 		$this->add_control(
 			'slides_source',
 			[
 				'label' => esc_html__( 'Source', 'wpzoom-elementor-addons' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'custom',
-				'options' => [
-					'custom' => esc_html__( 'Custom', 'wpzoom-elementor-addons' ),
-					'posts' => esc_html__( 'WordPress Posts', 'wpzoom-elementor-addons' )
-				],
+				'options' => $slides_source_options,
 				'separator' => 'after'
 			]
 		);
@@ -704,6 +759,75 @@ class Slider extends Widget_Base {
 				]
 			]
 		);
+
+		// Featured Posts (theme) source controls.
+		if ( ! empty( $featured_settings ) ) {
+			$featured_types = [];
+			$featured_default_type = '';
+			$featured_default_amount = 5;
+
+			foreach ( $featured_settings as $setting ) {
+				$featured_types[ $setting['post_type'] ] = ! empty( $setting['menu_title'] )
+					? $setting['menu_title']
+					: $setting['post_type'];
+
+				// Prefer the post type the theme currently exposes as featured.
+				if ( '' === $featured_default_type && ! empty( $setting['show'] ) ) {
+					$featured_default_type = $setting['post_type'];
+				}
+
+				// Use the theme's configured limit as a sensible default amount.
+				if ( 5 === $featured_default_amount && ! empty( $setting['posts_limit'] ) ) {
+					$featured_default_amount = intval( $setting['posts_limit'] );
+				}
+			}
+
+			if ( '' === $featured_default_type ) {
+				$featured_default_type = (string) key( $featured_types );
+			}
+
+			if ( count( $featured_types ) > 1 ) {
+				$this->add_control(
+					'featured_post_type',
+					[
+						'label' => esc_html__( 'Featured Type', 'wpzoom-elementor-addons' ),
+						'type' => Controls_Manager::SELECT,
+						'options' => $featured_types,
+						'default' => $featured_default_type,
+						'condition' => [
+							'slides_source' => 'featured'
+						]
+					]
+				);
+			} else {
+				// Single featured type: store it without showing a redundant dropdown.
+				$this->add_control(
+					'featured_post_type',
+					[
+						'type' => Controls_Manager::HIDDEN,
+						'default' => $featured_default_type,
+						'condition' => [
+							'slides_source' => 'featured'
+						]
+					]
+				);
+			}
+
+			$this->add_control(
+				'featured_amount',
+				[
+					'label' => esc_html__( 'Amount', 'wpzoom-elementor-addons' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'step' => 1,
+					'max' => 100,
+					'default' => $featured_default_amount,
+					'condition' => [
+						'slides_source' => 'featured'
+					]
+				]
+			);
+		}
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
@@ -1861,6 +1985,61 @@ class Slider extends Widget_Base {
 	}
 
 	/**
+	 * Build the WP_Query args for the theme's Featured Posts.
+	 *
+	 * Mirrors the query WPZOOM themes use to populate their homepage featured
+	 * slideshow: posts flagged with the theme's featured meta key, ordered by
+	 * the manual order set on the theme's "Featured Posts" admin screen.
+	 *
+	 * @since 1.4.8
+	 * @access public
+	 * @param array $settings Widget settings.
+	 * @return array Query args, or empty array when featured posts aren't available.
+	 */
+	public function get_featured_query_args( $settings = [] ) {
+		$featured_settings = $this->get_featured_posts_settings();
+
+		if ( empty( $featured_settings ) ) {
+			return [];
+		}
+
+		$post_type = ! empty( $settings[ 'featured_post_type' ] ) ? $settings[ 'featured_post_type' ] : '';
+		$meta_key  = '';
+
+		// Resolve the meta key for the chosen post type.
+		foreach ( $featured_settings as $setting ) {
+			if ( $post_type === $setting[ 'post_type' ] ) {
+				$meta_key = $setting[ 'name' ];
+				break;
+			}
+		}
+
+		// Fall back to the first registered featured setting.
+		if ( '' === $meta_key ) {
+			$first     = reset( $featured_settings );
+			$post_type = $first[ 'post_type' ];
+			$meta_key  = $first[ 'name' ];
+		}
+
+		$amount = isset( $settings[ 'featured_amount' ] ) ? intval( $settings[ 'featured_amount' ] ) : 5;
+
+		if ( $amount < 1 ) {
+			$amount = 5;
+		}
+
+		return [
+			'post_type'           => $post_type,
+			'post_status'         => 'publish',
+			'orderby'             => 'menu_order date',
+			'order'               => 'DESC',
+			'meta_key'            => $meta_key,
+			'meta_value'          => 1,
+			'posts_per_page'      => $amount,
+			'ignore_sticky_posts' => 1,
+		];
+	}
+
+	/**
 	 * Get embed params.
 	 *
 	 * Retrieve video widget embed parameters.
@@ -2051,9 +2230,17 @@ class Slider extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$slides = [];
+		$args = [];
 
 		if ( 'posts' == $settings[ 'slides_source' ] ) {
 			$args = $this->get_query_args( $settings );
+		} elseif ( 'featured' == $settings[ 'slides_source' ] ) {
+			$args = $this->get_featured_query_args( $settings );
+		}
+
+		if ( 'custom' == $settings[ 'slides_source' ] ) {
+			$slides = $settings[ 'slides' ];
+		} elseif ( ! empty( $args ) ) {
 			$query = new \WP_Query( $args );
 
 			if ( $query->have_posts() ) {
@@ -2071,8 +2258,6 @@ class Slider extends Widget_Base {
 
 				wp_reset_postdata();
 			}
-		} else {
-			$slides = $settings[ 'slides' ];
 		}
 
 		if ( empty( $slides ) ) {
