@@ -1036,6 +1036,15 @@ class Slider_Pro extends Widget_Base {
 						$is_video_external               = ! empty( $video_background_external_url ) && ( ! ( filter_var( $video_background_external_url, FILTER_VALIDATE_URL ) === false ) );
 						$is_formstone                    = in_array( $post_meta_of_external_hosted, array( 'self_hosted', 'external_hosted' ) );
 
+						// Vimeo URLs pasted in the YouTube/external field: route them to the Vimeo
+						// player — Formstone only understands YouTube URLs and self-hosted files.
+						if ( $is_video_external && preg_match( '#vimeo\.com/(?:video/|manage/videos/)?(\d+)#i', $video_background_external_url, $vimeo_match ) ) {
+							$is_vimeo_pro        = true;
+							$vimeo_video_id      = $vimeo_match[1];
+							$vimeo_pro_video_url = $video_background_external_url;
+							$is_video_external   = false;
+						}
+
 						$lightbox_video_autoplay = (bool) ( get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_autoplay', true ) == '' ? true : get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_autoplay', true ) );
 						$lightbox_video_mute     = (bool) ( get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_mute', true ) == '' ? false : get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_mute', true ) );
 						$lightbox_video_loop     = (bool) ( get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_loop', true ) == '' ? false : get_post_meta( get_the_ID(), 'wpzoom_portfolio_lightbox_video_loop', true ) );
@@ -1079,6 +1088,11 @@ class Slider_Pro extends Widget_Base {
 							'loop'         => $loop
 						);
 
+						// Vimeo limits background embeds to paid plans — don't request background
+						// mode for videos we know are hosted on a free account (the theme JS also
+						// detects and downgrades force-paused background embeds at runtime).
+						$vimeo_account_type = get_post_meta( get_the_ID(), 'wpzoom_home_slider_vimeo_account_type', true );
+
 						$vimeo_player_args = array(
 							'autoplay'   => $autoplay,
 							'muted'      => $sound,
@@ -1087,7 +1101,7 @@ class Slider_Pro extends Widget_Base {
 							'title'      => 0,
 							'id'         => $vimeo_video_id,
 							'url'        => $vimeo_pro_video_url,
-							'background' => 1,
+							'background' => in_array( $vimeo_account_type, array( 'free', 'basic' ), true ) ? 0 : 1,
 							'dnt'        => !$dnt
 						);
 
