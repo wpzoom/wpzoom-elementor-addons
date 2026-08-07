@@ -4,6 +4,15 @@ var WPZCachedTemplates = null;
 var WPZCachedSections = null;
 var WPZCachedWireframes = null;
 
+/* Returns a localized string by key, falling back to the English default. */
+function wpzoomI18n( key, fallback ) {
+	if ( typeof wpzoom_admin_data !== 'undefined' && wpzoom_admin_data.i18n && wpzoom_admin_data.i18n[ key ] ) {
+		return wpzoom_admin_data.i18n[ key ];
+	}
+
+	return fallback;
+}
+
 (function( $ ) {
 
 	const elementor_add_section_tmpl = $( "#tmpl-elementor-add-section" );
@@ -14,7 +23,7 @@ var WPZCachedWireframes = null;
 		//Add the WPZOOM Button
 		(text = text.replace(
 			'<div class="elementor-add-section-drag-title',
-			'<div class="elementor-add-section-area-button elementor-add-wpzoom-templates-button" title="WPZOOM Library"> <i class="eicon-folder"></i> </div> <div class="elementor-add-section-drag-title'
+			'<div class="elementor-add-section-area-button elementor-add-wpzoom-templates-button" title="' + wpzoomI18n('wpzoom_library', 'WPZOOM Library') + '"> <i class="eicon-folder"></i> </div> <div class="elementor-add-section-drag-title'
 		)),
 
 		elementor_add_section_tmpl.text(text),
@@ -505,7 +514,7 @@ var WPZCachedWireframes = null;
 			if (isLocked) {
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').addClass('wpzoom-locked-template');
 				// Update button text and style for locked templates
-				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-button-title').text('Unlock with Pro');
+				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-button-title').text(wpzoomI18n('unlock_with_pro', 'Unlock with Pro'));
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').css({
 					'background': '#3496ff',
 					'color': '#fff'
@@ -513,7 +522,7 @@ var WPZCachedWireframes = null;
 			} else {
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').removeClass('wpzoom-locked-template');
 				// Reset button text and style for free templates
-				var insertLabel = windowWPZ.currentTab === 'sections' ? 'Insert Section' : (windowWPZ.currentTab === 'wireframes' ? 'Insert Wireframe' : 'Insert Page');
+				var insertLabel = windowWPZ.currentTab === 'sections' ? wpzoomI18n('insert_section', 'Insert Section') : (windowWPZ.currentTab === 'wireframes' ? wpzoomI18n('insert_wireframe', 'Insert Wireframe') : wpzoomI18n('insert_page', 'Insert Page'));
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-button-title').text(insertLabel);
 				$('#wpzoom-elementor-template-library-header-preview').find('.elementor-template-library-template-action').css({
 					'background': '',

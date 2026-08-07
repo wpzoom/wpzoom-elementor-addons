@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="elementor-templates-modal__header__logo__icon-wrapper e-logo-wrapper">
 					<i class="eicon-elementor"></i>
 				</span>
-				<span class="elementor-templates-modal__header__logo__title">WPZOOM Library</span>
+				<span class="elementor-templates-modal__header__logo__title"><?php esc_html_e( 'WPZOOM Library', 'wpzoom-elementor-addons' ); ?></span>
 			</div>
 			<div id="elementor-template-library-header-preview-back" class="wpzoom-header-back-button" style="display:none;">
 				<i class="eicon-" aria-hidden="true"></i>
@@ -26,14 +26,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="elementor-templates-modal__header__items-area">
 			<div class="elementor-templates-modal__header__close elementor-templates-modal__header__close--normal elementor-templates-modal__header__item">
-				<i class="eicon-close" aria-hidden="true" title="Close"></i>
-				<span class="elementor-screen-only">Close</span>
+				<i class="eicon-close" aria-hidden="true" title="<?php esc_attr_e( 'Close', 'wpzoom-elementor-addons' ); ?>"></i>
+				<span class="elementor-screen-only"><?php esc_html_e( 'Close', 'wpzoom-elementor-addons' ); ?></span>
 			</div>
             <div id="wpzoom-elementor-template-library-header-preview" style="display:none;">
 				<div id="elementor-template-library-header-preview-insert-wrapper" class="elementor-templates-modal__header__item">
                     <a class="elementor-template-library-template-action elementor-template-library-template-insert elementor-button" data-template-name="">
 						<i class="eicon-file-download" aria-hidden="true"></i>
-                        <span class="elementor-button-title">Insert Page</span>
+                        <span class="elementor-button-title"><?php esc_html_e( 'Insert Page', 'wpzoom-elementor-addons' ); ?></span>
 					</a>
 				</div>
 			</div>
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wpzoom-toolbar-left">
 				<div id="elementor-template-library-filter">
 					<select id="wpzoom-elementor-template-library-filter-theme" class="elementor-template-library-filter-select" name="theme" data-filter="theme">
-						<option value="">Select a theme</option>
+						<option value=""><?php esc_html_e( 'Select a theme', 'wpzoom-elementor-addons' ); ?></option>
 						<option value="inspiro-lite">Inspiro Lite</option>
 						<option value="foodica">Foodica</option>
 						<option value="cookbook">CookBook</option>
@@ -72,10 +72,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<option value="reel">Reel</option>
 					</select>
 					<select id="wpzoom-elementor-template-library-filter-category" class="elementor-template-library-filter-select" name="category" data-filter="category" style="display:none;">
-						<option value="">Select a category</option>
+						<option value=""><?php esc_html_e( 'Select a category', 'wpzoom-elementor-addons' ); ?></option>
 					</select>
 					<select id="wpzoom-elementor-template-library-filter-wireframe-category" class="elementor-template-library-filter-select" name="category" data-filter="category" style="display:none;">
-						<option value="">Select a category</option>
+						<option value=""><?php esc_html_e( 'Select a category', 'wpzoom-elementor-addons' ); ?></option>
 					</select>
 				</div>
 				<div class="wpzoom-toolbar-search">
@@ -91,13 +91,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</label>
 			</div>
 			<div class="wpzoom-toolbar-grid-size">
-				<button class="wpzoom-grid-btn" data-cols="3" title="3 columns">
+				<button class="wpzoom-grid-btn" data-cols="3" title="<?php esc_attr_e( '3 columns', 'wpzoom-elementor-addons' ); ?>">
 					<svg viewBox="0 0 18 14" width="18" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="4" height="6" rx="1"/><rect x="7" y="0" width="4" height="6" rx="1"/><rect x="14" y="0" width="4" height="6" rx="1"/><rect x="0" y="8" width="4" height="6" rx="1"/><rect x="7" y="8" width="4" height="6" rx="1"/><rect x="14" y="8" width="4" height="6" rx="1"/></svg>
 				</button>
-				<button class="wpzoom-grid-btn" data-cols="4" title="4 columns">
+				<button class="wpzoom-grid-btn" data-cols="4" title="<?php esc_attr_e( '4 columns', 'wpzoom-elementor-addons' ); ?>">
 					<svg viewBox="0 0 22 14" width="22" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="4" height="6" rx="1"/><rect x="6" y="0" width="4" height="6" rx="1"/><rect x="12" y="0" width="4" height="6" rx="1"/><rect x="18" y="0" width="4" height="6" rx="1"/><rect x="0" y="8" width="4" height="6" rx="1"/><rect x="6" y="8" width="4" height="6" rx="1"/><rect x="12" y="8" width="4" height="6" rx="1"/><rect x="18" y="8" width="4" height="6" rx="1"/></svg>
 				</button>
-				<button class="wpzoom-grid-btn" data-cols="5" title="5 columns">
+				<button class="wpzoom-grid-btn" data-cols="5" title="<?php esc_attr_e( '5 columns', 'wpzoom-elementor-addons' ); ?>">
 					<svg viewBox="0 0 26 14" width="26" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="4" height="6" rx="1"/><rect x="5.5" y="0" width="4" height="6" rx="1"/><rect x="11" y="0" width="4" height="6" rx="1"/><rect x="16.5" y="0" width="4" height="6" rx="1"/><rect x="22" y="0" width="4" height="6" rx="1"/><rect x="0" y="8" width="4" height="6" rx="1"/><rect x="5.5" y="8" width="4" height="6" rx="1"/><rect x="11" y="8" width="4" height="6" rx="1"/><rect x="16.5" y="8" width="4" height="6" rx="1"/><rect x="22" y="8" width="4" height="6" rx="1"/></svg>
 				</button>
 			</div>

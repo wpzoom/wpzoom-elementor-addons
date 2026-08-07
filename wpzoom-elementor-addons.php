@@ -10,7 +10,7 @@
  * License:           GNU General Public License v2
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 6.5
- * Tested up to:      7.0
+ * Tested up to:      7.1
  * Elementor tested up to: 4.99
  * Elementor Pro tested up to: 4.99
  *
@@ -206,6 +206,13 @@ final class WPZOOM_Elementor_Addons {
 			'pages_count'      => $pages_count,
 			'sections_count'   => $sections_count,
 			'wireframes_count' => $wireframes_count,
+			'i18n'             => array(
+				'insert_page'      => __( 'Insert Page', 'wpzoom-elementor-addons' ),
+				'insert_section'   => __( 'Insert Section', 'wpzoom-elementor-addons' ),
+				'insert_wireframe' => __( 'Insert Wireframe', 'wpzoom-elementor-addons' ),
+				'unlock_with_pro'  => __( 'Unlock with Pro', 'wpzoom-elementor-addons' ),
+				'wpzoom_library'   => __( 'WPZOOM Library', 'wpzoom-elementor-addons' ),
+			),
 		) );
 	}
 
