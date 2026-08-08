@@ -236,7 +236,7 @@ class Slider_Foodica extends Widget_Base {
 		$this->add_control(
 			'slider_comments',
 			array(
-				'label' => esc_html__( 'Display Comments Count' ),
+				'label' => esc_html__( 'Display Comments Count', 'wpzoom-elementor-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => esc_html__( 'Show', 'wpzoom-elementor-addons' ),
 				'label_off' => esc_html__( 'Hide', 'wpzoom-elementor-addons' ),
@@ -246,7 +246,7 @@ class Slider_Foodica extends Widget_Base {
 		$this->add_control(
 			'slider_button',
 			array(
-				'label' => esc_html__( 'Display Read More Button' ),
+				'label' => esc_html__( 'Display Read More Button', 'wpzoom-elementor-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => esc_html__( 'Show', 'wpzoom-elementor-addons' ),
 				'label_off' => esc_html__( 'Hide', 'wpzoom-elementor-addons' ),
