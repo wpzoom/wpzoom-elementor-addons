@@ -249,7 +249,7 @@ class Team_Members extends Widget_Base {
 				'label' => esc_html__( 'Name', 'wpzoom-elementor-addons' ),
 				'label_block' => true,
 				'type' => Controls_Manager::TEXT,
-				'default' => 'Team Member Name',
+				'default' => esc_html__( 'Team Member Name', 'wpzoom-elementor-addons' ),
 				'placeholder' => esc_html__( 'Team Member Name', 'wpzoom-elementor-addons' ),
 				'separator' => 'before',
 				'dynamic' => [

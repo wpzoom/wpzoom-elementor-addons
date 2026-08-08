@@ -526,7 +526,7 @@ class Portfolio_Showcase extends Widget_Base
                     'original' => esc_html__('No Cropping', 'wpzoom-elementor-addons'),
                 ),
                 'default'     => 'default',
-                'description' => "You'll need to regenerate the Featured Images if you don't see any change after selecting a different aspect ratio",
+                'description' => esc_html__( "You'll need to regenerate the Featured Images if you don't see any change after selecting a different aspect ratio", 'wpzoom-elementor-addons' ),
                 'condition'   => array(
                     'portfolio_showcase_styles!' => 'eccentric',
                 ),

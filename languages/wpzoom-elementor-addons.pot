@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPZOOM Elementor Addons 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-sites\n"
-"POT-Creation-Date: 2026-08-07 11:59+0000\n"
+"POT-Creation-Date: 2026-08-08 08:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,20 +24,20 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #. 1: Plugin name 2: Elementor
-#: wpzoom-elementor-addons.php:310
+#: wpzoom-elementor-addons.php:318
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be activated."
 msgstr ""
 
 #. 1: Plugin name 2: Elementor
-#: wpzoom-elementor-addons.php:322
+#: wpzoom-elementor-addons.php:330
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed."
 msgstr ""
 
 #. 1: Plugin name 2: Elementor 3: Required Elementor version
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: wpzoom-elementor-addons.php:356 wpzoom-elementor-addons.php:378
+#: wpzoom-elementor-addons.php:364 wpzoom-elementor-addons.php:386
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
@@ -92,7 +92,7 @@ msgstr ""
 msgid "1. Title → Subtitle → Actions"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:481
+#: wpzoom-elementor-addons.php:489
 msgid "130+ Elementor Templates"
 msgstr ""
 
@@ -232,11 +232,11 @@ msgid ""
 "widgets created by the WPZOOM team"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:482
+#: wpzoom-elementor-addons.php:490
 msgid "Access to exclusive Elementor templates and professional designs."
 msgstr ""
 
-#: wpzoom-elementor-addons.php:315
+#: wpzoom-elementor-addons.php:323
 msgid "Activate Elementor"
 msgstr ""
 
@@ -762,6 +762,7 @@ msgstr ""
 msgid "Carousel"
 msgstr ""
 
+#: includes/widgets/carousel/carousel.php:240
 #: includes/widgets/carousel/carousel.php:437
 msgid "Carousel Item"
 msgstr ""
@@ -1146,7 +1147,7 @@ msgid ""
 "premium WPZOOM theme."
 msgstr ""
 
-#: wpzoom-elementor-addons.php:475
+#: wpzoom-elementor-addons.php:483
 msgid ""
 "Create stunning video slideshows with multiple sources and advanced controls."
 msgstr ""
@@ -1364,13 +1365,17 @@ msgstr ""
 msgid "Digg"
 msgstr ""
 
+#: includes/widgets/directors/directors.php:299
+msgid "Director Item"
+msgstr ""
+
 #: includes/widgets/directors/directors.php:70
 #: includes/widgets/directors/directors.php:155
 #: includes/widgets/directors/directors.php:339
 msgid "Directors"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:462
+#: wpzoom-elementor-addons.php:470
 msgid "Dismiss notice"
 msgstr ""
 
@@ -1397,6 +1402,10 @@ msgstr ""
 
 #: includes/widgets/portfolio-reel/portfolio-reel.php:519
 msgid "Display Category Name"
+msgstr ""
+
+#: includes/widgets/slider-foodica/slider-foodica.php:239
+msgid "Display Comments Count"
 msgstr ""
 
 #: includes/widgets/slider-cookbook/slider-cookbook.php:276
@@ -1428,6 +1437,10 @@ msgstr ""
 
 #: includes/widgets/testimonial/testimonial.php:249
 msgid "Display Rating?"
+msgstr ""
+
+#: includes/widgets/slider-foodica/slider-foodica.php:249
+msgid "Display Read More Button"
 msgstr ""
 
 #: includes/widgets/portfolio-reel/portfolio-reel.php:530
@@ -1467,8 +1480,8 @@ msgstr ""
 msgid "Dribbble"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:312 wpzoom-elementor-addons.php:324
-#: wpzoom-elementor-addons.php:358
+#: wpzoom-elementor-addons.php:320 wpzoom-elementor-addons.php:332
+#: wpzoom-elementor-addons.php:366
 msgid "Elementor"
 msgstr ""
 
@@ -1480,7 +1493,7 @@ msgstr ""
 msgid "Elementor is required to import templates."
 msgstr ""
 
-#: wpzoom-elementor-addons.php:357 wpzoom-elementor-addons.php:379
+#: wpzoom-elementor-addons.php:365 wpzoom-elementor-addons.php:387
 msgid "Elementor Test Extension"
 msgstr ""
 
@@ -1525,6 +1538,10 @@ msgstr ""
 
 #: includes/widgets/video-slider/video-slider.php:518
 msgid "End Time"
+msgstr ""
+
+#: wpzoom-elementor-addons.php:218
+msgid "Enter License Key"
 msgstr ""
 
 #: includes/widgets/image-box/image-box.php:213
@@ -1726,7 +1743,11 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:489
+#: wpzoom-elementor-addons.php:219
+msgid "Get License Key"
+msgstr ""
+
+#: wpzoom-elementor-addons.php:497
 msgid "Get priority support and regular updates for your Pro license."
 msgstr ""
 
@@ -1742,7 +1763,7 @@ msgstr ""
 msgid "Get Pro Plugin"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:496
+#: wpzoom-elementor-addons.php:504
 msgid "Get the Pro Version"
 msgstr ""
 
@@ -2079,7 +2100,7 @@ msgstr ""
 msgid "Instagram"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:327
+#: wpzoom-elementor-addons.php:335
 msgid "Install Elementor"
 msgstr ""
 
@@ -2815,7 +2836,7 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:380
+#: wpzoom-elementor-addons.php:388
 msgid "PHP"
 msgstr ""
 
@@ -2963,7 +2984,7 @@ msgstr ""
 msgid "Pricing Table"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:488
+#: wpzoom-elementor-addons.php:496
 msgid "Priority Support"
 msgstr ""
 
@@ -2971,7 +2992,7 @@ msgstr ""
 msgid "Privacy Mode"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:456 includes/wpzoom-template-manager.php:192
+#: wpzoom-elementor-addons.php:464 includes/wpzoom-template-manager.php:192
 #: includes/wpzoom-template-manager.php:484
 #: includes/wpzoom-template-manager.php:614
 msgid "PRO"
@@ -3475,7 +3496,9 @@ msgid "Slider height in regard to browser height."
 msgstr ""
 
 #: includes/widgets/slider-cookbook/slider-cookbook.php:414
+#: includes/widgets/slider/slider.php:611
 #: includes/widgets/slider/slider.php:1353
+#: includes/widgets/video-slider/video-slider.php:796
 msgid "Slider Item"
 msgstr ""
 
@@ -3517,7 +3540,7 @@ msgstr ""
 msgid "Slideshow Category to show:"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:455
+#: wpzoom-elementor-addons.php:463
 msgid "Slideshow with Video Backgrounds for Elementor now Available!"
 msgstr ""
 
@@ -3638,6 +3661,7 @@ msgstr ""
 msgid "Team Member Job Title"
 msgstr ""
 
+#: includes/widgets/team-members/team-members.php:252
 #: includes/widgets/team-members/team-members.php:253
 msgid "Team Member Name"
 msgstr ""
@@ -3759,6 +3783,24 @@ msgstr ""
 msgid "The number of columns may vary depending on screen size"
 msgstr ""
 
+#: includes/widgets/video-slider/video-slider.php:406
+msgid "The overlay can be customized in the Style tab"
+msgstr ""
+
+#: wpzoom-elementor-addons.php:221
+msgid "The template could not be imported. Invalid template data."
+msgstr ""
+
+#: wpzoom-elementor-addons.php:222
+msgid ""
+"The template could not be imported. Please try again or get in touch with "
+"the WPZOOM team."
+msgstr ""
+
+#: wpzoom-elementor-addons.php:220
+msgid "The template could not be imported. Please try again."
+msgstr ""
+
 #: includes/widgets/woo-products/woo-products.php:1379
 msgid ""
 "The WooCommerce plugin could not be found. Please install/activate it in "
@@ -3801,6 +3843,16 @@ msgstr ""
 msgid ""
 "This premium widget requires the WPZOOM Elementor Addons Pro plugin or a "
 "premium WPZOOM theme"
+msgstr ""
+
+#: wpzoom-elementor-addons.php:216
+msgid ""
+"This template is only available with WPZOOM Elementor Addons Pro license. "
+"Please visit wpzoom.com to get your license key."
+msgstr ""
+
+#: wpzoom-elementor-addons.php:217
+msgid "This template requires WPZOOM Elementor Addons Pro license."
 msgstr ""
 
 #: includes/wpzoom-template-library.php:82
@@ -4042,7 +4094,7 @@ msgstr ""
 msgid "Unlock all Elementor templates"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:459
+#: wpzoom-elementor-addons.php:467
 msgid ""
 "Unlock the new Video Slideshow widget and get access to all premium "
 "Elementor templates."
@@ -4062,7 +4114,7 @@ msgstr ""
 msgid "Upgrade"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:467
+#: wpzoom-elementor-addons.php:475
 msgid ""
 "Upgrade today to unlock the new Video Slideshow widget and access all "
 "premium Elementor templates with advanced features and priority support."
@@ -4145,7 +4197,7 @@ msgstr ""
 msgid "Video Slideshow"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:474
+#: wpzoom-elementor-addons.php:482
 #: includes/widgets/video-slider/video-slider.php:310
 #: includes/widgets/video-slider/video-slider.php:342
 #: includes/widgets/video-slider/video-slider.php:3012
@@ -4166,7 +4218,7 @@ msgstr ""
 msgid "Video URL"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:499
+#: wpzoom-elementor-addons.php:507
 msgid "View Demo"
 msgstr ""
 
@@ -4260,7 +4312,7 @@ msgstr ""
 msgid "WPZOOM CookBook"
 msgstr ""
 
-#: wpzoom-elementor-addons.php:311 wpzoom-elementor-addons.php:323
+#: wpzoom-elementor-addons.php:319 wpzoom-elementor-addons.php:331
 msgid "WPZOOM Elementor Addons"
 msgstr ""
 

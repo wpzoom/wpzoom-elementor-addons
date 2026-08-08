@@ -608,7 +608,7 @@ class Slider extends Widget_Base {
 				'show_label' => false,
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '<# print(title || "Slider Item"); #>',
+				'title_field' => '<# print(title || "' . esc_js( __( 'Slider Item', 'wpzoom-elementor-addons' ) ) . '"); #>',
 				'default' => array_fill( 0, 7, $placeholder ),
 				'condition' => [
 					'slides_source' => 'custom'

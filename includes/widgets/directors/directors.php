@@ -296,7 +296,7 @@ class Directors extends Widget_Base {
 				'show_label' => false,
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '<# print(title || "Director Item"); #>',
+				'title_field' => '<# print(title || "' . esc_js( __( 'Director Item', 'wpzoom-elementor-addons' ) ) . '"); #>',
 				'default' => array(
 					array(
 						'image' => array( 'url' =>  Utils::get_placeholder_image_src() ),

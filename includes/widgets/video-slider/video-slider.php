@@ -403,7 +403,7 @@ class Video_Slider extends Widget_Base {
 			[
 				'label' => esc_html__( 'Background Type', 'wpzoom-elementor-addons' ),
 				'type' => Controls_Manager::CHOOSE,
-                'description' => 'The overlay can be customized in the Style tab',
+                'description' => esc_html__( 'The overlay can be customized in the Style tab', 'wpzoom-elementor-addons' ),
 				'options' => [
 					'image' => [
 						'title' => esc_html__( 'Image', 'wpzoom-elementor-addons' ),
@@ -793,7 +793,7 @@ class Video_Slider extends Widget_Base {
 				'show_label' => false,
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'title_field' => '<# print(title || "Slider Item"); #>',
+				'title_field' => '<# print(title || "' . esc_js( __( 'Slider Item', 'wpzoom-elementor-addons' ) ) . '"); #>',
 				'default' => $sample_slides,
 				'condition' => [
 					'slides_source' => 'custom'

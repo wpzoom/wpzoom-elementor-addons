@@ -212,6 +212,14 @@ final class WPZOOM_Elementor_Addons {
 				'insert_wireframe' => __( 'Insert Wireframe', 'wpzoom-elementor-addons' ),
 				'unlock_with_pro'  => __( 'Unlock with Pro', 'wpzoom-elementor-addons' ),
 				'wpzoom_library'   => __( 'WPZOOM Library', 'wpzoom-elementor-addons' ),
+
+				'locked_template'  => __( 'This template is only available with WPZOOM Elementor Addons Pro license. Please visit wpzoom.com to get your license key.', 'wpzoom-elementor-addons' ),
+				'license_required' => __( 'This template requires WPZOOM Elementor Addons Pro license.', 'wpzoom-elementor-addons' ),
+				'enter_license'    => __( 'Enter License Key', 'wpzoom-elementor-addons' ),
+				'get_license'      => __( 'Get License Key', 'wpzoom-elementor-addons' ),
+				'import_failed'    => __( 'The template could not be imported. Please try again.', 'wpzoom-elementor-addons' ),
+				'import_invalid'   => __( 'The template could not be imported. Invalid template data.', 'wpzoom-elementor-addons' ),
+				'import_error'     => __( 'The template could not be imported. Please try again or get in touch with the WPZOOM team.', 'wpzoom-elementor-addons' ),
 			),
 		) );
 	}
