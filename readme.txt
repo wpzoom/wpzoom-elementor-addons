@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.11
+Stable tag:        1.4.12
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -127,6 +127,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.12 =
+* Slider Pro, Portfolio Showcase and Portfolio Reel widgets: the "no slides / no portfolio posts" setup notices are now shown only to editors/administrators, not to site visitors
 
 = 1.4.11 =
 * Minor fixes

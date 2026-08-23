@@ -100,10 +100,13 @@ echo '<div class="portfolio-showcase">';
 
 		<?php else: ?>
 
+			<?php // Only show the setup notice to users who can add portfolio posts; visitors see nothing. ?>
+			<?php if ( current_user_can( 'editor' ) || current_user_can( 'administrator' ) ) { ?>
 			<div class="inner-wrap" style="text-align:center;">
-				<h3><?php esc_html__( 'No Portfolio Posts Found', 'wpzoom-elementor-addons' ) ?></h3>
+				<h3><?php esc_html_e( 'No Portfolio Posts Found', 'wpzoom-elementor-addons' ); ?></h3>
 				<p class="description"><?php printf( __( 'Please add a few Portfolio Posts first <a href="%1$s">here</a>.', 'wpzoom-elementor-addons' ), esc_url( admin_url( 'post-new.php?post_type=portfolio_item' ) ) ); ?></p>
 			</div>
+			<?php } ?>
 
 		<?php endif; ?>
 		

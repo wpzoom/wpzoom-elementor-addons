@@ -1242,6 +1242,8 @@ class Slider_Pro extends Widget_Base {
 				<?php } ?>
 			</div>
 		<?php else: ?>
+			<?php // Only show the setup notice to users who can actually add slides; visitors see nothing. ?>
+			<?php if ( current_user_can( 'editor' ) || current_user_can( 'administrator' ) ) { ?>
 			<div class="empty-slider">
 				<div class="inner-wrap">
 					<p><strong><?php esc_html_e('You are now ready to set-up your Slideshow content.', 'wpzoom-elementor-addons' ); ?></strong></p>
@@ -1256,6 +1258,7 @@ class Slider_Pro extends Widget_Base {
 					</p>
 				</div>
 			</div>
+			<?php } ?>
 		<?php 
 			endif;
 			wp_reset_postdata();
