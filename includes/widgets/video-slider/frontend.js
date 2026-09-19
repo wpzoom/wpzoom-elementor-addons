@@ -595,7 +595,8 @@ jQuery(window).on('elementor/frontend/init', function () {
 			if (url.includes('vimeo.com')) {
 				const videoId = this.getVimeoVideoId(url);
 				if (videoId) {
-					return `<iframe class="wpz-lightbox-video" src="https://player.vimeo.com/video/${videoId}?autoplay=1" frameborder="0" allowfullscreen allow="autoplay"></iframe>`;
+					const hash = this.getVimeoPrivacyHash(url);
+					return `<iframe class="wpz-lightbox-video" src="https://player.vimeo.com/video/${videoId}?autoplay=1${hash ? '&h=' + hash : ''}" frameborder="0" allowfullscreen allow="autoplay"></iframe>`;
 				}
 			}
 			
@@ -618,9 +619,15 @@ jQuery(window).on('elementor/frontend/init', function () {
 		}
 
 		getVimeoVideoId(url) {
-			const regExp = /(?:vimeo\.com\/)([0-9]+)/;
-			const match = url.match(regExp);
+			// Handles vimeo.com/ID, vimeo.com/ID/HASH, player.vimeo.com/video/ID and channel/group URLs.
+			const match = url.match(/vimeo\.com\/(?:.*?\/)?(\d+)/);
 			return match ? match[1] : null;
+		}
+
+		// Privacy hash of unlisted/private videos: vimeo.com/ID/HASH or player.vimeo.com/video/ID?h=HASH.
+		getVimeoPrivacyHash(url) {
+			const match = url.match(/vimeo\.com\/(?:.*?\/)?\d+\/([a-z0-9]+)/i) || url.match(/[?&]h=([a-z0-9]+)/i);
+			return match ? match[1] : '';
 		}
 
 		isDirectVideoFile(url) {
