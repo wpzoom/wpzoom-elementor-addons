@@ -179,7 +179,7 @@ class Slider_Pro extends Widget_Base {
 		$this->add_control(
 			'restricted_widget_text',
 			[
-				'raw' => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) ),
+				'raw' => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) ),
 				'type' => Controls_Manager::RAW_HTML,
 				'content_classes' => 'elementor-descriptor',
 			]
@@ -956,7 +956,7 @@ class Slider_Pro extends Widget_Base {
 		if ( !WPZOOM_Elementor_Widgets::is_supported_theme() ) {
 			if( current_user_can('editor') || current_user_can('administrator') ) {
 				echo '<h3>' . esc_html__( 'Widget not available', 'wpzoom-elementor-addons' ) . '</h3>';
-				echo wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) );
+				echo wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) );
 			}
 			return;
 		}
@@ -1251,7 +1251,7 @@ class Slider_Pro extends Widget_Base {
 						<?php
 						printf(
 							__('For more information about adding posts to the slider, please <strong><a href="%1$s">read the documentation</a></strong> or <a href="%2$s">add a new post</a>.', 'wpzoom-elementor-addons' ),
-							'https://www.wpzoom.com/documentation/inspiro/',
+							'https://www.wpzoom.com/documentation/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required',
 							admin_url('post-new.php?post_type=slider')
 						);
 						?>

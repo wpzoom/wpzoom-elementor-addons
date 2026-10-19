@@ -202,7 +202,7 @@ final class WPZOOM_Elementor_Addons {
 		// Localize script with admin URL for Pro plugin links
 		wp_localize_script( 'wpzoom-elementor-addons', 'wpzoom_admin_data', array(
 			'admin_url'        => admin_url(),
-			'get_pro_url'      => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/',
+			'get_pro_url'      => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=admin-notice',
 			'pages_count'      => $pages_count,
 			'sections_count'   => $sections_count,
 			'wireframes_count' => $wireframes_count,
@@ -500,7 +500,7 @@ final class WPZOOM_Elementor_Addons {
                                 </div>
 
                                 <div class="wpzoom-notice-actions">
-                                        <a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank" class="wpzoom-notice-btn wpzoom-notice-btn-primary">
+                                        <a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=admin-notice" target="_blank" class="wpzoom-notice-btn wpzoom-notice-btn-primary">
                                                 <?php esc_html_e( 'Get the Pro Version', 'wpzoom-elementor-addons' ); ?>
                                         </a>
                                         <a href="https://demo.wpzoom.com/inspiro-lite/video-slideshow-demo/" target="_blank" class="wpzoom-notice-btn wpzoom-notice-btn-secondary">

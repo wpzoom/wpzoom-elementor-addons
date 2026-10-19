@@ -133,7 +133,7 @@ class WPZOOM_Elementor_Widgets {
             }
         } else {
             // Show "Get Pro" link to plugin page
-            $pro_title = __( 'WPZOOM PRO', 'wpzoom-elementor-addons' ) . ' <a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank" class="wpzoom-upgrade-link" title="' . esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ) . '">' . esc_html__( 'Upgrade', 'wpzoom-elementor-addons' ) . '</a>';
+            $pro_title = __( 'WPZOOM PRO', 'wpzoom-elementor-addons' ) . ' <a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=widget-panel" target="_blank" class="wpzoom-upgrade-link" title="' . esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ) . '">' . esc_html__( 'Upgrade', 'wpzoom-elementor-addons' ) . '</a>';
         }
         
         $elements_manager->add_category(

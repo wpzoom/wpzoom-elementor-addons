@@ -203,7 +203,7 @@ class Slider_cookbook extends Widget_Base {
 		$this->add_control(
 			'restricted_widget_text',
 			[
-				'raw' => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/cookbook/">"CookBook"</a> theme', 'wpzoom-elementor-addons' ) ),
+				'raw' => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/cookbook/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"CookBook"</a> theme', 'wpzoom-elementor-addons' ) ),
 				'type' => Controls_Manager::RAW_HTML,
 				'content_classes' => 'elementor-descriptor',
 			]
@@ -879,7 +879,7 @@ class Slider_cookbook extends Widget_Base {
 		if ( !WPZOOM_Elementor_Widgets::is_supported_theme( 'cookbook' ) ) {
 			if( current_user_can('editor') || current_user_can('administrator') ) {
 				echo '<h3>' . esc_html__( 'Widget not available', 'wpzoom-elementor-addons' ) . '</h3>';
-				echo wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/cookbook/">"cookbook"</a> theme', 'wpzoom-elementor-addons' ) );
+				echo wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/cookbook/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"cookbook"</a> theme', 'wpzoom-elementor-addons' ) );
 			}
 			return;
 		}
@@ -1055,7 +1055,7 @@ class Slider_cookbook extends Widget_Base {
 						<?php
 						printf(
 							wp_kses_post( __( 'For more information about adding posts to the slider, please read <strong><a target="_blank" href="%1$s">theme documentation</a></strong>', 'wpzoom-elementor-addons' ) ),
-							'https://www.wpzoom.com/documentation/cookbook/cookbook-configure-homepage-slider/'
+							'https://www.wpzoom.com/documentation/cookbook/cookbook-configure-homepage-slider/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required'
 						);
 						?>
 					</p>

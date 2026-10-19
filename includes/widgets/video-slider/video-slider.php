@@ -341,9 +341,9 @@ class Video_Slider extends Widget_Base {
 					</div>',
 					esc_html__( 'Video Slideshow Widget', 'wpzoom-elementor-addons' ),
 					esc_html__( 'Create stunning video slideshows with background videos, custom overlays, and advanced animations. This premium widget requires the WPZOOM Elementor Addons Pro plugin to be installed and activated, or you can use it with any premium WPZOOM theme.', 'wpzoom-elementor-addons' ),
-					esc_url( 'https://www.wpzoom.com/themes/' ),
+					esc_url( 'https://www.wpzoom.com/themes/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=widget-upsell' ),
 					esc_html__( 'Browse WPZOOM Themes', 'wpzoom-elementor-addons' ),
-					esc_url( 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/' ),
+					esc_url( 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=widget-upsell' ),
 					esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ),
 					esc_html__( 'Unlock all Elementor templates', 'wpzoom-elementor-addons' )
 				),
@@ -780,7 +780,7 @@ class Video_Slider extends Widget_Base {
 				'title' => 'Upload Your Own Videos',
 				'subtitle' => '<p>Easily upload and use your own video files as stunning backgrounds.</p><p>Perfect for <a href="#custom-content">custom content</a> and branding.</p>',
 				'link' => [
-					'url' => 'https://wpzoom.com/plugins/',
+					'url' => 'https://wpzoom.com/plugins/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=widget-upsell',
 					'is_external' => true,
 					'nofollow' => false,
 				],
@@ -3013,7 +3013,7 @@ class Video_Slider extends Widget_Base {
 					<p style="margin: 0 0 15px 0; color: rgba(255,255,255,0.9); font-size: 14px;">
 						<?php esc_html_e( 'This premium widget requires the WPZOOM Elementor Addons Pro plugin or a premium WPZOOM theme', 'wpzoom-elementor-addons' ); ?>
 					</p>
-					<a href="<?php echo esc_url( 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/' ); ?>" target="_blank" style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-size: 14px; margin-bottom: 10px;">
+					<a href="<?php echo esc_url( 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=widget-upsell' ); ?>" target="_blank" style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-size: 14px; margin-bottom: 10px;">
 						<?php esc_html_e( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
 					</a>
 					<p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.7); font-size: 12px;">

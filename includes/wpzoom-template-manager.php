@@ -158,7 +158,7 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 					// Get appropriate button data for Pro templates
 					$button_data = array(
 						'text' => esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'),
-						'url' => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/'
+						'url' => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=template-library'
 					);
 
 					if( isset( $template_list[$i]['separator'] ) ) {
@@ -492,7 +492,7 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 								<div class="wpzoom-action-bar">
 									<div class="wpzoom-grow"> </div>
 									<?php if ($is_restricted): ?>
-										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=template-library" target="_blank"
 											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
 											title="<?php echo esc_attr__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>">
 											<?php echo esc_html__('Get Pro Plugin', 'wpzoom-elementor-addons'); ?>
@@ -622,7 +622,7 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 								<div class="wpzoom-action-bar">
 									<div class="wpzoom-grow"> </div>
 									<?php if ( $is_restricted ) : ?>
-										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/" target="_blank"
+										<a href="https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=template-library" target="_blank"
 											class="wpzoom-btn-template-upgrade wpzoom-btn-pro-required"
 											title="<?php echo esc_attr__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>">
 											<?php echo esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ); ?>
@@ -721,7 +721,7 @@ if ( !class_exists( 'WPZOOM_Elementor_Library_Manager' ) ) {
 	private function get_pro_button_data() {
 		return array(
 			'text' => esc_html__( 'Get Pro Plugin', 'wpzoom-elementor-addons' ),
-			'url' => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/'
+			'url' => 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=template-library'
 		);
 	}
 
