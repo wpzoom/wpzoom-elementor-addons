@@ -43,7 +43,7 @@
 
 .wpzoom-notice.notice-success,
 .wpzoom-modern-notice.notice-success {
-    border-left-color: #007cba;
+    border-left-color: var(--wp-admin-theme-color, #007cba);
 }
 
 .wpzoom-notice.notice-info,

@@ -2,19 +2,19 @@
 
 /* Upgrade link in category title */
 .wpzoom-upgrade-link {
-    color: #007cba !important;
+    color: var(--wp-admin-theme-color, #007cba) !important;
     text-decoration: none !important;
     font-size: 11px !important;
     font-weight: 500 !important;
     margin-left: 8px !important;
     padding: 2px 8px !important;
-    background: rgba(0, 124, 186, 0.1) !important;
+    background: color-mix(in srgb, var(--wp-admin-theme-color, #2271b1) 10%, transparent) !important;
     border-radius: 3px !important;
     transition: all 0.2s ease !important;
 }
 
 .wpzoom-upgrade-link:hover {
-    background: #007cba !important;
+    background: var(--wp-admin-theme-color, #007cba) !important;
     color: #fff !important;
     text-decoration: none !important;
 }

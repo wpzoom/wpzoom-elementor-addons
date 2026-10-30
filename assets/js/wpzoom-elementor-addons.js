@@ -444,7 +444,7 @@ function wpzoomI18n( key, fallback ) {
 									var errorMessage = data.data.message || wpzoomI18n('license_required', 'This template requires WPZOOM Elementor Addons Pro license.');
 									var licensePageUrl = (typeof wpzoom_admin_data !== 'undefined' && wpzoom_admin_data.license_page_url) ? wpzoom_admin_data.license_page_url : '/wp-admin/options-general.php?page=wpzoom-addons-license';
 									var getLicenseUrl = (typeof wpzoom_admin_data !== 'undefined' && wpzoom_admin_data.get_license_url) ? wpzoom_admin_data.get_license_url : 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/';
-									errorMessage += '<br><br><a href="' + licensePageUrl + '" target="_blank" style="color: #007cba; text-decoration: none;">' + wpzoomI18n('enter_license', 'Enter License Key') + '</a> | <a href="' + getLicenseUrl + '" target="_blank" style="color: #007cba; text-decoration: none;">' + wpzoomI18n('get_license', 'Get License Key') + '</a>';
+									errorMessage += '<br><br><a href="' + licensePageUrl + '" target="_blank" style="color: var(--wp-admin-theme-color, #007cba); text-decoration: none;">' + wpzoomI18n('enter_license', 'Enter License Key') + '</a> | <a href="' + getLicenseUrl + '" target="_blank" style="color: var(--wp-admin-theme-color, #007cba); text-decoration: none;">' + wpzoomI18n('get_license', 'Get License Key') + '</a>';
 									elementor.templates.showErrorDialog(errorMessage);
 								} else {
 									elementor.templates.showErrorDialog(data.data.message || wpzoomI18n('import_failed', 'The template could not be imported. Please try again.'));
@@ -487,7 +487,7 @@ function wpzoomI18n( key, fallback ) {
 						errorMessage = errorData.responseJSON.data.message || wpzoomI18n('license_required', 'This template requires WPZOOM Elementor Addons Pro license.');
 						var licensePageUrl = (typeof wpzoom_admin_data !== 'undefined' && wpzoom_admin_data.license_page_url) ? wpzoom_admin_data.license_page_url : '/wp-admin/options-general.php?page=wpzoom-addons-license';
 						var getLicenseUrl = (typeof wpzoom_admin_data !== 'undefined' && wpzoom_admin_data.get_license_url) ? wpzoom_admin_data.get_license_url : 'https://www.wpzoom.com/plugins/wpzoom-elementor-addons/';
-						errorMessage += '<br><br><a href="' + licensePageUrl + '" target="_blank" style="color: #007cba; text-decoration: none;">' + wpzoomI18n('enter_license', 'Enter License Key') + '</a> | <a href="' + getLicenseUrl + '" target="_blank" style="color: #007cba; text-decoration: none;">' + wpzoomI18n('get_license', 'Get License Key') + '</a>';
+						errorMessage += '<br><br><a href="' + licensePageUrl + '" target="_blank" style="color: var(--wp-admin-theme-color, #007cba); text-decoration: none;">' + wpzoomI18n('enter_license', 'Enter License Key') + '</a> | <a href="' + getLicenseUrl + '" target="_blank" style="color: var(--wp-admin-theme-color, #007cba); text-decoration: none;">' + wpzoomI18n('get_license', 'Get License Key') + '</a>';
 					}
 
 					elementor.templates.showErrorDialog(errorMessage);

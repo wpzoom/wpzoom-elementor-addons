@@ -456,9 +456,9 @@
 }
 
 .elementor-templates-modal .wpzoom-library-tab.is-active {
-	background: #2271b1;
+	background: var(--wp-admin-theme-color, #2271b1);
 	color: #fff;
-	border-color: #2271b1;
+	border-color: var(--wp-admin-theme-color, #2271b1);
 }
 /* Filter dropdowns visibility */
 #wpzoom-elementor-template-library-filter-theme[style*="display: none"]+.select2-container,
