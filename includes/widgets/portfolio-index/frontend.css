@@ -1,0 +1,284 @@
+/* Portfolio Index: numbered project list + project panel */
+.wpz-pindex {
+	--wpz-pindex-list: 36%;
+	--wpz-pindex-gap: 80px;
+	--wpz-pindex-top: 120px;
+	--wpz-pindex-item-gap: 14px;
+	--wpz-pindex-rail: currentColor;
+	display: grid;
+	grid-template-columns: var(--wpz-pindex-list) minmax(0, 1fr);
+	gap: var(--wpz-pindex-gap);
+	align-items: start;
+}
+
+/* List */
+.wpz-pindex__label {
+	margin: 0 0 28px;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.wpz-pindex .wpz-pindex__items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: var(--wpz-pindex-item-gap);
+}
+
+/* Themes number <ol> items in post content; the widget prints its own numbers. */
+.wpz-pindex .wpz-pindex__items > .wpz-pindex__item {
+	list-style: none;
+}
+
+.wpz-pindex .wpz-pindex__item::marker {
+	content: none;
+}
+
+.wpz-pindex--rail .wpz-pindex__items {
+	position: relative;
+	padding-left: 26px;
+}
+
+.wpz-pindex--rail .wpz-pindex__items::before {
+	content: "";
+	position: absolute;
+	top: 6px;
+	bottom: 6px;
+	left: 2px;
+	border-left: 1px dotted var(--wpz-pindex-rail);
+	opacity: 0.35;
+}
+
+.wpz-pindex__item {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wpz-pindex__item::before {
+	display: none;
+}
+
+.wpz-pindex--rail .wpz-pindex__item::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -27px;
+	width: 3px;
+	height: 3px;
+	margin-top: -1px;
+	border-radius: 50%;
+	background: var(--wpz-pindex-rail);
+	transition: transform 0.25s ease;
+}
+
+.wpz-pindex--rail .wpz-pindex__item.is-active::after {
+	transform: scale(2.2);
+}
+
+.wpz-pindex__link {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 20px;
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.wpz-pindex__link:focus-visible {
+	outline: 1px solid currentColor;
+	outline-offset: 4px;
+}
+
+.wpz-pindex__num {
+	min-width: 1.6em;
+	font-size: 12px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.wpz-pindex__title {
+	font-size: 32px;
+	line-height: 1.15;
+}
+
+.wpz-pindex--italic .wpz-pindex__item.is-active .wpz-pindex__title {
+	font-style: italic;
+}
+
+/* Panel: every project sits in the same grid cell; the active one is shown */
+.wpz-pindex__stage {
+	position: sticky;
+	top: var(--wpz-pindex-top);
+	display: grid;
+}
+
+.wpz-pindex__panel {
+	grid-area: 1 / 1;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(8px);
+	transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.wpz-pindex__panel.is-active {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+	transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s;
+}
+
+.wpz-pindex__head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 24px;
+}
+
+.wpz-pindex__panel-title {
+	margin: 0;
+	font-size: 34px;
+	line-height: 1.1;
+}
+
+.wpz-pindex__year {
+	font-size: 15px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.wpz-pindex__media {
+	position: relative;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.08);
+}
+
+.wpz-pindex__media > img,
+.wpz-pindex__media > video,
+.wpz-pindex__media > iframe,
+.wpz-pindex__media .wpz-pindex__playing,
+.wpz-pindex__media .wpz-pindex__playing > * {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	object-fit: cover;
+}
+
+.wpz-pindex__playing > video {
+	object-fit: contain;
+	background: #000;
+}
+
+.wpz-pindex__preview {
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.wpz-pindex__preview.is-ready {
+	opacity: 1;
+}
+
+.wpz-pindex__play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	width: 64px;
+	height: 64px;
+	margin: -32px 0 0 -32px;
+	padding: 0;
+	border: 1.5px solid rgba(255, 255, 255, 0.9);
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.15);
+	color: #fff;
+	cursor: pointer;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.wpz-pindex__play:hover,
+.wpz-pindex__play:focus-visible {
+	transform: scale(1.06);
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.wpz-pindex__play svg {
+	width: 24px;
+	height: 24px;
+	margin-left: 3px;
+	fill: currentColor;
+}
+
+.wpz-pindex__details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 32px;
+	margin: 28px 0 0;
+	font-size: 15px;
+}
+
+.wpz-pindex__details dt {
+	display: inline;
+	margin: 0 6px 0 0;
+	font-weight: 400;
+	opacity: 0.65;
+}
+
+.wpz-pindex__details dd {
+	display: inline;
+	margin: 0;
+}
+
+.wpz-pindex__text {
+	max-width: 620px;
+	margin-top: 18px;
+	font-size: 17px;
+	line-height: 1.65;
+}
+
+.wpz-pindex__text p {
+	margin: 0 0 1em;
+}
+
+.wpz-pindex__more {
+	display: inline-block;
+	margin-top: 10px;
+	color: inherit;
+	font-size: 15px;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+/* Tablet and phone: list only, titles link to the project page */
+@media (max-width: 1024px) {
+	.wpz-pindex {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.wpz-pindex__stage {
+		display: none;
+	}
+
+	.wpz-pindex__title {
+		font-size: 26px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wpz-pindex__panel,
+	.wpz-pindex__panel.is-active,
+	.wpz-pindex__preview {
+		transition: none;
+		transform: none;
+	}
+}
