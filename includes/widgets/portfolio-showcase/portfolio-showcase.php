@@ -53,6 +53,7 @@ class Portfolio_Showcase extends Widget_Base
     {
         parent::__construct($data, $args);
         wp_register_style('wpzoom-elementor-addons-css-frontend-portfolio-showcase', plugins_url('frontend.css', __FILE__), [], WPZOOM_EL_ADDONS_VER);
+        wp_register_script('wpzoom-elementor-addons-js-frontend-portfolio-showcase', plugins_url('frontend.js', __FILE__), array( 'jquery' ), WPZOOM_EL_ADDONS_VER, true);
 
         add_filter('post_class', array( $this, 'add_portfolio_class' ), 10, 3);
     }
@@ -141,6 +142,22 @@ class Portfolio_Showcase extends Widget_Base
     {
         return [
         'wpzoom-elementor-addons-css-frontend-portfolio-showcase'
+        ];
+    }
+
+    /**
+     * Script Dependencies.
+     *
+     * Returns all the scripts the widget depends on.
+     *
+     * @since  1.4.14
+     * @access public
+     * @return array Script slugs.
+     */
+    public function get_script_depends()
+    {
+        return [
+        'wpzoom-elementor-addons-js-frontend-portfolio-showcase'
         ];
     }
 
@@ -680,6 +697,26 @@ class Portfolio_Showcase extends Widget_Base
                 'default'   => 'yes',
                 'condition' => array(
                     'portfolio_showcase_styles!' => 'eccentric',
+                ),
+            )
+        );
+        $this->add_control(
+            'item_click',
+            array(
+                'label'       => esc_html__('On Item Click', 'wpzoom-elementor-addons'),
+                'type'        => Controls_Manager::SELECT,
+                'label_block' => true,
+                'default'     => '',
+                'options'     => array(
+                    ''         => esc_html__('Theme setting', 'wpzoom-elementor-addons'),
+                    'icon'     => esc_html__('Play icon opens the lightbox', 'wpzoom-elementor-addons'),
+                    'lightbox' => esc_html__('Whole item opens the lightbox', 'wpzoom-elementor-addons'),
+                    'post'     => esc_html__('Whole item opens the post', 'wpzoom-elementor-addons'),
+                ),
+                'description' => esc_html__('Play icon: the play icon opens the lightbox and the rest of the item opens the post. Whole item opens the lightbox: a click anywhere on the item opens the lightbox (items without a lightbox video or image still open the post). Whole item opens the post: the play icon stays as a hint and the whole item opens the post. Theme setting follows Theme Options > Portfolio > Lightbox Options > On Item Click.', 'wpzoom-elementor-addons'),
+                'condition'   => array(
+                    'portfolio_showcase_styles!' => 'eccentric',
+                    'show_popup'                 => 'yes',
                 ),
             )
         );
@@ -2423,6 +2460,35 @@ class Portfolio_Showcase extends Widget_Base
      * @access public
      * @return void
      */
+    /**
+     * Resolve the On Item Click mode: 'icon', 'lightbox' or 'post'.
+     *
+     * "Theme setting" (empty) follows Theme Options > Portfolio > Lightbox
+     * Options > On Item Click when the theme supports it (Inspiro Premium
+     * 10.0+), else the original behavior (play icon opens the lightbox).
+     *
+     * @since  1.4.14
+     * @param  string $value Control value.
+     * @return string
+     */
+    protected function get_item_click_mode( $value )
+    {
+        $modes = array( 'icon', 'lightbox', 'post' );
+
+        if ( in_array( $value, $modes, true ) ) {
+            return $value;
+        }
+
+        if ( function_exists( 'inspiro_portfolio_item_click_mode' ) ) {
+            $theme_mode = inspiro_portfolio_item_click_mode();
+            if ( in_array( $theme_mode, $modes, true ) ) {
+                return $theme_mode;
+            }
+        }
+
+        return 'icon';
+    }
+
     public function render()
     {
 
@@ -2450,6 +2516,7 @@ class Portfolio_Showcase extends Widget_Base
         $show_popup                         = ( 'yes' == $settings['show_popup'] ? true : false );
         $show_popup_caption                 = ( 'yes' == $settings['show_popup_caption'] ? true : false ) ;
         $show_popup_excerpt                 = ( 'yes' == $settings['show_popup_excerpt'] ? true : false );
+        $item_click                         = $this->get_item_click_mode( isset( $settings['item_click'] ) ? $settings['item_click'] : '' );
         $show_space                         = ( 'yes' == $settings['show_space'] ? true : false );
         $show_categories                    = ( 'yes' == $settings['show_categories'] ? true : false );
         $hide_subcategories                 = ( 'yes' == $settings['hide_sub_categories'] ? true : false );
@@ -2539,6 +2606,7 @@ class Portfolio_Showcase extends Widget_Base
         $aspect_ratio                 = $settings['aspect_ratio'];
         $show_popup_caption           = wp_validate_boolean($settings['show_popup_caption']);
         $show_popup_excerpt           = isset($settings['show_popup_excerpt']) ? wp_validate_boolean($settings['show_popup_excerpt']) : false;
+        $item_click                   = isset($settings['item_click']) ? $this->get_item_click_mode($settings['item_click']) : 'icon';
         $show_excerpt                 = wp_validate_boolean($settings['show_excerpt']);
         $view_all_btn                 = wp_validate_boolean($settings['view_all_btn']);
         $readmore_text                = $settings['readmore_text'];
@@ -2570,6 +2638,12 @@ class Portfolio_Showcase extends Widget_Base
             $video_year = get_post_meta(get_the_ID(), 'su_portfolio_item_year', true);
 
             $popup_final_external_src = ! empty($video_background_popup_url_mp4) ? $video_background_popup_url_mp4 : $video_background_popup_url_webm;
+
+            // On Item Click (Lightbox section).
+            $has_lightbox_video    = ( 'self_hosted' === $popup_video_type && $is_video_popup ) || ! empty($video_background_popup_url);
+            $has_lightbox_trigger  = $has_lightbox_video || ( has_post_thumbnail() && ! \option::is_on('lightbox_video_only') );
+            $item_link_atts        = ( $show_popup && 'lightbox' === $item_click && $has_lightbox_trigger ) ? ' data-wpz-ps-lightbox data-no-modal' : '';
+            $item_click_opens_post = $show_popup && 'post' === $item_click;
 
             $articleClass = ( ! has_post_thumbnail() && ! $is_video_background ) ? 'no-thumbnail ' : '';
 
@@ -2644,6 +2718,15 @@ class Portfolio_Showcase extends Widget_Base
                                 data-show-caption="<?php echo esc_attr($show_popup_caption); ?>"
                                 data-show-excerpt="<?php echo esc_attr($show_popup_excerpt); ?>">
                                 <!-- start lightbox -->
+                                <?php if ( 'narrow' == $layout_type && ( $item_link_atts || $item_click_opens_post ) ) : ?>
+                                    <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"<?php echo $item_link_atts; // WPCS: XSS OK. ?>></a>
+                                <?php endif; ?>
+                                <?php if ( $item_click_opens_post ) : ?>
+                                    <?php if ( $has_lightbox_video ) : ?>
+                                        <a class="portfolio-popup-video portfolio-popup-video--post" href="<?php echo esc_url(get_permalink()); ?>" aria-label="<?php echo esc_attr(get_the_title()); ?>" data-magnificpopup-initialized="true"></a>
+                                    <?php endif; ?>
+                                <?php else : ?>
+                                
                                 <?php if ($popup_video_type === 'self_hosted' && $is_video_popup ) : ?>
                                     <div id="zoom-popup-<?php echo the_ID(); ?>" class="mfp-hide"
                                          data-src="<?php echo esc_url($popup_final_external_src); ?>">
@@ -2689,6 +2772,7 @@ class Portfolio_Showcase extends Widget_Base
                                         <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"></a>
                                     <?php endif; ?>
                                 <?php endif; ?>
+                                <?php endif; // $item_click_opens_post ?>
 
                                 <span class="portfolio_item-title" style="display: none;">
                                     <a href="<?php echo esc_url(get_permalink()); ?>"
@@ -2777,7 +2861,7 @@ class Portfolio_Showcase extends Widget_Base
                             <?php endif; ?>
                         </ul>
                     </div>
-                    <?php the_title(sprintf('<h3 class="portfolio_item-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h3>'); ?>
+                    <?php the_title(sprintf('<h3 class="portfolio_item-title"><a href="%s" rel="bookmark"%s>', esc_url(get_permalink()), $item_link_atts), '</a></h3>'); ?>
                 <?php if ($show_excerpt == true ) : ?>
                     <?php the_excerpt(); ?>
                 <?php endif; ?>
@@ -2790,11 +2874,20 @@ class Portfolio_Showcase extends Widget_Base
                     <div class="entry-thumbnail-popover">
                         <div class="entry-thumbnail-popover-content lightbox_popup_insp popover-content--animated" data-show-caption="<?php echo esc_attr($show_popup_caption) ?>" data-show-excerpt="<?php echo esc_attr($show_popup_excerpt) ?>">
 
-                            <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"></a>
+                            <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"<?php echo $item_link_atts; // WPCS: XSS OK. ?>></a>
 
                             <div class="entry-meta">
 
-                                <!-- start lightbox --><?php if ($popup_video_type === 'self_hosted' && $is_video_popup ) : ?>
+                                <!-- start lightbox -->
+                                <?php if ( 'narrow' == $layout_type && ( $item_link_atts || $item_click_opens_post ) ) : ?>
+                                    <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"<?php echo $item_link_atts; // WPCS: XSS OK. ?>></a>
+                                <?php endif; ?>
+                                <?php if ( $item_click_opens_post ) : ?>
+                                    <?php if ( $has_lightbox_video ) : ?>
+                                        <a class="portfolio-popup-video portfolio-popup-video--post" href="<?php echo esc_url(get_permalink()); ?>" aria-label="<?php echo esc_attr(get_the_title()); ?>" data-magnificpopup-initialized="true"></a>
+                                    <?php endif; ?>
+                                <?php else : ?>
+                                <?php if ($popup_video_type === 'self_hosted' && $is_video_popup ) : ?>
                                     <div id="zoom-popup-<?php echo the_ID(); ?>" class="animated slow mfp-hide">
 
                                         <div class="mfp-iframe-scaler">
@@ -2839,10 +2932,11 @@ class Portfolio_Showcase extends Widget_Base
                                         <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"></a>
                                     <?php endif; ?>
                                 <?php endif; ?>
+                                <?php endif; // $item_click_opens_post ?>
 
                                 <h3 class="portfolio_item-title">
                                     <a href="<?php echo esc_url(get_permalink()); ?>"
-                                       title="<?php echo esc_attr(get_the_title()); ?>"><?php the_title(); ?></a>
+                                       title="<?php echo esc_attr(get_the_title()); ?>"<?php echo $item_link_atts; // WPCS: XSS OK. ?>><?php the_title(); ?></a>
                                 </h3>
 
                                 <ul>
