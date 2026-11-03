@@ -1,0 +1,414 @@
+/* Portfolio Panes: one project per screen, the widget's own scroll effects.
+   Structure: a sticky stage (the panes, stacked) takes no flow height; one
+   invisible snap spacer per pane provides the scroll distance. */
+.wpz-panes {
+	--wpz-pane-h: 100vh;
+	--wpz-pane-h: 100svh;
+	--wpz-pane-shade: 0.7;
+	--wpz-pane-pad: clamp(24px, 5vw, 72px);
+	position: relative;
+	color: #fff;
+}
+
+.wpz-panes--h-tall {
+	--wpz-pane-h: 75vh;
+	--wpz-pane-h: 75svh;
+}
+
+.wpz-panes--h-band {
+	--wpz-pane-h: 43.75vw; /* 16:7 */
+}
+
+.wpz-panes__stage {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	height: var(--wpz-pane-h);
+	margin-bottom: calc(-1 * var(--wpz-pane-h));
+	overflow: hidden;
+	background: #000;
+	z-index: 1;
+}
+
+.wpz-panes__snap {
+	height: var(--wpz-pane-h);
+	scroll-snap-align: start;
+	pointer-events: none;
+}
+
+html.wpz-panes-snap {
+	scroll-snap-type: y proximity;
+}
+
+/* Themes often set overflow-x: hidden on html/body against horizontal scroll; that turns
+   the body into a scroll container and breaks position: sticky. clip prevents the
+   horizontal scroll just the same without creating one. */
+html.wpz-panes-page,
+html.wpz-panes-page body {
+	overflow-x: clip;
+}
+
+/* Pane */
+.wpz-pane {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	transform: translateY(100%);
+	will-change: transform, opacity;
+	overflow: hidden;
+}
+
+.wpz-pane:first-child,
+.wpz-pane.is-active {
+	transform: none;
+}
+
+.wpz-pane__media {
+	position: absolute;
+	inset: 0;
+	will-change: transform;
+}
+
+/* Cover and Parallax move the footage a little; the box is taller than the pane so
+   the movement never shows the stage behind it. */
+.wpz-panes--cover .wpz-pane__media,
+.wpz-panes--parallax .wpz-pane__media {
+	inset: -8% 0;
+}
+
+.wpz-pane__poster,
+.wpz-pane__loop {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: 0;
+	display: block;
+}
+
+.wpz-pane__loop {
+	opacity: 0;
+	transition: opacity 0.6s ease;
+}
+
+.wpz-pane__loop.is-ready {
+	opacity: 1;
+}
+
+.wpz-pane__shade {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0.3) 100%);
+	opacity: var(--wpz-pane-shade);
+	pointer-events: none;
+}
+
+/* The pane being covered darkens (set by the script). */
+.wpz-pane__dim {
+	position: absolute;
+	inset: 0;
+	background: #000;
+	opacity: var(--wpz-dim, 0);
+	pointer-events: none;
+}
+
+/* Text block: a link or a button, so the whole block is the click target. */
+.wpz-pane__text {
+	position: absolute;
+	z-index: 2;
+	display: grid;
+	gap: 14px;
+	max-width: min(900px, 86vw);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: var(--wpz-text, 1);
+	transform: translateY(calc(var(--wpz-text-shift, 0) * 1px));
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.wpz-pane__text:hover,
+.wpz-pane__text:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wpz-pane__text:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 8px;
+}
+
+.wpz-panes--title-center .wpz-pane__text {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, calc(-50% + var(--wpz-text-shift, 0) * 1px));
+	justify-items: center;
+}
+
+.wpz-panes--title-bottom-left .wpz-pane__text {
+	left: var(--wpz-pane-pad);
+	right: var(--wpz-pane-pad);
+	bottom: var(--wpz-pane-pad);
+	max-width: min(900px, 100% - 2 * var(--wpz-pane-pad));
+	text-align: left;
+	justify-items: start;
+}
+
+.wpz-panes--title-bottom-center .wpz-pane__text {
+	left: 50%;
+	bottom: var(--wpz-pane-pad);
+	transform: translate(-50%, calc(var(--wpz-text-shift, 0) * 1px));
+	justify-items: center;
+}
+
+.wpz-panes .wpz-pane__title {
+	margin: 0;
+	color: inherit;
+	font-size: clamp(40px, 7vw, 108px);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	text-wrap: balance;
+}
+
+.wpz-panes .wpz-pane__credit,
+.wpz-panes .wpz-pane__counter {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	opacity: 0.85;
+}
+
+.wpz-panes .wpz-pane__dot {
+	opacity: 0.5;
+}
+
+.wpz-panes .wpz-pane__button {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 10px;
+	padding: 12px 22px 12px 16px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.wpz-panes .wpz-pane__button svg {
+	width: 14px;
+	height: 14px;
+	fill: currentColor;
+}
+
+.wpz-pane__text:hover .wpz-pane__button {
+	background: rgba(255, 255, 255, 0.14);
+	border-color: currentColor;
+}
+
+/* Playing in the pane */
+.wpz-pane__playing {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	background: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wpz-pane__playing video,
+.wpz-pane__playing iframe,
+.wpz-pane__playing .wp-video,
+.wpz-pane__playing .mejs-container,
+.wpz-pane__playing .mejs-mediaelement {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none;
+}
+
+.wpz-pane__playing video {
+	object-fit: contain;
+	background: #000;
+}
+
+.wpz-pane__playing .wp-video-shortcode {
+	max-height: 100%;
+}
+
+.wpz-pane__close {
+	position: absolute;
+	top: calc(var(--wpz-pane-pad) * 0.5);
+	right: var(--wpz-pane-pad);
+	z-index: 4;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.4);
+	color: #fff;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+}
+
+.wpz-pane__close svg {
+	width: 16px;
+	height: 16px;
+	stroke: currentColor;
+	stroke-width: 2;
+	fill: none;
+}
+
+.wpz-pane.is-playing .wpz-pane__text,
+.wpz-pane.is-playing .wpz-pane__shade {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Dots */
+.wpz-panes__dots {
+	position: absolute;
+	right: calc(var(--wpz-pane-pad) * 0.5);
+	top: 50%;
+	z-index: 5;
+	display: grid;
+	gap: 14px;
+	transform: translateY(-50%);
+	color: #fff;
+}
+
+.wpz-panes__dot {
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+}
+
+.wpz-panes__dot::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: 0.45;
+	transform: scale(1);
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.wpz-panes__dot.is-active::before {
+	opacity: 1;
+	transform: scale(1.5);
+}
+
+.wpz-panes__dot:focus-visible {
+	outline: 1px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* Scroll cue on the first pane */
+.wpz-panes__cue {
+	position: absolute;
+	left: 50%;
+	bottom: calc(var(--wpz-pane-pad) * 0.6);
+	z-index: 5;
+	display: grid;
+	gap: 10px;
+	justify-items: center;
+	transform: translateX(-50%);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	opacity: var(--wpz-cue, 0.8);
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.wpz-panes__cue i {
+	display: block;
+	width: 1px;
+	height: 36px;
+	background: currentColor;
+	transform-origin: top;
+	animation: wpz-panes-cue 1.8s ease-in-out infinite;
+}
+
+@keyframes wpz-panes-cue {
+	0% { transform: scaleY(0); transform-origin: top; }
+	45% { transform: scaleY(1); transform-origin: top; }
+	55% { transform: scaleY(1); transform-origin: bottom; }
+	100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Static: no effect (option "None" or reduced motion). Panes stack in the flow. */
+.wpz-panes--static .wpz-panes__stage {
+	position: static;
+	height: auto;
+	margin-bottom: 0;
+	overflow: visible;
+}
+
+.wpz-panes--static .wpz-pane {
+	position: relative;
+	height: var(--wpz-pane-h);
+	transform: none !important;
+	opacity: 1 !important;
+}
+
+.wpz-panes--static .wpz-pane__media {
+	transform: none !important;
+}
+
+.wpz-panes--static .wpz-panes__snap,
+.wpz-panes--static .wpz-panes__dots,
+.wpz-panes--static .wpz-panes__cue {
+	display: none;
+}
+
+.wpz-panes--static .wpz-pane__text {
+	--wpz-text: 1;
+	--wpz-text-shift: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wpz-panes__cue i {
+		animation: none;
+	}
+}
+
+/* Smaller screens */
+@media (max-width: 782px) {
+	.wpz-pane__title {
+		font-size: clamp(34px, 11vw, 64px);
+	}
+
+	.wpz-panes__dots {
+		right: 12px;
+		gap: 10px;
+	}
+
+	.wpz-pane__credit,
+	.wpz-pane__counter {
+		font-size: 12px;
+	}
+}
