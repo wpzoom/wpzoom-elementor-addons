@@ -219,6 +219,11 @@
 	transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
+/* The button is hidden once the player is in (display: grid above would beat [hidden]) */
+.wpz-pindex__play[hidden] {
+	display: none;
+}
+
 .wpz-pindex__play:hover,
 .wpz-pindex__play:focus-visible {
 	transform: scale(1.06);
