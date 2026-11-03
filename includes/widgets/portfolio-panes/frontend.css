@@ -121,11 +121,15 @@ html.wpz-panes-page body {
 	pointer-events: none;
 }
 
-/* Text block: a link or a button, so the whole block is the click target. */
+/* Text block: a link or a button, so the whole block is the click target.
+   The single column is pinned to the block's width: an auto column would grow to the
+   widest word of the title (big display fonts) and overflow the block on one side,
+   which shifts the centred text. Pinned, a too-wide title overflows evenly instead. */
 .wpz-pane__text {
 	position: absolute;
 	z-index: 2;
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 14px;
 	max-width: min(900px, 86vw);
 	margin: 0;
