@@ -4,7 +4,7 @@
  *
  * A numbered list of portfolio projects with a project panel beside it:
  * hovering a title previews the project (its hover video plays in the panel),
- * clicking keeps it open, and the play button plays the project's video.
+ * the preview stays while the cursor moves to the panel, and the play button plays the project's video.
  *
  * @package WPZOOM_Elementor_Addons
  */

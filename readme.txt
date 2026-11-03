@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.15
+Stable tag:        1.4.16
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -128,6 +128,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.16 =
+* Portfolio Index: the preview no longer jumps back to the first project when the cursor leaves the list for the project panel, and titles crossed on the way to the panel are not previewed (hover intent, as in mega menus). The last hovered project stays in the panel
 
 = 1.4.15 =
 * New widget: Portfolio Index (Inspiro Premium and Inspiro PRO) — a numbered list of projects; hovering a title previews the project's video beside the list, clicking keeps it open, and the play button plays the full video (self-hosted, YouTube or Vimeo) in place. On phones and tablets a tapped title opens its project right under it

@@ -128,12 +128,104 @@
 			} );
 		}
 
+		/*
+		 * Hover intent (the "Amazon menu" trick): while the cursor travels from a title
+		 * towards the panel it crosses other titles. If it is moving inside the triangle
+		 * between its last position and the panel's near corners, the crossed titles are
+		 * not previewed right away; they get a short delay that is renewed while the
+		 * cursor keeps heading for the panel, and is cancelled when it arrives there.
+		 * A cursor that stops on a title previews it as soon as the delay runs out.
+		 */
+		var AIM_DELAY = 300;
+		var AIM_TOLERANCE = 75;
+		var positions = []; // last two cursor positions
+		var aimTimer = null;
+		var aimIndex = -1;
+
+		function trackMouse( event ) {
+			positions.push( { x: event.pageX, y: event.pageY } );
+			if ( positions.length > 3 ) {
+				positions.shift();
+			}
+		}
+
+		function slope( a, b ) {
+			return ( b.y - a.y ) / ( b.x - a.x );
+		}
+
+		function aimingAtStage() {
+			if ( ! stage || positions.length < 2 ) {
+				return false;
+			}
+			var current = positions[ positions.length - 1 ];
+			var previous = positions[ 0 ];
+			if ( current.x === previous.x && current.y === previous.y ) {
+				return false; // The cursor stopped: the title under it is wanted.
+			}
+			var rect = stage.getBoundingClientRect();
+			var listRect = list.getBoundingClientRect();
+			var onRight = rect.left >= listRect.left;
+			var edgeX = ( onRight ? rect.left : rect.right ) + window.pageXOffset;
+			var upper = { x: edgeX, y: rect.top + window.pageYOffset - AIM_TOLERANCE };
+			var lower = { x: edgeX, y: rect.bottom + window.pageYOffset + AIM_TOLERANCE };
+			if ( ! onRight ) {
+				// Mirror horizontally so the panel is always "to the right" for the slope test.
+				current = { x: -current.x, y: current.y };
+				previous = { x: -previous.x, y: previous.y };
+				upper.x = -upper.x;
+				lower.x = -lower.x;
+			}
+			if ( current.x >= upper.x ) {
+				return false; // Already past the panel's near edge.
+			}
+			var decreasing = slope( current, upper );
+			var increasing = slope( current, lower );
+			var prevDecreasing = slope( previous, upper );
+			var prevIncreasing = slope( previous, lower );
+			return decreasing < prevDecreasing && increasing > prevIncreasing;
+		}
+
+		function cancelAim() {
+			if ( aimTimer ) {
+				clearTimeout( aimTimer );
+				aimTimer = null;
+			}
+			aimIndex = -1;
+		}
+
+		function possiblyShow( index ) {
+			cancelAim();
+			if ( aimingAtStage() ) {
+				aimIndex = index;
+				aimTimer = setTimeout( function () {
+					aimTimer = null;
+					if ( aimIndex === index ) {
+						possiblyShow( index );
+					}
+				}, AIM_DELAY );
+				return;
+			}
+			show( index );
+		}
+
+		root.addEventListener( 'mousemove', trackMouse );
+
+		if ( stage ) {
+			stage.addEventListener( 'mouseenter', cancelAim ); // Arrived at the panel: keep what is shown.
+		}
+
 		items.forEach( function ( item, i ) {
 			var link = item.querySelector( '.wpz-pindex__link' );
 
 			item.addEventListener( 'mouseenter', function () {
 				if ( desktop.matches && canHover.matches ) {
-					show( i );
+					possiblyShow( i );
+				}
+			} );
+
+			item.addEventListener( 'mouseleave', function () {
+				if ( aimIndex === i ) {
+					cancelAim(); // Passed over on the way to the panel.
 				}
 			} );
 
@@ -164,16 +256,13 @@
 				event.preventDefault();
 				event.stopPropagation();
 				selected = i;
+				cancelAim();
 				show( i );
 			} );
 		} );
 
-		// Leaving the list goes back to the project that was clicked.
-		list.addEventListener( 'mouseleave', function () {
-			if ( desktop.matches && selected > -1 ) {
-				show( selected );
-			}
-		} );
+		// Leaving the list (or the widget) keeps the last previewed project in the panel.
+		root.addEventListener( 'mouseleave', cancelAim );
 
 		panels.forEach( function ( panel ) {
 			var button = panel.querySelector( '.wpz-pindex__play' );
