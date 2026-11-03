@@ -310,6 +310,15 @@
 		font-style: italic;
 	}
 
+	/* The desktop "active" state means nothing here; only the open item is marked */
+	.wpz-pindex--italic .wpz-pindex__item.is-active:not(.is-open) .wpz-pindex__title {
+		font-style: normal;
+	}
+
+	.wpz-pindex--rail .wpz-pindex__item.is-active:not(.is-open)::after {
+		transform: none;
+	}
+
 	.wpz-pindex--rail .wpz-pindex__item::after {
 		top: 15px; /* stays on the title line when the panel opens below */
 	}
