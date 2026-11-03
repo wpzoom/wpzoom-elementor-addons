@@ -554,7 +554,7 @@ jQuery(window).on('elementor/frontend/init', function () {
 			jQuery('body').append(lightbox);
 
 			// Direct files: WordPress MediaElement player, skinned by the theme's Video Player Style.
-			if (lightbox.find('video').length && window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize) {
+			if (lightbox.find('video').length && document.body.classList.contains('wpz-mediaelement-player') && window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize) {
 				window.wp.mediaelement.initialize();
 			}
 			
@@ -608,7 +608,7 @@ jQuery(window).on('elementor/frontend/init', function () {
 			// Check if URL is a direct video file
 			if (this.isDirectVideoFile(url)) {
 				// wp-video-shortcode: openVideoLightbox() hands it to WordPress's MediaElement player.
-				return `<video class="wpz-lightbox-video wp-video-shortcode" controls autoplay loop>
+				return `<video class="wpz-lightbox-video${document.body.classList.contains('wpz-mediaelement-player') ? ' wp-video-shortcode' : ''}" controls autoplay loop>
 					<source src="${url}" type="${this.getVideoMimeType(url)}">
 					<p>Your browser doesn't support HTML5 video. <a href="${url}" target="_blank">Download the video</a> instead.</p>
 				</video>`;

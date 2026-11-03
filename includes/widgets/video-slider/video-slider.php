@@ -2788,7 +2788,7 @@ class Video_Slider extends Widget_Base {
 
 						<?php if ( $has_lightbox && !empty( $slide['lightbox_video_url'] ) ) : ?>
 							<?php // Direct files play in the WordPress MediaElement player (frontend.js initialises it). ?>
-							<?php if ( preg_match( '/\.(mp4|m4v|webm|ogg|ogv|mov)(\?|#|$)/i', $slide['lightbox_video_url'] ) ) { wp_enqueue_style( 'wp-mediaelement' ); wp_enqueue_script( 'wp-mediaelement' ); } ?>
+							<?php if ( WPZOOM_Elementor_Widgets::use_mediaelement_player() && preg_match( '/\.(mp4|m4v|webm|ogg|ogv|mov)(\?|#|$)/i', $slide['lightbox_video_url'] ) ) { wp_enqueue_style( 'wp-mediaelement' ); wp_enqueue_script( 'wp-mediaelement' ); } ?>
 							<div class="wpz-slide-lightbox-wrapper">
 								<a href="<?php echo esc_url( $slide['lightbox_video_url'] ); ?>"
 								   class="wpz-slide-lightbox-trigger"

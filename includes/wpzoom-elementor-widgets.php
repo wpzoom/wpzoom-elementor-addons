@@ -189,6 +189,19 @@ class WPZOOM_Elementor_Widgets {
 	 * @return bool
 	 */
 
+	/**
+	 * Whether self-hosted videos in the widgets' lightboxes use the WordPress
+	 * MediaElement player (which the theme skins) instead of the browser's own.
+	 *
+	 * Opt-in per theme with add_theme_support( 'wpzoom-video-player' ) — Inspiro
+	 * does — so other themes keep the native player.
+	 *
+	 * @return bool
+	 */
+	public static function use_mediaelement_player() {
+		return (bool) apply_filters( 'wpzoom_elementor_addons_mediaelement_player', current_theme_supports( 'wpzoom-video-player' ) );
+	}
+
 	public static function is_supported_theme( $theme = 'inspiro' ) {
 
 		$current_theme = get_template();

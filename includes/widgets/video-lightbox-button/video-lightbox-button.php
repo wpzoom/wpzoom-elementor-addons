@@ -437,7 +437,7 @@ class Video_Lightbox_Button extends Widget_Base {
 		$url = trim( (string) $url );
 
 		// Direct files play in the WordPress MediaElement player (frontend.js initialises it).
-		if ( preg_match( '/\.(mp4|m4v|webm|ogg|ogv|mov)(\?|#|$)/i', $url ) ) {
+		if ( WPZOOM_Elementor_Widgets::use_mediaelement_player() && preg_match( '/\.(mp4|m4v|webm|ogg|ogv|mov)(\?|#|$)/i', $url ) ) {
 			wp_enqueue_style( 'wp-mediaelement' );
 			wp_enqueue_script( 'wp-mediaelement' );
 		}

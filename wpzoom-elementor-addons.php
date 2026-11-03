@@ -99,6 +99,7 @@ final class WPZOOM_Elementor_Addons {
 		self::includes();
 
 		add_action( 'init', array( $this, 'i18n' ) );
+		add_filter( 'body_class', array( $this, 'body_class_mediaelement_player' ) );
 		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
 
 		add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'plugin_css' ) );
@@ -136,6 +137,20 @@ final class WPZOOM_Elementor_Addons {
 	 *
 	 * @return void
 	 */
+	/**
+	 * Tells the widgets' scripts to hand self-hosted lightbox videos to the
+	 * WordPress MediaElement player. See WPZOOM_Elementor_Widgets::use_mediaelement_player().
+	 *
+	 * @param array $classes Body classes.
+	 * @return array
+	 */
+	public function body_class_mediaelement_player( $classes ) {
+		if ( class_exists( '\\WPZOOMElementorWidgets\\WPZOOM_Elementor_Widgets' ) && \WPZOOMElementorWidgets\WPZOOM_Elementor_Widgets::use_mediaelement_player() ) {
+			$classes[] = 'wpz-mediaelement-player';
+		}
+		return $classes;
+	}
+
 	public function includes() {
 
 		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-elementor-controls.php';

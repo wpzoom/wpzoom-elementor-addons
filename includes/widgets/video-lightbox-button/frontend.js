@@ -91,7 +91,7 @@
 			// wp-video-shortcode lets wp.mediaelement.initialize() pick the player up,
 			// so the theme's Video Player Style applies (plain <video> elsewhere).
 			var $video = $('<video/>', {
-				class: 'wpz-vlb-modal__video-el wp-video-shortcode',
+				class: 'wpz-vlb-modal__video-el' + (document.body.classList.contains('wpz-mediaelement-player') ? ' wp-video-shortcode' : ''),
 				controls: true,
 				autoplay: true,
 				playsinline: true,
@@ -138,7 +138,7 @@
 
 		$('body').append($modal);
 
-		if ($modal.find('video').length && window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize) {
+		if ($modal.find('video').length && document.body.classList.contains('wpz-mediaelement-player') && window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize) {
 			window.wp.mediaelement.initialize();
 		}
 
