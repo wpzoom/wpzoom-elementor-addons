@@ -1,0 +1,100 @@
+/* Portfolio Showcase, Title Overlay items: title visibility and position.
+   The classes come from the widget's Layout controls; colours arrive as CSS
+   variables (--wpz-overlay-*) from the Style > Portfolio Item controls. */
+
+/* Title always visible */
+.portfolio-grid.wpz-overlay-title--always .portfolio_item .entry-thumbnail-popover,
+.portfolio-grid.wpz-overlay-title--hide-hover .portfolio_item .entry-thumbnail-popover {
+	opacity: 1;
+	background-color: var(--wpz-overlay-solid, var(--wpz-overlay-bg, rgba(0, 0, 0, 0.35)));
+	background-image: var(--wpz-overlay-image, none);
+	transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Keep the normal overlay on hover; the Hover tab colour overrides this. */
+.portfolio-grid.wpz-overlay-title--always .portfolio_item:hover .entry-thumbnail-popover {
+	background-color: var(--wpz-overlay-solid, var(--wpz-overlay-bg, rgba(0, 0, 0, 0.35)));
+	background-image: var(--wpz-overlay-image, none);
+}
+
+.portfolio-grid.wpz-overlay-title--always .portfolio_item .entry-thumbnail-popover-content,
+.portfolio-grid.wpz-overlay-title--hide-hover .portfolio_item .entry-thumbnail-popover-content {
+	opacity: 1;
+	bottom: 0;
+}
+
+.portfolio-grid.wpz-overlay-title--always .portfolio_item .entry-thumbnail-popover-content .entry-meta,
+.portfolio-grid.wpz-overlay-title--hide-hover .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	display: block;
+	text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Hide on hover: reveal the clean image or the hover video */
+.portfolio-grid.wpz-overlay-title--hide-hover .portfolio_item:hover .entry-thumbnail-popover {
+	opacity: 0;
+}
+
+/* Title position: the content block fills the item and flex places the title */
+.portfolio-grid[class*="wpz-overlay-pos--"] .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: auto;
+	margin: 0;
+	padding: 26px;
+	transform: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.portfolio-grid[class*="wpz-overlay-pos--"] .portfolio_item .entry-thumbnail-popover-content .entry-meta ul {
+	margin: 0;
+}
+
+.portfolio-grid[class*="wpz-overlay-pos--"] .portfolio_item .entry-thumbnail-popover-content .entry-meta h3 {
+	margin: 0 0 6px;
+}
+
+.portfolio-grid[class*="wpz-overlay-pos--top-"] .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	justify-content: flex-start;
+}
+
+.portfolio-grid[class*="wpz-overlay-pos--bottom-"] .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	justify-content: flex-end;
+}
+
+.portfolio-grid.wpz-overlay-pos--top-left .portfolio_item .entry-thumbnail-popover-content .entry-meta,
+.portfolio-grid.wpz-overlay-pos--center-left .portfolio_item .entry-thumbnail-popover-content .entry-meta,
+.portfolio-grid.wpz-overlay-pos--bottom-left .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	align-items: flex-start;
+	text-align: left;
+}
+
+.portfolio-grid.wpz-overlay-pos--top-right .portfolio_item .entry-thumbnail-popover-content .entry-meta,
+.portfolio-grid.wpz-overlay-pos--center-right .portfolio_item .entry-thumbnail-popover-content .entry-meta,
+.portfolio-grid.wpz-overlay-pos--bottom-right .portfolio_item .entry-thumbnail-popover-content .entry-meta {
+	align-items: flex-end;
+	text-align: right;
+}
+
+/* Details (director, year, category) above the title; the icon stays first */
+.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta > ul {
+	order: -1;
+}
+
+.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta > .portfolio-popup-video {
+	order: -2;
+}
+
+.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta h3 {
+	margin: 0;
+}
+
+/* No play / zoom icon */
+.portfolio-grid.wpz-overlay-no-icon .portfolio_item .entry-thumbnail-popover .portfolio-popup-video {
+	display: none;
+}

@@ -61,7 +61,7 @@ echo '<div class="portfolio-showcase">';
 					'show_categories'              => true,
 					'always_play_background_video' => $always_play_background_video
 				) ) ) ?>"
-				class="portfolio-grid <?php if ( $show_space ) { ?> portfolio_with_space<?php } ?> col_no_<?php echo esc_attr( $col_number ); ?> <?php echo esc_attr( $always_play_background_video_class ); // WPCS: XSS OK. ?>"
+				class="portfolio-grid <?php if ( $show_space ) { ?> portfolio_with_space<?php } ?> col_no_<?php echo esc_attr( $col_number ); ?> <?php echo esc_attr( $always_play_background_video_class . $overlay_classes ); // WPCS: XSS OK. ?>"
 			>
 				<?php
 					$this->looper( $wp_query,

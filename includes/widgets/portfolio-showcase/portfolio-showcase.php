@@ -497,6 +497,69 @@ class Portfolio_Showcase extends Widget_Base
                 ),
             )
         );
+        // Title Overlay items: how and where the title sits on the image.
+        $overlay_condition = array(
+            'layout_type'                => 'full-width',
+            'portfolio_showcase_styles!' => 'eccentric',
+        );
+        $this->add_control(
+            'overlay_title_visibility',
+            array(
+                'label'       => esc_html__('Title Visibility', 'wpzoom-elementor-addons'),
+                'type'        => Controls_Manager::SELECT,
+                'options'     => array(
+                    'hover'      => esc_html__('Show on Hover', 'wpzoom-elementor-addons'),
+                    'always'     => esc_html__('Always Visible', 'wpzoom-elementor-addons'),
+                    'hide-hover' => esc_html__('Always Visible, Hide on Hover', 'wpzoom-elementor-addons'),
+                ),
+                'default'     => 'hover',
+                'description' => esc_html__('"Hide on Hover" fades the overlay out to reveal the clean image or the hover video.', 'wpzoom-elementor-addons'),
+                'condition'   => $overlay_condition,
+            )
+        );
+        $this->add_control(
+            'overlay_title_position',
+            array(
+                'label'     => esc_html__('Title Position', 'wpzoom-elementor-addons'),
+                'type'      => Controls_Manager::SELECT,
+                'options'   => array(
+                    'default'       => esc_html__('Default (Centered)', 'wpzoom-elementor-addons'),
+                    'top-left'      => esc_html__('Top Left', 'wpzoom-elementor-addons'),
+                    'top-center'    => esc_html__('Top Center', 'wpzoom-elementor-addons'),
+                    'top-right'     => esc_html__('Top Right', 'wpzoom-elementor-addons'),
+                    'center-left'   => esc_html__('Center Left', 'wpzoom-elementor-addons'),
+                    'center-right'  => esc_html__('Center Right', 'wpzoom-elementor-addons'),
+                    'bottom-left'   => esc_html__('Bottom Left', 'wpzoom-elementor-addons'),
+                    'bottom-center' => esc_html__('Bottom Center', 'wpzoom-elementor-addons'),
+                    'bottom-right'  => esc_html__('Bottom Right', 'wpzoom-elementor-addons'),
+                ),
+                'default'   => 'default',
+                'condition' => $overlay_condition,
+            )
+        );
+        $this->add_control(
+            'overlay_meta_above',
+            array(
+                'label'       => esc_html__('Details Above the Title', 'wpzoom-elementor-addons'),
+                'description' => esc_html__('Show the director, year and category above the title instead of below it.', 'wpzoom-elementor-addons'),
+                'type'        => Controls_Manager::SWITCHER,
+                'label_on'    => esc_html__('Yes', 'wpzoom-elementor-addons'),
+                'label_off'   => esc_html__('No', 'wpzoom-elementor-addons'),
+                'default'     => '',
+                'condition'   => array_merge($overlay_condition, array('overlay_title_position!' => 'default')),
+            )
+        );
+        $this->add_control(
+            'overlay_show_icon',
+            array(
+                'label'     => esc_html__('Show Play / Zoom Icon', 'wpzoom-elementor-addons'),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_on'  => esc_html__('Yes', 'wpzoom-elementor-addons'),
+                'label_off' => esc_html__('No', 'wpzoom-elementor-addons'),
+                'default'   => 'yes',
+                'condition' => $overlay_condition,
+            )
+        );
         $this->add_control(
             'col_number',
             array(
@@ -1089,6 +1152,45 @@ class Portfolio_Showcase extends Widget_Base
             ]
         );
 
+        // Overlay while the title is visible (Title Overlay items with "Always Visible").
+        // The colour goes into CSS variables so the Overlay Style can turn it into a gradient.
+        $overlay_visible_condition = [
+            'layout_type'               => 'full-width',
+            'overlay_title_visibility!' => 'hover',
+        ];
+        $this->add_control(
+            'portfolio_item_overlay_normal_bg_color',
+            [
+            'type'        => Controls_Manager::COLOR,
+            'label'       => esc_html__('Overlay Background', 'wpzoom-elementor-addons'),
+            'description' => esc_html__('Shown while the title is visible. The Hover tab colour applies on hover.', 'wpzoom-elementor-addons'),
+            'selectors'   => [
+                    '{{WRAPPER}} .portfolio-grid' => '--wpz-overlay-bg: {{VALUE}};'
+            ],
+            'condition'   => $overlay_visible_condition,
+            ]
+        );
+        $this->add_control(
+            'portfolio_item_overlay_normal_style',
+            [
+            'type'                 => Controls_Manager::SELECT,
+            'label'                => esc_html__('Overlay Style', 'wpzoom-elementor-addons'),
+            'options'              => [
+                    'solid'    => esc_html__('Solid', 'wpzoom-elementor-addons'),
+                    'gradient' => esc_html__('Fade up from the bottom', 'wpzoom-elementor-addons'),
+            ],
+            'default'              => 'solid',
+            'selectors_dictionary' => [
+                    'solid'    => '--wpz-overlay-solid: var(--wpz-overlay-bg, rgba(0,0,0,0.35)); --wpz-overlay-image: none;',
+                    'gradient' => '--wpz-overlay-solid: transparent; --wpz-overlay-image: linear-gradient(to top, var(--wpz-overlay-bg, rgba(0,0,0,0.85)) 0%, rgba(0,0,0,0) 70%);',
+            ],
+            'selectors'            => [
+                    '{{WRAPPER}} .portfolio-grid' => '{{VALUE}}'
+            ],
+            'condition'            => $overlay_visible_condition,
+            ]
+        );
+
         $this->end_controls_tab();
 
         // Hover tab.
@@ -1154,6 +1256,24 @@ class Portfolio_Showcase extends Widget_Base
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
+
+        // Padding around the title when it has a custom position (Title Overlay items).
+        $this->add_responsive_control(
+            'overlay_content_padding',
+            [
+            'label'      => esc_html__('Title Padding', 'wpzoom-elementor-addons'),
+            'type'       => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'selectors'  => [
+                    '{{WRAPPER}} .portfolio-grid .portfolio_item .entry-thumbnail-popover-content .entry-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ],
+            'condition'  => [
+                    'layout_type'             => 'full-width',
+                    'overlay_title_position!' => 'default',
+            ],
+            'separator'  => 'before'
+            ]
+        );
 
         // Transition duration.
         $this->add_control(
@@ -2526,6 +2646,21 @@ class Portfolio_Showcase extends Widget_Base
         $enable_category                    = ( 'yes' == $settings['enable_category'] ? true : false );
         $always_play_background_video       = ( 'yes' == $settings['always_play_background_video'] ? true : false );
         $always_play_background_video_class = ( 'yes' == $settings['always_play_background_video'] ? ' always-play-background-video' : '' );
+        $overlay_classes                    = '';
+        if ( 'full-width' === $layout_type ) {
+            $overlay_visibility = ! empty( $settings['overlay_title_visibility'] ) ? $settings['overlay_title_visibility'] : 'hover';
+            $overlay_position   = ! empty( $settings['overlay_title_position'] ) ? $settings['overlay_title_position'] : 'default';
+            $overlay_classes   .= ' wpz-overlay-title--' . sanitize_html_class( $overlay_visibility );
+            if ( 'default' !== $overlay_position ) {
+                $overlay_classes .= ' wpz-overlay-pos--' . sanitize_html_class( $overlay_position );
+                if ( ! empty( $settings['overlay_meta_above'] ) && 'yes' === $settings['overlay_meta_above'] ) {
+                    $overlay_classes .= ' wpz-overlay-meta--above';
+                }
+            }
+            if ( isset( $settings['overlay_show_icon'] ) && 'yes' !== $settings['overlay_show_icon'] ) {
+                $overlay_classes .= ' wpz-overlay-no-icon';
+            }
+        }
         $enable_ajax_items_loading          = ( 'yes' == $settings['enable_ajax_items_loading'] ? true : false );
         $show_excerpt                       = ( 'yes' == $settings['show_excerpt'] ? true : false );
         $view_all_btn                       = ( 'yes' == $settings['view_all_btn'] ? true : false );
