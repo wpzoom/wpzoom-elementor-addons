@@ -81,12 +81,15 @@ html.wpz-panes-page body {
 	inset: -8% 0;
 }
 
-.wpz-pane__poster,
-.wpz-pane__loop {
+/* Scoped: theme rules like `.entry-content img { height: auto }` would otherwise win and leave the bottom of the pane empty. */
+.wpz-panes .wpz-pane__poster,
+.wpz-panes .wpz-pane__loop {
 	position: absolute;
 	inset: 0;
 	width: 100%;
 	height: 100%;
+	max-width: none;
+	max-height: none;
 	object-fit: cover;
 	margin: 0;
 	display: block;
@@ -280,7 +283,8 @@ html.wpz-panes-page body {
 }
 
 .wpz-pane.is-playing .wpz-pane__text,
-.wpz-pane.is-playing .wpz-pane__shade {
+.wpz-pane.is-playing .wpz-pane__shade,
+.wpz-panes:has(.wpz-pane.is-playing) .wpz-panes__cue {
 	opacity: 0;
 	pointer-events: none;
 }

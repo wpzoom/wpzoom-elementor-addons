@@ -35,7 +35,7 @@
 		var effect = root.dataset.effect || 'cover';
 		var loopMode = root.dataset.loop || 'always';
 		var n = panes.length;
-		var active = 0;
+		var active = -1; // So the first setActive( 0 ) loads and plays the first pane's footage.
 		var ticking = false;
 		var isStatic = effect === 'none' || reduced.matches;
 
@@ -51,8 +51,7 @@
 				video.addEventListener( 'playing', function () {
 					video.classList.add( 'is-ready' );
 				} );
-				video.src = video.dataset.src;
-				video.load();
+				video.src = video.dataset.src; // Setting src starts the load; an explicit load() here would cancel the play() that follows.
 			}
 			return video;
 		}
@@ -64,7 +63,18 @@
 			}
 			var promise = video.play();
 			if ( promise && promise.catch ) {
-				promise.catch( function () {} );
+				promise.catch( function () {
+					// Not ready yet (or interrupted): play as soon as it can.
+					video.addEventListener( 'canplay', function retry() {
+						video.removeEventListener( 'canplay', retry );
+						if ( pane.classList.contains( 'is-active' ) && ! pane.classList.contains( 'is-playing' ) ) {
+							var p2 = video.play();
+							if ( p2 && p2.catch ) {
+								p2.catch( function () {} );
+							}
+						}
+					} );
+				} );
 			}
 		}
 
