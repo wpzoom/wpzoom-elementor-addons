@@ -2595,6 +2595,13 @@ class Portfolio_Showcase extends Widget_Base
     {
         $modes = array( 'icon', 'lightbox', 'post' );
 
+        // "Whole item opens the post" relies on the theme's Modal post style and its
+        // click handling (Inspiro 9.8.8+). Elsewhere the theme's lightbox script would
+        // treat the post link as an image, so fall back to the default behaviour.
+        if ( 'post' === $value && ! function_exists( 'inspiro_portfolio_item_click_mode' ) ) {
+            return 'icon';
+        }
+
         if ( in_array( $value, $modes, true ) ) {
             return $value;
         }
