@@ -81,13 +81,18 @@
 	text-align: right;
 }
 
-/* Details (director, year, category) above the title; the icon stays first */
-.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta > ul {
-	order: -1;
+/* The play / zoom icon stays centred in the item; only the text moves */
+.portfolio-grid[class*="wpz-overlay-pos--"] .portfolio_item .entry-thumbnail-popover-content .entry-meta .portfolio-popup-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0;
+	transform: translate(-50%, -50%);
 }
 
-.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta > .portfolio-popup-video {
-	order: -2;
+/* Details (director, year, category) above the title */
+.portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta > ul {
+	order: -1;
 }
 
 .portfolio-grid.wpz-overlay-meta--above .portfolio_item .entry-thumbnail-popover-content .entry-meta h3 {
