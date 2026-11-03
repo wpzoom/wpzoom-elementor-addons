@@ -273,6 +273,16 @@ class Portfolio_Index extends Widget_Base {
 		);
 
 		$this->add_control(
+			'media_radius',
+			array(
+				'label'     => esc_html__( 'Media Corner Radius', 'wpzoom-elementor-addons' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array( 'px' => array( 'min' => 0, 'max' => 48 ) ),
+				'selectors' => array( '{{WRAPPER}} .wpz-pindex__media' => 'border-radius: {{SIZE}}px;' ),
+			)
+		);
+
+		$this->add_control(
 			'show_year',
 			array(
 				'label'        => esc_html__( 'Show Year', 'wpzoom-elementor-addons' ),
