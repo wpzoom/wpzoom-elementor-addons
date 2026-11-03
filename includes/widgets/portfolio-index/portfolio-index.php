@@ -120,7 +120,7 @@ class Portfolio_Index extends Widget_Base {
 			$this->add_control(
 				'restricted_widget_text',
 				array(
-					'raw'             => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) ),
+					'raw'             => wp_kses_post( __( 'This widget works with the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro Premium</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro PRO</a> themes, which provide its portfolio layouts, lightbox and styles. It is not included in the free Inspiro theme or in Elementor Addons Pro. On the free theme, use the Portfolio block from the <a href="https://wordpress.org/plugins/wpzoom-portfolio/">WPZOOM Portfolio</a> plugin instead.', 'wpzoom-elementor-addons' ) ),
 					'type'            => Controls_Manager::RAW_HTML,
 					'content_classes' => 'elementor-descriptor',
 				)
