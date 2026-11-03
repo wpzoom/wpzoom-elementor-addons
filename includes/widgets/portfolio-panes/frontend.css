@@ -1,12 +1,14 @@
 /* Portfolio Panes: one project per screen, the widget's own scroll effects.
-   Structure: a sticky stage (the panes, stacked) takes no flow height; one
-   invisible snap spacer per pane provides the scroll distance. */
+   Structure: the container is as tall as all panes together; a sticky stage
+   (the panes, stacked) pins inside it, and one absolutely positioned snap
+   spacer per pane marks where scrolling settles. */
 .wpz-panes {
 	--wpz-pane-h: 100vh;
 	--wpz-pane-h: 100svh;
 	--wpz-pane-shade: 0.7;
 	--wpz-pane-pad: clamp(24px, 5vw, 72px);
 	position: relative;
+	height: calc(var(--wpz-panes-count, 1) * var(--wpz-pane-h));
 	color: #fff;
 }
 
@@ -24,13 +26,16 @@
 	position: sticky;
 	top: 0;
 	height: var(--wpz-pane-h);
-	margin-bottom: calc(-1 * var(--wpz-pane-h));
 	overflow: hidden;
 	background: #000;
 	z-index: 1;
 }
 
 .wpz-panes__snap {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(var(--i, 0) * var(--wpz-pane-h));
 	height: var(--wpz-pane-h);
 	scroll-snap-align: start;
 	pointer-events: none;
@@ -361,10 +366,13 @@ html.wpz-panes-page body {
 }
 
 /* Static: no effect (option "None" or reduced motion). Panes stack in the flow. */
+.wpz-panes--static {
+	height: auto;
+}
+
 .wpz-panes--static .wpz-panes__stage {
 	position: static;
 	height: auto;
-	margin-bottom: 0;
 	overflow: visible;
 }
 

@@ -718,7 +718,10 @@ class Portfolio_Panes extends Widget_Base {
 		}
 		wp_reset_postdata();
 
-		$snaps = str_repeat( '<div class="wpz-panes__snap" aria-hidden="true"></div>', $total );
+		$snaps = '';
+		for ( $k = 0; $k < $total; $k++ ) {
+			$snaps .= '<div class="wpz-panes__snap" style="--i:' . $k . '" aria-hidden="true"></div>';
+		}
 
 		printf(
 			'<div class="%1$s" data-effect="%2$s" data-loop="%3$s" data-count="%4$d" style="--wpz-panes-count:%4$d">
