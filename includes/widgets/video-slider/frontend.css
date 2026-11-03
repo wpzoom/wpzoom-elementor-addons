@@ -539,6 +539,19 @@
 	background: black;
 }
 
+/* MediaElement player (WordPress) fills the 16:9 lightbox */
+.wpz-lightbox-content .mejs-container,
+.wpz-lightbox-content .mejs-container .mejs-mediaelement,
+.wpz-lightbox-content .mejs-container video {
+	width: 100% !important;
+	height: 100% !important;
+	background: #000;
+}
+
+.wpz-lightbox-content .mejs-container video {
+	object-fit: contain;
+}
+
 
 .wpz-lightbox-close {
 	position: fixed;

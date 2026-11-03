@@ -88,8 +88,10 @@
 		if (isDirectVideoFile(url)) {
 			var mime = getVideoMimeType(url);
 			var $wrap = $('<div/>');
+			// wp-video-shortcode lets wp.mediaelement.initialize() pick the player up,
+			// so the theme's Video Player Style applies (plain <video> elsewhere).
 			var $video = $('<video/>', {
-				class: 'wpz-vlb-modal__video-el',
+				class: 'wpz-vlb-modal__video-el wp-video-shortcode',
 				controls: true,
 				autoplay: true,
 				playsinline: true,
@@ -135,6 +137,10 @@
 		);
 
 		$('body').append($modal);
+
+		if ($modal.find('video').length && window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize) {
+			window.wp.mediaelement.initialize();
+		}
 
 		requestAnimationFrame(function () {
 			$modal.addClass('wpz-vlb-modal--active');

@@ -176,6 +176,19 @@
 	background: #000;
 }
 
+/* MediaElement player (WordPress) fills the media box */
+.wpz-pindex__playing .mejs-container,
+.wpz-pindex__playing .mejs-container .mejs-mediaelement,
+.wpz-pindex__playing .mejs-container video {
+	width: 100% !important;
+	height: 100% !important;
+	background: #000;
+}
+
+.wpz-pindex__playing .mejs-container video {
+	object-fit: contain;
+}
+
 .wpz-pindex__preview {
 	opacity: 0;
 	transition: opacity 0.4s ease;

@@ -128,6 +128,9 @@
 				holder.className = 'wpz-pindex__playing';
 				holder.appendChild( template.content.cloneNode( true ) );
 				panel.querySelector( '.wpz-pindex__media' ).appendChild( holder );
+				if ( window.wp && window.wp.mediaelement && window.wp.mediaelement.initialize ) {
+					window.wp.mediaelement.initialize(); // WordPress player, skinned by the theme's Video Player Style
+				}
 				button.hidden = true;
 
 				var video = holder.querySelector( 'video' );

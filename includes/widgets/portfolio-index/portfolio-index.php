@@ -592,7 +592,11 @@ class Portfolio_Index extends Widget_Base {
 		$url = get_post_meta( $post_id, 'wpzoom_portfolio_video_popup_url', true );
 
 		if ( $file && ( 'self_hosted' === $type || ! $url ) ) {
-			return sprintf( '<video src="%s" controls playsinline preload="none"></video>', esc_url( $file ) );
+			// wp-video-shortcode: the frontend script hands the element to WordPress's
+			// MediaElement player, which the theme's Video Player Style skins.
+			wp_enqueue_style( 'wp-mediaelement' );
+			wp_enqueue_script( 'wp-mediaelement' );
+			return sprintf( '<video class="wp-video-shortcode" src="%s" controls playsinline preload="none"></video>', esc_url( $file ) );
 		}
 
 		if ( $url ) {

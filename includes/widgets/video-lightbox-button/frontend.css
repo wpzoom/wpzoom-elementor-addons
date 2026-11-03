@@ -150,6 +150,20 @@
 	object-fit: contain;
 }
 
+/* MediaElement player (WordPress) inside the modal fills the 16:9 box */
+.wpz-vlb-modal__content .mejs-container,
+.wpz-vlb-modal__content .mejs-container .mejs-mediaelement,
+.wpz-vlb-modal__content .mejs-container video {
+	width: 100% !important;
+	height: 100% !important;
+	max-height: none;
+	background: #000;
+}
+
+.wpz-vlb-modal__content .mejs-container video {
+	object-fit: contain;
+}
+
 @media (max-width: 767px) {
 	.wpz-vlb-modal {
 		padding: 16px;
