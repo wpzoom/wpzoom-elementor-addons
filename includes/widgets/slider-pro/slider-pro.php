@@ -179,7 +179,7 @@ class Slider_Pro extends Widget_Base {
 		$this->add_control(
 			'restricted_widget_text',
 			[
-				'raw' => wp_kses_post( __( 'This widget works with the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro Premium</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro PRO</a> themes, which provide its portfolio layouts, lightbox and styles. It is not included in the free Inspiro theme or in Elementor Addons Pro. On the free theme, use the Portfolio block from the <a href="https://wordpress.org/plugins/wpzoom-portfolio/">WPZOOM Portfolio</a> plugin instead.', 'wpzoom-elementor-addons' ) ),
+				'raw' => wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) ),
 				'type' => Controls_Manager::RAW_HTML,
 				'content_classes' => 'elementor-descriptor',
 			]
@@ -956,7 +956,7 @@ class Slider_Pro extends Widget_Base {
 		if ( !WPZOOM_Elementor_Widgets::is_supported_theme() ) {
 			if( current_user_can('editor') || current_user_can('administrator') ) {
 				echo '<h3>' . esc_html__( 'Widget not available', 'wpzoom-elementor-addons' ) . '</h3>';
-				echo wp_kses_post( __( 'This widget works with the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro Premium</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">Inspiro PRO</a> themes, which provide its portfolio layouts, lightbox and styles. It is not included in the free Inspiro theme or in Elementor Addons Pro. On the free theme, use the Portfolio block from the <a href="https://wordpress.org/plugins/wpzoom-portfolio/">WPZOOM Portfolio</a> plugin instead.', 'wpzoom-elementor-addons' ) );
+				echo wp_kses_post( __( 'This widget is supported only by the <a href="https://www.wpzoom.com/themes/inspiro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro Premium"</a> and <a href="https://www.wpzoom.com/themes/inspiro-pro/?utm_source=wpadmin&utm_medium=wpzoom-elementor-addons&utm_campaign=theme-required">"Inspiro PRO"</a> themes', 'wpzoom-elementor-addons' ) );
 			}
 			return;
 		}
