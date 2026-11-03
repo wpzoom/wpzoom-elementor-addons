@@ -21,6 +21,8 @@
 		var clickOpensPanel = 'post' !== root.dataset.click;
 		var selected = -1;
 		var shown = -1;
+		var stage = root.querySelector( '.wpz-pindex__stage' );
+		var openMobile = -1; // index of the panel shown under its title on small screens
 
 		items.forEach( function ( item, i ) {
 			if ( item.classList.contains( 'is-active' ) ) {
@@ -82,6 +84,50 @@
 			shown = index;
 		}
 
+		/*
+		 * Small screens: the stage is hidden, so a tapped title gets its panel moved
+		 * right under it (one open at a time); tapping it again closes it.
+		 */
+		function mobileClose() {
+			if ( openMobile < 0 ) {
+				return;
+			}
+			var panel = panels[ openMobile ];
+			pausePreview( panel );
+			stopPlayer( panel );
+			panel.classList.remove( 'is-active' );
+			panel.setAttribute( 'aria-hidden', 'true' );
+			items[ openMobile ].classList.remove( 'is-open' );
+			stage.appendChild( panel );
+			openMobile = -1;
+		}
+
+		function mobileOpen( index ) {
+			mobileClose();
+			var panel = panels[ index ];
+			items[ index ].appendChild( panel );
+			items[ index ].classList.add( 'is-open' );
+			panel.classList.add( 'is-active' );
+			panel.removeAttribute( 'aria-hidden' );
+			playPreview( panel );
+			openMobile = index;
+		}
+
+		// Back on a wide screen: panels return to the stage with the desktop state.
+		if ( desktop.addEventListener ) {
+			desktop.addEventListener( 'change', function ( event ) {
+				if ( ! event.matches ) {
+					return;
+				}
+				mobileClose();
+				if ( shown > -1 ) {
+					items[ shown ].classList.add( 'is-active' );
+					panels[ shown ].classList.add( 'is-active' );
+					panels[ shown ].removeAttribute( 'aria-hidden' );
+				}
+			} );
+		}
+
 		items.forEach( function ( item, i ) {
 			var link = item.querySelector( '.wpz-pindex__link' );
 
@@ -99,7 +145,20 @@
 
 			// The whole row is clickable, not only the title text.
 			item.addEventListener( 'click', function ( event ) {
-				if ( ! clickOpensPanel || ! desktop.matches ) {
+				if ( event.target.closest( '.wpz-pindex__panel' ) ) {
+					return; // Play button and links inside an opened panel.
+				}
+				if ( ! desktop.matches ) {
+					event.preventDefault();
+					event.stopPropagation();
+					if ( openMobile === i ) {
+						mobileClose();
+					} else {
+						mobileOpen( i );
+					}
+					return;
+				}
+				if ( ! clickOpensPanel ) {
 					return; // Follow the link (the theme may open it in its modal).
 				}
 				event.preventDefault();

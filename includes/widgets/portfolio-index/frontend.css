@@ -290,6 +290,33 @@
 	.wpz-pindex__title {
 		font-size: 26px;
 	}
+
+	/* A tapped title gets its panel right under it (moved there by the script) */
+	.wpz-pindex__item .wpz-pindex__panel {
+		position: static;
+		grid-area: auto;
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+		transition: none;
+		margin: 16px 0 26px;
+	}
+
+	.wpz-pindex__item .wpz-pindex__head {
+		display: none; /* the list title is right above */
+	}
+
+	.wpz-pindex--italic .wpz-pindex__item.is-open .wpz-pindex__title {
+		font-style: italic;
+	}
+
+	.wpz-pindex--rail .wpz-pindex__item::after {
+		top: 15px; /* stays on the title line when the panel opens below */
+	}
+
+	.wpz-pindex--rail .wpz-pindex__item.is-open::after {
+		transform: scale(2.2);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
