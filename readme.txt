@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.14
+Stable tag:        1.4.15
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -48,6 +48,7 @@ Elementor templates and widgets - Import professionally designed page templates,
 * **Featured Category** - Highlight specific categories
 * **Posts Grid** - Display blog posts in multiple layout styles
 * **Portfolio** - Portfolio showcase (Inspiro/Inspiro PRO themes)
+* **Portfolio Index** - Numbered list of projects with hover video previews and in-place playback (Inspiro/Inspiro PRO themes) - *NEW in 1.4.15*
 * **Pricing Table** - Pricing plan comparisons
 * **Directors** - Showcase for video creators and filmmakers
 * **Video Lightbox Button** - Button that opens a video (YouTube, Vimeo, or MP4) in a modal lightbox
@@ -127,6 +128,14 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.15 =
+* New widget: Portfolio Index (Inspiro Premium and Inspiro PRO) — a numbered list of projects; hovering a title previews the project's video beside the list, clicking keeps it open, and the play button plays the full video (self-hosted, YouTube or Vimeo) in place. On phones and tablets a tapped title opens its project right under it
+* Portfolio Showcase, Title Overlay items: new Title Visibility (on hover, always visible, or always visible and hidden on hover), Title Position (nine placements), details above the title, play icon toggle, overlay background and bottom-fade style for the visible state, and title padding
+* Video Lightbox Button, Video Slideshow and Portfolio Index: self-hosted videos now play in the WordPress video player, styled by the theme's Video Player Style on Inspiro Premium, Inspiro PRO and Reel. Other themes keep the browser's player
+* Switching a site between Inspiro and Reel no longer shows "Widget not available" for portfolio widgets: the Portfolio Showcase and Reel's Portfolio Widget now render each other's content, keeping the settings
+* Fixed: Portfolio Showcase with "Whole item opens the post" opened a broken image lightbox on themes without the Modal post style (e.g. Inspiro PRO)
+* Fixed: Portfolio Showcase play icon is centred when the title has a custom position
 
 = 1.4.14 =
 * New lightbox options for the Portfolio Showcase widget for Inspiro Premium theme

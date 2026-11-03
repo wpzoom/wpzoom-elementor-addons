@@ -38,6 +38,7 @@ A collection of pre-designed templates and advanced widgets for the Elementor pa
 - **Featured Category** - Highlight categories
 - **Latest Posts (Post Grid)** - Blog post displays
 - **Portfolio** - Portfolio showcase (Inspiro themes)
+- **Portfolio Index** - Numbered list of projects with hover video previews and in-place playback (Inspiro themes)
 - **Pricing Table** - Pricing comparisons
 - **Directors** - For video creators
 
