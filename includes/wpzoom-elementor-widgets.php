@@ -101,6 +101,16 @@ class WPZOOM_Elementor_Widgets {
 				}
 			}
 		}
+
+		// The Inspiro and Reel portfolio widgets stand in for each other after a theme
+		// switch (same widget name, the active theme's implementation). Registered last
+		// so they replace the native class of the other theme under that name.
+		require_once __DIR__ . '/portfolio-widget-aliases.php';
+		if ( self::is_supported_theme( 'reel' ) && class_exists( '\WPZOOMElementorWidgets\Portfolio_Reel_For_Showcase' ) ) {
+			Plugin::instance()->widgets_manager->register( new Portfolio_Reel_For_Showcase() );
+		} elseif ( self::is_supported_theme( 'inspiro' ) && class_exists( '\WPZOOMElementorWidgets\Portfolio_Showcase_For_Reel' ) ) {
+			Plugin::instance()->widgets_manager->register( new Portfolio_Showcase_For_Reel() );
+		}
 	}
 
 	/**
