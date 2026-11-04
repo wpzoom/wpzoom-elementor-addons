@@ -261,9 +261,10 @@ html.wpz-panes-page body {
 	max-height: 100%;
 }
 
+/* Low enough to clear a sticky header over the first pane, left of an embed's own buttons. */
 .wpz-pane__close {
 	position: absolute;
-	top: calc(var(--wpz-pane-pad) * 0.5);
+	top: calc(var(--wpz-pane-pad) * 1.5);
 	right: var(--wpz-pane-pad);
 	z-index: 4;
 	width: 44px;
@@ -288,7 +289,8 @@ html.wpz-panes-page body {
 
 .wpz-pane.is-playing .wpz-pane__text,
 .wpz-pane.is-playing .wpz-pane__shade,
-.wpz-panes:has(.wpz-pane.is-playing) .wpz-panes__cue {
+.wpz-panes:has(.wpz-pane.is-playing) .wpz-panes__cue,
+.wpz-panes:has(.wpz-pane.is-playing) .wpz-panes__dots {
 	opacity: 0;
 	pointer-events: none;
 }
