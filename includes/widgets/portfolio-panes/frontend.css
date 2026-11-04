@@ -184,21 +184,22 @@ html.wpz-panes-page body {
 .wpz-panes .wpz-pane__title {
 	margin: 0;
 	color: inherit;
-	font-size: clamp(40px, 7vw, 108px);
-	font-weight: 700;
-	line-height: 1;
-	letter-spacing: -0.02em;
+	font-size: clamp(26px, 3.2vw, 56px);
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 	text-wrap: balance;
 }
 
 .wpz-panes .wpz-pane__credit,
 .wpz-panes .wpz-pane__counter {
 	margin: 0;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 500;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	opacity: 0.85;
+	opacity: 0.8;
 }
 
 .wpz-panes .wpz-pane__dot {
@@ -208,26 +209,26 @@ html.wpz-panes-page body {
 .wpz-panes .wpz-pane__button {
 	display: inline-flex;
 	align-items: center;
-	gap: 10px;
-	margin-top: 10px;
-	padding: 12px 22px 12px 16px;
-	border: 1px solid rgba(255, 255, 255, 0.6);
-	border-radius: 999px;
-	font-size: 13px;
+	gap: 8px;
+	margin-top: 14px;
+	padding: 0 0 4px;
+	border: 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 0;
+	font-size: 11px;
 	font-weight: 600;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	transition: background-color 0.25s ease, border-color 0.25s ease;
+	transition: border-color 0.25s ease;
 }
 
 .wpz-panes .wpz-pane__button svg {
-	width: 14px;
-	height: 14px;
+	width: 10px;
+	height: 10px;
 	fill: currentColor;
 }
 
 .wpz-pane__text:hover .wpz-pane__button {
-	background: rgba(255, 255, 255, 0.14);
 	border-color: currentColor;
 }
 
@@ -318,18 +319,17 @@ html.wpz-panes-page body {
 
 .wpz-panes__dot::before {
 	content: "";
-	width: 7px;
-	height: 7px;
+	box-sizing: border-box;
+	width: 9px;
+	height: 9px;
+	border: 1px solid currentColor;
 	border-radius: 50%;
-	background: currentColor;
-	opacity: 0.45;
-	transform: scale(1);
-	transition: transform 0.3s ease, opacity 0.3s ease;
+	background: transparent;
+	transition: background-color 0.3s ease;
 }
 
 .wpz-panes__dot.is-active::before {
-	opacity: 1;
-	transform: scale(1.5);
+	background: currentColor;
 }
 
 .wpz-panes__dot:focus-visible {
@@ -360,17 +360,9 @@ html.wpz-panes-page body {
 .wpz-panes__cue i {
 	display: block;
 	width: 1px;
-	height: 36px;
+	height: 28px;
 	background: currentColor;
-	transform-origin: top;
-	animation: wpz-panes-cue 1.8s ease-in-out infinite;
-}
-
-@keyframes wpz-panes-cue {
-	0% { transform: scaleY(0); transform-origin: top; }
-	45% { transform: scaleY(1); transform-origin: top; }
-	55% { transform: scaleY(1); transform-origin: bottom; }
-	100% { transform: scaleY(0); transform-origin: bottom; }
+	opacity: 0.7;
 }
 
 /* Static: no effect (option "None" or reduced motion). Panes stack in the flow. */
@@ -406,16 +398,10 @@ html.wpz-panes-page body {
 	--wpz-text-shift: 0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.wpz-panes__cue i {
-		animation: none;
-	}
-}
-
 /* Smaller screens */
 @media (max-width: 782px) {
 	.wpz-pane__title {
-		font-size: clamp(34px, 11vw, 64px);
+		font-size: clamp(22px, 6.5vw, 40px);
 	}
 
 	.wpz-panes__dots {
@@ -425,6 +411,6 @@ html.wpz-panes-page body {
 
 	.wpz-pane__credit,
 	.wpz-pane__counter {
-		font-size: 12px;
+		font-size: 11px;
 	}
 }

@@ -262,9 +262,10 @@ class Portfolio_Panes extends Widget_Base {
 		$this->add_control(
 			'play_label',
 			array(
-				'label'   => esc_html__( 'Button Label', 'wpzoom-elementor-addons' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Play film', 'wpzoom-elementor-addons' ),
+				'label'       => esc_html__( 'Button Label', 'wpzoom-elementor-addons' ),
+				'description' => esc_html__( 'A small label under the credits, e.g. "Play film". The whole title block is clickable either way; leave empty for none.', 'wpzoom-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
 			)
 		);
 		$this->add_control(
@@ -280,9 +281,9 @@ class Portfolio_Panes extends Widget_Base {
 			'cue_text',
 			array(
 				'label'       => esc_html__( 'Scroll Cue', 'wpzoom-elementor-addons' ),
-				'description' => esc_html__( 'Shown at the bottom of the first pane. Leave empty to hide.', 'wpzoom-elementor-addons' ),
+				'description' => esc_html__( 'A word shown at the bottom of the first pane, e.g. "Scroll". Leave empty for none.', 'wpzoom-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Scroll', 'wpzoom-elementor-addons' ),
+				'default'     => '',
 			)
 		);
 		$this->end_controls_section();
