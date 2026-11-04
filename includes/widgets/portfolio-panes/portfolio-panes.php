@@ -269,6 +269,16 @@ class Portfolio_Panes extends Widget_Base {
 			)
 		);
 		$this->add_control(
+			'more_label',
+			array(
+				'label'       => esc_html__( 'Project Link Label', 'wpzoom-elementor-addons' ),
+				'description' => esc_html__( 'Shown next to the close button while a film plays in the pane, linking to the project page. Leave empty for none.', 'wpzoom-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'View project', 'wpzoom-elementor-addons' ),
+				'condition'   => array( 'click_action' => 'inline' ),
+			)
+		);
+		$this->add_control(
 			'show_dots',
 			array(
 				'label'        => esc_html__( 'Show Dots', 'wpzoom-elementor-addons' ),
@@ -690,6 +700,10 @@ class Portfolio_Panes extends Widget_Base {
 					$text, // Built from escaped parts above.
 					$player // Escaped in get_player() / by WP_Embed.
 				);
+				// While the film plays the pane would otherwise be a dead end (only the close button): offer the project page too.
+				if ( ! empty( $settings['more_label'] ) ) {
+					$trigger .= sprintf( '<a class="wpz-pane__more" href="%s">%s</a>', esc_url( $link ), esc_html( $settings['more_label'] ) );
+				}
 			} else {
 				$trigger = sprintf( '<a class="wpz-pane__text wpz-pane__trigger" href="%s">%s</a>', esc_url( $link ), $text );
 			}

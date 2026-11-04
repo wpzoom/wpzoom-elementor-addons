@@ -232,6 +232,41 @@ html.wpz-panes-page body {
 }
 
 /* Playing in the pane */
+.wpz-pane__more {
+	position: absolute;
+	top: calc(var(--wpz-pane-pad) * 1.5);
+	right: calc(var(--wpz-pane-pad) + 44px + 20px); /* left of the close button */
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	height: 44px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	text-decoration: underline;
+	text-decoration-color: rgba(255, 255, 255, 0.5);
+	text-underline-offset: 5px;
+	color: #fff;
+	text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, text-decoration-color 0.25s ease;
+}
+
+.wpz-pane__more:hover,
+.wpz-pane__more:focus-visible {
+	color: #fff;
+	text-decoration-color: currentColor;
+}
+
+.wpz-pane.is-playing .wpz-pane__more {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 .wpz-pane__playing {
 	position: absolute;
 	inset: 0;
@@ -402,6 +437,12 @@ html.wpz-panes-page body {
 
 /* Smaller screens */
 @media (max-width: 782px) {
+	/* The pane padding is small here, so drop the close button and project link below a sticky header. */
+	.wpz-pane__close,
+	.wpz-pane__more {
+		top: calc(var(--wpz-pane-pad) + 72px);
+	}
+
 	.wpz-pane__title {
 		font-size: clamp(22px, 6.5vw, 40px);
 	}
