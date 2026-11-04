@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.17
+Stable tag:        1.4.18
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -129,6 +129,11 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.18 =
+* Portfolio Panes: a "View project" link next to the close button while a film plays in the pane, so the full project page is one click away (Project Link Label option; leave it empty for none)
+* Portfolio Panes: quieter panes by default — the button label and the scroll cue are now opt-in (empty by default) and the title is plain sentence case at a smaller size; the dots are hidden while a film plays, the close button sits clear of a sticky header, and on phones the close button and project link drop below the header
+* Fixed: Portfolio Panes dots took the theme's button colour instead of the Dots colour
 
 = 1.4.17 =
 * New widget: Portfolio Panes (Inspiro Premium and Inspiro PRO) — one project per screen: the hover video fills the pane with the title and a credit line in the middle, and scrolling moves from pane to pane with the widget's own effect (Cover, Parallax or Fade through black), so no page-builder motion add-on is needed. A click opens the project (the Modal post style when enabled) or plays its video in the pane; dots, a scroll cue, pane heights from a band to full screen, and a static stack for reduced motion
