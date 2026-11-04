@@ -187,8 +187,7 @@ html.wpz-panes-page body {
 	font-size: clamp(26px, 3.2vw, 56px);
 	font-weight: 600;
 	line-height: 1.15;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
+	letter-spacing: 0;
 	text-wrap: balance;
 }
 
