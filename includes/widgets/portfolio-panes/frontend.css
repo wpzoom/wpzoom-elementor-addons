@@ -311,6 +311,7 @@ html.wpz-panes-page body {
 	padding: 0;
 	border: 0;
 	background: none;
+	color: inherit; /* a button: theme button colours would win over the dots colour */
 	cursor: pointer;
 	display: grid;
 	place-items: center;
