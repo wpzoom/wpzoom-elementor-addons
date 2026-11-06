@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.18
+Stable tag:        1.4.19
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -129,6 +129,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.19 =
+* New widget: Video Text — a video that plays only through the letters (a cut-out wordmark or statement, like "WE MAKE / FILMS" over a showreel). Every line is sized to span the full width of the box, the footage can drift behind the letters on scroll (parallax), and a Light/Dark setting matches it to the page; pure CSS blend modes, no SVG. Works with any theme
 
 = 1.4.18 =
 * Portfolio Panes: a "View project" link next to the close button while a film plays in the pane, so the full project page is one click away (Project Link Label option; leave it empty for none)

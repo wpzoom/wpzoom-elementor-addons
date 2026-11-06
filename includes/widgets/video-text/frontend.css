@@ -1,0 +1,93 @@
+/**
+ * Video Text: a video that shows only through the letters.
+ *
+ * A plate the colour of the page covers the video and is blended with it:
+ * on a light page the plate is white with `screen` and the text is black, so
+ * the video survives only where the letters are; on a dark page the plate is
+ * black with `multiply` and the text is white. No SVG, no masks, no canvas.
+ * When the page is not pure white/black a tint layer multiplies (or screens)
+ * the plate down to the page colour so the box has no visible edge.
+ */
+.wpz-video-text {
+	position: relative;
+	isolation: isolate;
+	clip-path: inset( 1px 0 );
+	--wpz-vt-plate: #fff;
+	--wpz-vt-ink: #000;
+	--wpz-vt-blend: screen;
+	--wpz-vt-tint-blend: multiply;
+	--wpz-vt-line-gap: 0.04em;
+}
+.wpz-video-text--dark {
+	--wpz-vt-plate: #000;
+	--wpz-vt-ink: #fff;
+	--wpz-vt-blend: multiply;
+	--wpz-vt-tint-blend: screen;
+}
+.wpz-video-text__media {
+	position: absolute;
+	inset: 1px 0;
+	width: 100%;
+	height: calc( 100% - 2px );
+	object-fit: cover;
+	transform-origin: center;
+	will-change: transform;
+}
+.wpz-video-text--parallax .wpz-video-text__media {
+	transform: scale( 1.3 );
+}
+.wpz-video-text__plate {
+	position: relative;
+	margin: -3px 0;
+	padding: 3px 0;
+	background: var( --wpz-vt-plate );
+	mix-blend-mode: var( --wpz-vt-blend );
+}
+.wpz-video-text--tinted::after {
+	content: '';
+	position: absolute;
+	inset: -2px;
+	background: var( --wpz-vt-tint );
+	mix-blend-mode: var( --wpz-vt-tint-blend );
+	pointer-events: none;
+}
+.wpz-video-text .wpz-video-text__text {
+	margin: 0;
+	padding: 0;
+	color: var( --wpz-vt-ink );
+	line-height: 0.84;
+	letter-spacing: -0.03em;
+	font-weight: 900;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.wpz-video-text__line {
+	display: block;
+	line-height: 0.84; /* unitless: each line is sized on its own */
+}
+.wpz-video-text__line + .wpz-video-text__line {
+	margin-top: var( --wpz-vt-line-gap );
+}
+.wpz-video-text--fit .wpz-video-text__line {
+	width: max-content; /* measured by the script, then sized to the box */
+	max-width: none;
+}
+.wpz-video-text--align-center .wpz-video-text__text { text-align: center; }
+.wpz-video-text--align-right .wpz-video-text__text { text-align: right; }
+.wpz-video-text--align-center .wpz-video-text--fit .wpz-video-text__line,
+.wpz-video-text--fit.wpz-video-text--align-center .wpz-video-text__line { margin-left: auto; margin-right: auto; }
+.wpz-video-text--fit.wpz-video-text--align-right .wpz-video-text__line { margin-left: auto; }
+.wpz-video-text__link {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: block;
+}
+/* No video on phones when "Play on mobile" is off: the poster takes its place. */
+@media ( max-width: 767px ) {
+	.wpz-video-text--no-mobile-video .wpz-video-text__media { display: none; }
+	.wpz-video-text--no-mobile-video { background: var( --wpz-vt-poster ) center / cover no-repeat; }
+}
+@media ( prefers-reduced-motion: reduce ) {
+	.wpz-video-text--parallax .wpz-video-text__media { transform: none; }
+}
