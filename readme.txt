@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.19
+Stable tag:        1.4.20
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -53,6 +53,7 @@ Elementor templates and widgets - Import professionally designed page templates,
 * **Pricing Table** - Pricing plan comparisons
 * **Directors** - Showcase for video creators and filmmakers
 * **Video Lightbox Button** - Button that opens a video (YouTube, Vimeo, or MP4) in a modal lightbox
+* **World Map** - Clickable vector map of the world: countries and continents linked to pages or categories, tooltips, pins - *NEW in 1.4.20*
 
 == Recommended Themes & DEMO ==
 
@@ -129,6 +130,9 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.20 =
+* New widget: World Map — a clickable vector map of the world, drawn in the page (no map service, no API key). Pick countries or whole continents and give each a link, a colour and a tooltip, or point it at a taxonomy and it matches the terms to countries, continents and regions by name ("Morocco", "Europe", "Southeast Asia"). Pins for cities by latitude/longitude, Mercator or Miller projection, zoom to a continent, optional zoom and pan, and a list of the destinations under the map (always in the page for screen readers and search engines). Works with any theme
 
 = 1.4.19 =
 * New widget: Video Text — a video that plays only through the letters (a cut-out wordmark or statement, like "WE MAKE / FILMS" over a showreel). Every line is sized to span the full width of the box, the footage can drift behind the letters on scroll (parallax), and a Light/Dark setting matches it to the page; pure CSS blend modes, no SVG. Works with any theme

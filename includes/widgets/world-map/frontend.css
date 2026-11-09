@@ -1,0 +1,120 @@
+/* World Map widget */
+.wpz-world-map {
+	--wpz-map-max-width: 100%;
+	--wpz-map-tip-bg: #141414;
+	--wpz-map-tip-color: #ffffff;
+	--wpz-map-tip-radius: 4px;
+	--wpz-map-tip-padding: 6px 10px;
+	--wpz-map-tip-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+	position: relative;
+}
+
+.wpz-world-map__canvas {
+	width: 100%;
+	max-width: var(--wpz-map-max-width);
+	aspect-ratio: 900 / 583;
+	margin: 0 auto;
+	outline: none;
+}
+
+.wpz-world-map--align-left .wpz-world-map__canvas {
+	margin-left: 0;
+}
+
+.wpz-world-map--align-right .wpz-world-map__canvas {
+	margin-right: 0;
+}
+
+.wpz-world-map__canvas svg {
+	display: block;
+}
+
+.wpz-world-map__canvas .jvm-region {
+	transition: fill 0.2s ease, fill-opacity 0.2s ease;
+}
+
+/* The hidden element the tooltip copies its typography from. */
+.wpz-world-map__tip-style {
+	display: none;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.jvm-tooltip.wpz-world-map__tip {
+	pointer-events: none;
+	z-index: 9999;
+}
+
+/* Zoom buttons: quiet, on the map. */
+.wpz-world-map .jvm-zoom-btn {
+	--jvm-zoom-btn-bg-color: #ffffff;
+	--jvm-zoom-btn-color: #141414;
+	--jvm-zoom-btn-radius: 4px;
+	--jvm-zoom-btn-size: 26px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+	font-weight: 400;
+	line-height: 26px;
+}
+
+.wpz-world-map .jvm-zoom-btn.jvm-zoomout {
+	top: 44px;
+}
+
+/* Destination list under the map (also the screen-reader fallback for the SVG). */
+.wpz-world-map__list {
+	list-style: none;
+	margin: 24px 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px 28px;
+}
+
+.wpz-world-map--align-left .wpz-world-map__list {
+	justify-content: flex-start;
+}
+
+.wpz-world-map--align-right .wpz-world-map__list {
+	justify-content: flex-end;
+}
+
+.wpz-world-map__list li {
+	margin: 0;
+	padding: 0;
+}
+
+.wpz-world-map__list a,
+.wpz-world-map__list span {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.wpz-world-map__list a::before,
+.wpz-world-map__list span::before {
+	content: "";
+	flex: none;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--wpz-dot, currentColor);
+}
+
+.wpz-world-map__list a:hover {
+	text-decoration: underline;
+}
+
+.wpz-world-map__list--sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
