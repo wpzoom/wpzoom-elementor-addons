@@ -87,6 +87,19 @@
 		} catch ( e ) {
 			return;
 		}
+		// No width yet (a closed tab or accordion, a background page): jsvectormap
+		// would start at scale 0 and divide by it on the first resize (scale(NaN)).
+		// Wait until the canvas is laid out.
+		if ( ! canvas.clientWidth && window.ResizeObserver ) {
+			var waiter = new ResizeObserver( function () {
+				if ( canvas.clientWidth ) {
+					waiter.disconnect();
+					init( root );
+				}
+			} );
+			waiter.observe( canvas );
+			return;
+		}
 		cleanup();
 
 		var st = cfg.style || {};
@@ -193,7 +206,7 @@
 		if ( window.ResizeObserver ) {
 			var width = canvas.clientWidth;
 			item.observer = new ResizeObserver( function () {
-				if ( canvas.clientWidth !== width ) {
+				if ( canvas.clientWidth && canvas.clientWidth !== width ) {
 					width = canvas.clientWidth;
 					map.updateSize();
 					if ( focus ) {

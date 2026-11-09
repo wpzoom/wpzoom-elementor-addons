@@ -975,6 +975,11 @@ class World_Map extends Widget_Base {
 		// are applied last.
 		$matched = array();
 		foreach ( $terms as $term ) {
+			// A parent term kept only by its children ("Europe" above "Italy") has
+			// no posts of its own: skip it, or the whole continent lights up.
+			if ( (int) $term->count < 1 ) {
+				continue;
+			}
 			$value = self::match( $term->name );
 			if ( '' === $value ) {
 				continue;
