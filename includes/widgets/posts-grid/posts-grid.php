@@ -1717,7 +1717,7 @@ class Posts_Grid extends Widget_Base {
 			?>
 			<?php if ( 'load_more' == $settings['pagination_type'] && !empty( $settings['load_more_text'] ) ) : ?>
 				<div class="wpz-posts-grid-load-more">
-					<a href="#" class="wpz-posts-grid-load-more-btn btn"><?php echo esc_html_e( $settings['load_more_text'] ); ?></a>
+					<a href="#" class="wpz-posts-grid-load-more-btn btn"><?php echo esc_html( $settings['load_more_text'] ); ?></a>
 				</div>
 				<?php wp_nonce_field( 'wpz_posts_grid_load_more', 'wpz_posts_grid_load_more' . $this->get_id() ); ?>
 			<?php endif; ?>

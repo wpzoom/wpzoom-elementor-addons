@@ -678,7 +678,7 @@ class Directors extends Widget_Base {
 								<div class="wpz-director-bg">
 									<?php $this->render_hosted_video( $director ); ?>
 								</div>
-									<span><?php esc_html_e( $director['title'] ); ?></span>
+									<span><?php echo esc_html( $director['title'] ); ?></span>
 									<hr/>
 								</li>
 							<?php 
@@ -704,7 +704,7 @@ class Directors extends Widget_Base {
 						?>
 							<a <?php $this->print_render_attribute_string( $id ); ?>>
 						<?php } ?>
-								<span><?php esc_html_e( $director['title'] ); ?></span>
+								<span><?php echo esc_html( $director['title'] ); ?></span>
 						<?php if ( isset( $director[ 'link' ] ) && ! empty( $director[ 'link' ][ 'url' ] ) ) { ?>
 							</a>
 						<?php } ?>
