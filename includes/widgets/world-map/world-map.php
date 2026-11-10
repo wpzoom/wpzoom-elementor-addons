@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class World_Map extends Widget_Base {
 
 	/**
-	 * Library version of the vendored jsvectormap files.
+	 * Version of the bundled jsvectormap files (lib/).
 	 */
 	const LIB_VERSION = '1.7.0';
 
@@ -73,19 +73,19 @@ class World_Map extends Widget_Base {
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
 
-		$vendor = plugins_url( 'vendor', __FILE__ );
+		$lib = plugins_url( 'lib', __FILE__ ); // not "vendor": .distignore drops any folder of that name from the WordPress.org build
 
 		if ( ! wp_script_is( 'jsvectormap', 'registered' ) ) {
-			wp_register_script( 'jsvectormap', $vendor . '/jsvectormap.min.js', array(), self::LIB_VERSION, true );
+			wp_register_script( 'jsvectormap', $lib . '/jsvectormap.min.js', array(), self::LIB_VERSION, true );
 		}
 		if ( ! wp_script_is( 'jsvectormap-world-merc', 'registered' ) ) {
-			wp_register_script( 'jsvectormap-world-merc', $vendor . '/world-merc.js', array( 'jsvectormap' ), self::LIB_VERSION, true );
+			wp_register_script( 'jsvectormap-world-merc', $lib . '/world-merc.js', array( 'jsvectormap' ), self::LIB_VERSION, true );
 		}
 		if ( ! wp_script_is( 'jsvectormap-world', 'registered' ) ) {
-			wp_register_script( 'jsvectormap-world', $vendor . '/world.js', array( 'jsvectormap' ), self::LIB_VERSION, true );
+			wp_register_script( 'jsvectormap-world', $lib . '/world.js', array( 'jsvectormap' ), self::LIB_VERSION, true );
 		}
 		if ( ! wp_style_is( 'jsvectormap', 'registered' ) ) {
-			wp_register_style( 'jsvectormap', $vendor . '/jsvectormap.min.css', array(), self::LIB_VERSION );
+			wp_register_style( 'jsvectormap', $lib . '/jsvectormap.min.css', array(), self::LIB_VERSION );
 		}
 
 		wp_register_style( 'wpzoom-elementor-addons-css-frontend-world-map', plugins_url( 'frontend.css', __FILE__ ), array( 'jsvectormap' ), WPZOOM_EL_ADDONS_VER );
