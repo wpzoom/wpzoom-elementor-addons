@@ -839,6 +839,21 @@ class World_Map extends Widget_Base {
 	}
 
 	/**
+	 * The link of a repeater row, safe to navigate to. The map script opens it
+	 * with window.location, where a "javascript:" URL would run as code, so it
+	 * is limited to the protocols WordPress allows (anything else gives '').
+	 *
+	 * @param array $row Repeater row.
+	 * @return string
+	 */
+	private static function link_url( $row ) {
+		if ( empty( $row['link']['url'] ) || ! is_string( $row['link']['url'] ) ) {
+			return '';
+		}
+		return esc_url_raw( trim( $row['link']['url'] ) );
+	}
+
+	/**
 	 * Highlighted regions from the repeater.
 	 *
 	 * @param array $settings Widget settings.
@@ -857,7 +872,7 @@ class World_Map extends Widget_Base {
 			}
 			$rows[] = array( $row, $value, $codes );
 
-			$link   = ! empty( $row['link']['url'] ) ? $row['link']['url'] : '';
+			$link   = self::link_url( $row );
 			$list[] = array(
 				'label'  => ! empty( $row['label'] ) ? $row['label'] : self::region_name( $value ),
 				'link'   => $link,
@@ -877,7 +892,7 @@ class World_Map extends Widget_Base {
 
 		foreach ( $rows as $item ) {
 			list( $row, $value, $codes ) = $item;
-			$link   = ! empty( $row['link']['url'] ) ? $row['link']['url'] : '';
+			$link   = self::link_url( $row );
 			$target = ( $link && ( ! empty( $row['link']['is_external'] ) || 'yes' === $settings['new_tab'] ) ) ? '_blank' : '';
 			$color  = ! empty( $row['color'] ) ? $row['color'] : '';
 			$label  = ! empty( $row['label'] ) ? $row['label'] : '';
@@ -996,7 +1011,7 @@ class World_Map extends Widget_Base {
 		foreach ( $matched as $item ) {
 			list( $term, $value ) = $item;
 			$link  = get_term_link( $term );
-			$link  = is_wp_error( $link ) ? '' : $link;
+			$link  = is_wp_error( $link ) ? '' : esc_url_raw( $link );
 			$color = $palette ? self::PALETTE[ $i % count( self::PALETTE ) ] : '';
 			$i++;
 
@@ -1050,7 +1065,7 @@ class World_Map extends Widget_Base {
 			if ( $lat < -90 || $lat > 90 || $lng < -180 || $lng > 180 ) {
 				continue;
 			}
-			$link   = ! empty( $row['link']['url'] ) ? $row['link']['url'] : '';
+			$link   = self::link_url( $row );
 			$pins[] = array(
 				'coords' => array( $lat, $lng ),
 				'name'   => isset( $row['name'] ) ? (string) $row['name'] : '',

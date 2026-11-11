@@ -62,8 +62,20 @@
 		el.classList.add( 'wpz-world-map__tip' );
 	}
 
+	/**
+	 * Links come out of the page markup, so never navigate to one that would
+	 * run as code. The URL parser sees through "java\tscript:" and the like.
+	 */
+	function isSafe( link ) {
+		try {
+			return ! /^(javascript|data|vbscript):$/i.test( new URL( link, document.baseURI ).protocol );
+		} catch ( e ) {
+			return false;
+		}
+	}
+
 	function open( link, target, event ) {
-		if ( ! link ) {
+		if ( ! link || 'string' !== typeof link || ! isSafe( link ) ) {
 			return;
 		}
 		if ( '_blank' === target || event.metaKey || event.ctrlKey ) {

@@ -1659,7 +1659,7 @@ class Posts_Grid extends Widget_Base {
 			class="wpz-grid" 
 			data-uid="<?php echo esc_attr( $this->get_id() ); ?>"
 			data-offset="<?php echo esc_attr( $offset ); ?>"
-			data-posts-grid='<?php echo wp_json_encode( $data_posts_grid ); ?>'>
+			data-posts-grid="<?php echo esc_attr( wp_json_encode( $data_posts_grid ) ); ?>">
 			<?php 
 
 			$columns_desktop = ( ! empty( $settings[ 'columns' ] ) ? 'wpz-grid-desktop-' . $settings[ 'columns' ] : 'wpz-grid-desktop-3' );
