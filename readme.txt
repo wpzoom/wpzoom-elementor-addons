@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.21
+Stable tag:        1.4.22
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -54,6 +54,7 @@ Elementor templates and widgets - Import professionally designed page templates,
 * **Directors** - Showcase for video creators and filmmakers
 * **Video Lightbox Button** - Button that opens a video (YouTube, Vimeo, or MP4) in a modal lightbox
 * **World Map** - Clickable vector map of the world: countries and continents linked to pages or categories, tooltips, pins - *NEW in 1.4.20*
+* **Marquee** - Looping row of text or logos (clients, press, services) that scrolls on its own, with pause on hover - *NEW in 1.4.22*
 
 == Recommended Themes & DEMO ==
 
@@ -130,6 +131,10 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.22 =
+* New: WPZOOM Motion — a section in the Advanced tab of every widget, container, section and column. "Reveal on scroll" brings the element in when it enters the screen (Fade, Slide up, Unmask, or Text line by line for headings and text), with an optional delay for staggering neighbours. "Roll text on hover" swaps the label of a button or a linked heading with a rolling copy of itself. No Elementor Pro needed; elements stay visible if JavaScript does not run, in the editor, and for visitors who prefer reduced motion
+* New widget: Marquee — a looping row of text or logo items for client lists, press mentions or services. Separator, loop duration, direction, pause on hover and faded edges; CSS only, and it stands still (scrollable by hand) for visitors who prefer reduced motion. Works with any theme
 
 = 1.4.21 =
 * Security: World Map — the link of a country or a pin is now limited to safe URL protocols before the map can open it (fixes a stored cross-site scripting issue that needed a Contributor account or higher; reported through Wordfence)
