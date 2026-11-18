@@ -1,0 +1,57 @@
+/* Marquee: two copies of the list in one track; the track slides left by one copy and repeats. */
+.wpz-marquee {
+	--wpz-marquee-time: 40s;
+	--wpz-marquee-gap: 56px;
+	overflow: hidden;
+	max-width: 100%;
+}
+.wpz-marquee__track {
+	display: flex;
+	width: max-content;
+	min-width: 200%;
+	animation: wpz-marquee var(--wpz-marquee-time) linear infinite;
+	will-change: transform;
+}
+.wpz-marquee__group {
+	display: flex;
+	flex: 1 0 auto;
+	align-items: center;
+	justify-content: space-around;
+	gap: var(--wpz-marquee-gap);
+	padding-right: var(--wpz-marquee-gap);
+	min-width: 50%;
+}
+.wpz-marquee__item,
+.wpz-marquee__sep {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+.wpz-marquee__item a {
+	color: inherit;
+	text-decoration: none;
+}
+.wpz-marquee__item img {
+	display: block;
+	width: auto;
+	height: 36px;
+	max-width: none;
+}
+
+.wpz-marquee-dir-right .wpz-marquee__track { animation-direction: reverse; }
+.wpz-marquee-pause-yes .wpz-marquee:hover .wpz-marquee__track,
+.wpz-marquee-pause-yes .wpz-marquee:focus-within .wpz-marquee__track { animation-play-state: paused; }
+.wpz-marquee-fade-yes .wpz-marquee {
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+	mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+@keyframes wpz-marquee {
+	to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Reduced motion: the row stands still and can be scrolled by hand. */
+@media (prefers-reduced-motion: reduce) {
+	.wpz-marquee { overflow-x: auto; }
+	.wpz-marquee__track { animation: none; min-width: 0; }
+	.wpz-marquee__group[aria-hidden="true"] { display: none; }
+}

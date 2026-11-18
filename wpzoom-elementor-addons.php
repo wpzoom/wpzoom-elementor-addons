@@ -155,6 +155,7 @@ final class WPZOOM_Elementor_Addons {
 
 		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-elementor-controls.php';
 		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-elementor-widgets.php';
+		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-elementor-motion.php';
 		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-template-manager.php';
 		include_once WPZOOM_EL_ADDONS_PATH . 'includes/wpzoom-elementor-ajax-posts-grid.php';
 

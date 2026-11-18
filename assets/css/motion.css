@@ -1,0 +1,93 @@
+/* Reveal on Scroll (Advanced tab). One easing and one duration so a page moves as a set. */
+:root {
+	--wpz-reveal-ease: cubic-bezier(0.19, 1, 0.22, 1);
+	--wpz-reveal-time: 1.1s;
+	--wpz-reveal-step: 90ms; /* gap between two lines of text */
+}
+
+/* Hidden until revealed. Only applies once the head script has set .wpz-motion,
+   so the page is readable without JavaScript and for reduced-motion visitors. */
+.wpz-motion body:not(.elementor-editor-active) [class*="wpz-reveal-"]:not(.wpz-in) {
+	opacity: 0;
+}
+
+/* The animations only fill backwards: once they end the element is back to its own styles,
+   so nothing here lingers (no stacking context, no transform left on a sticky parent). */
+.wpz-in.wpz-reveal-fade {
+	animation: wpz-reveal-fade var(--wpz-reveal-time) ease var(--wpz-reveal-delay, 0ms) backwards;
+}
+.wpz-in.wpz-reveal-up {
+	animation: wpz-reveal-up var(--wpz-reveal-time) var(--wpz-reveal-ease) var(--wpz-reveal-delay, 0ms) backwards;
+}
+.wpz-in.wpz-reveal-mask {
+	animation: wpz-reveal-mask calc(var(--wpz-reveal-time) * 1.2) var(--wpz-reveal-ease) var(--wpz-reveal-delay, 0ms) backwards;
+}
+.wpz-in.wpz-reveal-mask img,
+.wpz-in.wpz-reveal-mask video {
+	animation: wpz-reveal-zoom calc(var(--wpz-reveal-time) * 1.6) var(--wpz-reveal-ease) var(--wpz-reveal-delay, 0ms) backwards;
+}
+
+/* Text, line by line: each word sits in a clip and rises into it; words on the same line share a delay. */
+.wpz-reveal-lines .wpz-w {
+	display: inline-block;
+	clip-path: inset(-0.12em -0.12em -0.24em -0.12em);
+}
+.wpz-reveal-lines .wpz-wi {
+	display: inline-block;
+	will-change: transform;
+}
+.wpz-in.wpz-reveal-lines .wpz-wi {
+	animation: wpz-reveal-line var(--wpz-reveal-time) var(--wpz-reveal-ease) calc(var(--wpz-reveal-delay, 0ms) + var(--wpz-l, 0) * var(--wpz-reveal-step)) backwards;
+}
+
+@keyframes wpz-reveal-fade {
+	from { opacity: 0; }
+}
+@keyframes wpz-reveal-up {
+	from { opacity: 0; transform: translate3d(0, 36px, 0); }
+}
+@keyframes wpz-reveal-mask {
+	from { clip-path: inset(0 0 100% 0); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes wpz-reveal-zoom {
+	from { transform: scale(1.16); }
+}
+@keyframes wpz-reveal-line {
+	from { transform: translate3d(0, 135%, 0); }
+}
+
+/* Roll text on hover: the label and a copy of it share one clipped box. */
+.wpz-roll {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	clip-path: inset(-0.1em -0.3em -0.2em -0.3em);
+}
+.wpz-roll__a,
+.wpz-roll__b {
+	display: block;
+	transition: transform 0.6s var(--wpz-reveal-ease);
+}
+.wpz-roll__b {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transform: translate3d(0, 150%, 0);
+}
+.wpz-roll-yes a:hover .wpz-roll__a,
+.wpz-roll-yes a:focus-visible .wpz-roll__a,
+.wpz-roll-yes button:hover .wpz-roll__a { transform: translate3d(0, -150%, 0); }
+.wpz-roll-yes a:hover .wpz-roll__b,
+.wpz-roll-yes a:focus-visible .wpz-roll__b,
+.wpz-roll-yes button:hover .wpz-roll__b { transform: translate3d(0, 0, 0); }
+
+@media print {
+	.wpz-motion [class*="wpz-reveal-"] { opacity: 1 !important; animation: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+	[class*="wpz-reveal-"],
+	[class*="wpz-reveal-"] * { animation: none !important; }
+	.wpz-roll__a, .wpz-roll__b { transition: none; }
+}
