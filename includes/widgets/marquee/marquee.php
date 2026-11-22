@@ -292,10 +292,11 @@ class Marquee extends Widget_Base {
 		$this->add_responsive_control(
 			'image_height',
 			array(
-				'label'      => esc_html__( 'Logo height', 'wpzoom-elementor-addons' ),
+				'label'      => esc_html__( 'Image height', 'wpzoom-elementor-addons' ),
+				'description' => esc_html__( 'Small for logos, large (for example 60vh) for a strip of photos.', 'wpzoom-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 10, 'max' => 200 ) ),
+				'size_units' => array( 'px', 'em', 'vh', 'vw', 'custom' ),
+				'range'      => array( 'px' => array( 'min' => 10, 'max' => 800 ), 'vh' => array( 'min' => 5, 'max' => 100 ), 'vw' => array( 'min' => 2, 'max' => 80 ) ),
 				'default'    => array( 'unit' => 'px', 'size' => 36 ),
 				'selectors'  => array(
 					'{{WRAPPER}} .wpz-marquee__item img' => 'height: {{SIZE}}{{UNIT}};',
@@ -323,8 +324,17 @@ class Marquee extends Widget_Base {
 				continue;
 			}
 
+			// Width and height from the Media Library keep the row from jumping while large photos load.
+			$size = '';
+			if ( $img && ! empty( $item['image']['id'] ) ) {
+				$meta = wp_get_attachment_metadata( (int) $item['image']['id'] );
+				if ( ! empty( $meta['width'] ) && ! empty( $meta['height'] ) ) {
+					$size = ' width="' . (int) $meta['width'] . '" height="' . (int) $meta['height'] . '"';
+				}
+			}
+
 			$inner = $img
-				? '<img src="' . esc_url( $img ) . '" alt="' . esc_attr( $text ) . '" loading="lazy" decoding="async">'
+				? '<img src="' . esc_url( $img ) . '" alt="' . esc_attr( $text ) . '"' . $size . ' loading="lazy" decoding="async">'
 				: esc_html( $text );
 
 			if ( ! empty( $item['link']['url'] ) ) {
