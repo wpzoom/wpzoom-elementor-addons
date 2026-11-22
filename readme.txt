@@ -4,7 +4,7 @@ Author URI:        https://www.wpzoom.com/
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        1.4.22
+Stable tag:        1.4.23
 License:           GNU General Public License v2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              elementor, elementor templates, starter templates, elementor widgets, elementor addons
@@ -131,6 +131,11 @@ No. The plugin only adds templates and widgets to the Elementor editor. It does 
 
 
 == Changelog ==
+
+= 1.4.23 =
+* New: Portfolio Showcase — "Display Client" option: shows the project's client under its title, before the director and year
+* Improved: Marquee — the image height goes up to 800px and accepts vh, vw and custom units, so the widget can also run a strip of photos; images carry their width and height so the row does not jump while they load
+* Fixed: Portfolio Showcase — on pages with Elementor's lightbox enabled, opening a project's picture no longer opens two lightboxes
 
 = 1.4.22 =
 * New: WPZOOM Motion — a section in the Advanced tab of every widget, container, section and column. "Reveal on scroll" brings the element in when it enters the screen (Fade, Slide up, Unmask, or Text line by line for headings and text), with an optional delay for staggering neighbours. "Roll text on hover" swaps the label of a button or a linked heading with a rolling copy of itself. No Elementor Pro needed; elements stay visible if JavaScript does not run, in the editor, and for visitors who prefer reduced motion
