@@ -667,6 +667,19 @@ class Portfolio_Showcase extends Widget_Base
             )
         );
         $this->add_control(
+            'enable_client',
+            array(
+                'label'     => esc_html__('Display Client', 'wpzoom-elementor-addons'),
+                'type'      => Controls_Manager::SWITCHER,
+                'label_on'  => esc_html__('Yes', 'wpzoom-elementor-addons'),
+                'label_off' => esc_html__('No', 'wpzoom-elementor-addons'),
+                'default'   => 'no',
+                'condition' => array(
+                    'portfolio_showcase_styles!' => 'eccentric',
+                ),
+            )
+        );
+        $this->add_control(
             'enable_category',
             array(
                 'label'     => esc_html__('Display Category Name', 'wpzoom-elementor-addons'),
@@ -2650,6 +2663,7 @@ class Portfolio_Showcase extends Widget_Base
         $background_video                   = ( 'yes' == $settings['enable_background_video'] ? true : false );
         $enable_director_name               = ( 'yes' == $settings['enable_director_name'] ? true : false );
         $enable_year                        = ( 'yes' == $settings['enable_year'] ? true : false );
+        $enable_client                      = ( isset( $settings['enable_client'] ) && 'yes' == $settings['enable_client'] );
         $enable_category                    = ( 'yes' == $settings['enable_category'] ? true : false );
         $always_play_background_video       = ( 'yes' == $settings['always_play_background_video'] ? true : false );
         $always_play_background_video_class = ( 'yes' == $settings['always_play_background_video'] ? ' always-play-background-video' : '' );
@@ -2755,6 +2769,7 @@ class Portfolio_Showcase extends Widget_Base
         $background_video             = wp_validate_boolean($settings['background_video']);
         $enable_director_name         = wp_validate_boolean($settings['enable_director_name']);
         $enable_year                  = wp_validate_boolean($settings['enable_year']);
+        $enable_client                = isset( $settings['enable_client'] ) && wp_validate_boolean( $settings['enable_client'] );
         $enable_category              = wp_validate_boolean($settings['enable_category']);
         $hide_subcategories           = wp_validate_boolean($settings['hide_subcategories']);
         $always_play_background_video = wp_validate_boolean($settings['always_play_background_video']);
@@ -2778,6 +2793,7 @@ class Portfolio_Showcase extends Widget_Base
 
             $video_director = get_post_meta(get_the_ID(), 'su_portfolio_item_director', true);
             $video_year = get_post_meta(get_the_ID(), 'su_portfolio_item_year', true);
+            $video_client = get_post_meta(get_the_ID(), 'su_portfolio_item_client', true);
 
             $popup_final_external_src = ! empty($video_background_popup_url_mp4) ? $video_background_popup_url_mp4 : $video_background_popup_url_webm;
 
@@ -2908,7 +2924,7 @@ class Portfolio_Showcase extends Widget_Base
                                     href="<?php echo esc_url($video_background_popup_url); ?>" aria-label="Watch Video"></a>
                                 <?php else: ?>
                                     <?php if(has_post_thumbnail() && !\option::is_on('lightbox_video_only') ) : ?>
-                                        <a class="mfp-image portfolio-popup-video popup_image_insp"
+                                        <a class="mfp-image portfolio-popup-video popup_image_insp" data-elementor-open-lightbox="no"
                                            href="<?php echo esc_url($post_thumbnail); ?>" aria-label="View Image"></a>
                                     <?php else: ?>
                                         <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"></a>
@@ -2983,6 +2999,10 @@ class Portfolio_Showcase extends Widget_Base
 
                     <div class="entry-meta">
                         <ul>
+                            <?php if ( ! empty( $enable_client ) && ! empty( $video_client ) ) { ?>
+                               <li class="portfolio_item-client"><?php echo esc_html($video_client); ?></li>
+                            <?php } ?>
+
                             <?php if ($enable_director_name && $video_director ) { ?>
                                <li><?php echo esc_html($video_director); ?></li>
                             <?php } ?>
@@ -3068,7 +3088,7 @@ class Portfolio_Showcase extends Widget_Base
                                     href="<?php echo esc_url($video_background_popup_url); ?>" aria-label="Watch Video"></a>
                                 <?php else: ?>
                                     <?php if(has_post_thumbnail() && !\option::is_on('lightbox_video_only') ) : ?>
-                                        <a class="mfp-image portfolio-popup-video popup_image_insp"
+                                        <a class="mfp-image portfolio-popup-video popup_image_insp" data-elementor-open-lightbox="no"
                                            href="<?php echo esc_url($post_thumbnail); ?>" aria-label="View Image"></a>
                                     <?php else: ?>
                                         <a class="wpz-portfolio-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>"></a>
@@ -3082,6 +3102,10 @@ class Portfolio_Showcase extends Widget_Base
                                 </h3>
 
                                 <ul>
+                                    <?php if ( ! empty( $enable_client ) && ! empty( $video_client ) ) { ?>
+                                       <li class="portfolio_item-client"><?php echo esc_html($video_client); ?></li>
+                                    <?php } ?>
+
                                     <?php if ($enable_director_name && $video_director ) { ?>
                                        <li><?php echo esc_html($video_director); ?></li>
                                     <?php } ?>
@@ -3144,6 +3168,10 @@ class Portfolio_Showcase extends Widget_Base
 
                                 <div class="entry-meta">
                                     <ul>
+                                        <?php if ( ! empty( $enable_client ) && ! empty( $video_client ) ) { ?>
+                                           <li class="portfolio_item-client"><?php echo esc_html($video_client); ?></li>
+                                        <?php } ?>
+
                                         <?php if ($enable_director_name && $video_director ) { ?>
                                            <li><?php echo esc_html($video_director); ?></li>
                                         <?php } ?>
